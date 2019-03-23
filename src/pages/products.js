@@ -20,11 +20,15 @@ class Products extends Component {
                 <Content>
                     {
                         data.map(prod => (
-                            <ProductCard
-                                title={prod.node.title}
-                                wpid={prod.node.wordpress_id}
-                                img={prod.node.featured_media.localFile.childImageSharp.fluid}
-                            />
+                            <div
+                                key={prod.id}
+                            >
+                                <ProductCard
+                                    title={prod.node.title}
+                                    wpid={prod.node.wordpress_id}
+                                    img={prod.node.featured_media.localFile.childImageSharp.fluid}
+                                />
+                            </div>
                         ))
                     }
                 </Content>
