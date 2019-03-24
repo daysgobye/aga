@@ -14,24 +14,63 @@ import ButtonRound from '../buttonRound/buttonRound'
 class ProductCard extends Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            price: "",
+            quanty: "",
+            loding: true
+        }
+        this.addToCart = this.addToCart.bind(this)
     }
     componentDidMount() {
         console.log(
             this.props
         );
-        // fetch(`https://playground.purpleandbold.net/wp-json/wc/v3/products/${this.props.wpid}?consumer_Key=ck_f80e5f5565de2a5be69fa675870730b222b24a4e`, {
-        //     headers: {
-        //         "consumerKey": "ck_f80e5f5565de2a5be69fa675870730b222b24a4e",
-        //         "consumerSecret": "cs_69dc9ced2eb2dced24522b710ef465fc1fbce3a5"
-        //     }
-        // })
-        //     .then(res => console.log(res, "pw res")
-        //     ).catch(err => console.log(err)
-        //     )
+        fetch(`https://playground.purpleandbold.net/wp-json/wp/v2/product/${this.props.wpid}`
+        )
+            .then(res => res.json()
+            ).then(data => {
+                this.setState({
+                    price: data.acf.price,
+                    quanty: data.acf.quanty,
+                    loding: false
+                })
+            }).catch(err => console.log(err)
+            )
     }
     addToCart() {
+        if (!this.state.loding) {
+            if (this.state.quanty >= 1) {
 
+                return (
+
+                    <button
+                        className='snipcart-add-item'
+                        data-item-id={this.props.wpid}
+                        data-item-price={this.state.price}
+                        data-item-image={this.props.cartimg}
+                        data-item-name={this.props.title}
+                        data-item-description={this.props.dec}
+                        data-item-url={"localhost:8000/products"}
+                    >
+                        add to cart
+                </button>
+                )
+            }
+            else {
+                return (
+                    <button> out of stock</button>
+                )
+            }
+        }
+        else {
+            return (
+                <button
+
+                >
+                    add to cart
+    </button>
+            )
+        }
     }
     render() {
         return (
@@ -43,17 +82,7 @@ class ProductCard extends Component {
                     action={this.addToCart}
                     type="function"
                 /> */}
-                <button
-                    className='snipcart-add-item'
-                    data-item-id={this.props.wpid}
-                    data-item-price={'10'}
-                    data-item-image={""}
-                    data-item-name={this.props.title}
-                    data-item-description={"this.props.description"}
-                    data-item-url={"localhost:8000/products"}
-                >
-                    add to cart
-                </button>
+                {this.addToCart()}
             </div>
         );
     }

@@ -26,7 +26,9 @@ class Products extends Component {
                                 <ProductCard
                                     title={prod.node.title}
                                     wpid={prod.node.wordpress_id}
-                                    img={prod.node.featured_media.localFile.childImageSharp.fluid}
+                                    img={prod.node.acf.main_image.localFile.childImageSharp.fluid}
+                                    cartImg={prod.node.acf.main_image.localFile.url}
+                                    dec={prod.node.acf.decription}
                                 />
                             </div>
                         ))
@@ -44,17 +46,20 @@ query {
           node {
             id
             title
-            content
             wordpress_id
-            featured_media{
-                localFile{
-                  childImageSharp{
-                fluid(maxWidth: 600) {
-                    ...GatsbyImageSharpFluid_noBase64
-                  }
+            acf {
+              decription
+              main_image {
+                localFile {
+                    url
+                  childImageSharp {
+                    fluid(maxWidth: 600) {
+                      ...GatsbyImageSharpFluid_noBase64
+                    }
                   }
                 }
               }
+            }
           }
         }
       }
