@@ -23,16 +23,7 @@ class StoryBook extends Component {
         return (
             <Layout>
                 <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-                <LaxHeader bgimg={"https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-685781.png"}>
-                    <div style={{ height: "85vh", color: "white", textAlign: "center", display: "flex", justifyContent: "center", margin: "auto", flexDirection: "column" }} >
-                        <h2>
-                            welcom to the story book
-              </h2>
-                        <p>
-                            look in the story book file to see how to use them
-              </p>
-                    </div>
-                </LaxHeader>
+
                 <Content>
                     <div className="wraper">
                         <div className="comp">
