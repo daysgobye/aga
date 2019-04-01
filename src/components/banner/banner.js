@@ -79,7 +79,9 @@ class Banner extends Component {
                         <div className="banner__col__two" style={{
                             alignItems: this.dreaction("wrap")
                         }}>
-                            <h2>
+                            <h2 style={{
+                                textAlign: this.dreaction("text")
+                            }}>
                                 {this.props.title}
                             </h2>
                             <h3>{this.props.subtitle}</h3>

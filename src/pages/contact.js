@@ -7,68 +7,68 @@ import Banner from '../components/banner/banner'
 import "../components/styles/contact.sass"
 
 class Contact extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
+  constructor(props) {
+    super(props);
+    this.state = {}
+  }
 
 
-    render() {
-        const data = this.props.data.allWordpressPage.edges[0].node
-        return (
-            <Layout>
-                <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
-                <Banner
-                    btnText="Contact Us"
-                    linkPage="/"
-                    title={data.acf.banner.hero_text}
-                    cta={data.acf.banner.cta}
-                    sides={false}
-                    img={data.acf.banner.image.localFile.childImageSharp.fluid}
-                >
-                </Banner>
-                <Content>
-                    <div className="wraper">
-                        <div className="contact">
-                            <div className="contact__info">
-                                <Img fluid={data.acf.contact_block.image.localFile.childImageSharp.fluid} />
-                                <p dangerouslySetInnerHTML={{ __html: data.acf.contact_block.address }}
-                                ></p>
-                                <p>Phone:{data.acf.contact_block.phone_number}</p>
-                                <p>Email: <span className="contact__info__email"><a href={`mailto:${data.acf.contact_block.email}`}>{data.acf.contact_block.email}</a></span></p>
-                            </div>
-                            <hr />
-                            <div className="contact__form">
-                                <form action="https://getsimpleform.com/messages?form_api_token=716e8ed73218e778b78c65a6dfd94862" method="post">
-                                    {/* <!-- the redirect_to is optional, the form will redirect to the referrer on submission --> */}
-                                    <input type='hidden' name='redirect_to' value='localhost:8000/contact' />
-                                    {/* <!-- all your input fields here.... --> */}
-                                    <label>
-                                        <input type="text" placeholder="Name" />
-                                    </label>
-                                    <label>
-                                        <input type="email" placeholder="Email" />
-                                    </label>
-                                    <label>
-                                        <input type="tel" placeholder="Phone Number" />
-                                    </label>
-                                    <label>
-                                        message
+  render() {
+    const data = this.props.data.allWordpressPage.edges[0].node
+    return (
+      <Layout>
+        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <Banner
+          btnText="Contact Us"
+          linkPage="/"
+          title={data.acf.banner.hero_text}
+          cta={data.acf.banner.cta}
+          sides={false}
+          img={data.acf.banner.image.localFile.childImageSharp.fluid}
+        >
+        </Banner>
+        <Content>
+          <div className="wraper">
+            <div className="contact">
+              <div className="contact__info">
+                <Img fluid={data.acf.contact_block.image.localFile.childImageSharp.fluid} />
+                <p dangerouslySetInnerHTML={{ __html: data.acf.contact_block.address }}
+                ></p>
+                <p>Phone:{data.acf.contact_block.phone_number}</p>
+                <p>Email: <span className="contact__info__email"><a href={`mailto:${data.acf.contact_block.email}`}>{data.acf.contact_block.email}</a></span></p>
+              </div>
+              <hr />
+              <div className="contact__form">
+                <form action="https://getsimpleform.com/messages?form_api_token=716e8ed73218e778b78c65a6dfd94862" method="post">
+                  {/* <!-- the redirect_to is optional, the form will redirect to the referrer on submission --> */}
+                  <input type='hidden' name='redirect_to' value='localhost:8000/contact' />
+                  {/* <!-- all your input fields here.... --> */}
+                  <label>
+                    <input type="text" placeholder="Name" />
+                  </label>
+                  <label>
+                    <input type="email" placeholder="Email" />
+                  </label>
+                  <label>
+                    <input type="tel" placeholder="Phone Number" />
+                  </label>
+                  <label>
+                    message
     <textarea name="message" id="" cols="30" rows="10" placeholder=""></textarea>
-                                    </label>
-                                    <button type="submit">Send message</button>
-                                </form>
+                  </label>
+                  <button type="submit">Send message</button>
+                </form>
 
-                            </div>
-                        </div>
-                        <div className="pageimage">
-                            <Img fluid={data.acf.page_image.localFile.childImageSharp.fluid} />
-                        </div>
-                    </div>
-                </Content>
-            </Layout>
-        );
-    }
+              </div>
+            </div>
+            <div className="pageimage">
+              <Img fluid={data.acf.page_image.localFile.childImageSharp.fluid} />
+            </div>
+          </div>
+        </Content>
+      </Layout>
+    );
+  }
 }
 
 export const query = graphql`

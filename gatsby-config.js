@@ -81,9 +81,7 @@ module.exports = {
           "**/posts",
           "**/pages",
           "**/media",
-          "**/users",
-          "**/classe",
-          "**/product",
+          "**/faq",
           "**/course_week"
         ],
         // Blacklisted routes using glob patterns

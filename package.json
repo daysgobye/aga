@@ -25,6 +25,7 @@
     "react-dom": "^16.8.0",
     "react-geocode": "^0.1.2",
     "react-helmet": "^5.2.0",
+    "react-slidedown": "^2.0.9",
     "sass-loader": "^7.1.0"
   },
   "keywords": [
