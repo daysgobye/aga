@@ -84,9 +84,9 @@ class Banner extends Component {
                             </h2>
                             <h3>{this.props.subtitle}</h3>
                             <h4>{this.props.subSubHeadding}</h4>
-                            <p style={{
+                            <p dangerouslySetInnerHTML={{ __html: this.props.cta }} style={{
                                 textAlign: this.dreaction("text")
-                            }}>{this.props.cta}</p>
+                            }}></p>
                             <ButtonRound
                                 innerText={this.props.btnText}
                                 action={this.props.linkPage}
