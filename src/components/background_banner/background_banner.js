@@ -11,6 +11,8 @@ import Content from "../utility/Content/Content"
 import "./background_banner.sass"
 import ButtonRound from '../buttonRound/buttonRound'
 import BackgroundImage from 'gatsby-background-image'
+import Img from "gatsby-image";
+
 
 class Banner extends Component {
     constructor(props) {
@@ -31,6 +33,7 @@ class Banner extends Component {
             "srcSet": "/static/b21ae5216543821d08c7da6bb11ab302/45802/bio_pic_2.png 150w,\n/static/b21ae5216543821d08c7da6bb11ab302/7aaac/bio_pic_2.png 300w,\n/static/b21ae5216543821d08c7da6bb11ab302/10566/bio_pic_2.png 327w",
             "sizes": "(max-width: 327px) 100vw, 327px"
         }
+
     }
     dreaction(el) {
         if (!this.props.sides) {
@@ -67,22 +70,24 @@ class Banner extends Component {
     render() {
         return (
             <BackgroundImage Tag="section"
-                className={"className"}
+                className={"background__banner"}
                 fluid={this.props.img}
                 backgroundColor={`#040e18`}
             >
                 <Content>
 
-                    <div className="banner__col" style={{
+                    <div className="background__banner__col" style={{
                         flexDirection: this.dreaction("body")
                     }}>
-                        <div className="banner__col__one">
-                            {/* <Img fluid={this.props.img} /> */}
+                        <div className="background__banner__col__one">
+                            {!this.props.heroimg ? (<span></span>) : (<Img fluid={this.props.heroimg} />)}
                         </div>
-                        <div className="banner__col__two" style={{
+                        <div className="background__banner__col__two" style={{
                             alignItems: this.dreaction("wrap")
                         }}>
-                            <h2>
+                            <h2 style={{
+                                textAlign: this.dreaction("text")
+                            }}>
                                 {this.props.title}
                             </h2>
                             <h3>{this.props.subtitle}</h3>
