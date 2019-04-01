@@ -22,29 +22,58 @@ class Program extends Component {
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <BackgroundBanner
-          btnText="Contact Us"
+          btnText="View FAQ"
           linkPage="/"
           title={data.acf.banner.hero_text}
           cta={data.acf.banner.cta}
-          sides={true}
+          sides={false}
           img={data.acf.banner.image.localFile.childImageSharp.fluid}
         >
 
         </BackgroundBanner>
         <Content>
-          <div className="team">
-
-            {courses.map(course =>
-              (
-                <div key={course.node.id}>
-                  <h3> {course.node.title}</h3>
-                  <h4>{course.node.acf.week_focus}</h4>
-                  <p dangerouslySetInnerHTML={{ __html: course.node.acf.summary }}></p>
+          <div className="wrapper">
+            <h3 className="pagetitle">Pastry Academy by Amauy Guichon</h3>
+            <div className="overview">
+              <div className="overview__card">
+                <h4>Curriculum Overview</h4>
+                <p dangerouslySetInnerHTML={{ __html: data.acf.curriculum_overview }}></p>
+                <div className="overview__card__info">
+                  <div className="overview__card__info__data">
+                    <h4>Location</h4>
+                    <p>Las Vegas, NV</p>
+                  </div>
+                  <div className="overview__card__info__data">
+                    <h4>Course Length</h4>
+                    <p>{courses.length} Weeks</p>
+                  </div>
+                  <div className="overview__card__info__data">
+                    <h4>Class Size</h4>
+                    <p>
+                      {data.acf.class_size}
+                    </p>
+                  </div>
                 </div>
-              )
-            )}
-          </div>
 
+              </div>
+              <div className="overview__image">
+                <Img fluid={data.acf.image.localFile.childImageSharp.fluid} />
+              </div>
+            </div>
+            <div className="weeks">
+              <h3>Course Overview</h3>
+              {courses.map(course =>
+                (
+                  <div className="weeks__single" key={course.node.id}>
+                    <h4> {course.node.title}</h4>
+                    <h5>{course.node.acf.week_focus}</h5>
+                    <p dangerouslySetInnerHTML={{ __html: course.node.acf.summary }}></p>
+                  </div>
+                )
+              )}
+            </div>
+
+          </div>
         </Content>
       </Layout>
     );
