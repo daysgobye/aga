@@ -4,8 +4,15 @@
     &__mem
         display: flex
         flex-direction: row
+        padding-top: 50px
+        padding-bottom: 80px
+        justify-content: space-between
+        border-bottom: 1px solid #000  
+        &:first-child
+            border-bottom: none
+    
         &__bio
-            width: 70%
+            width: 65%
             &__name
                 color: #9e948b
                 display: flex
@@ -13,5 +20,8 @@
                     padding: 0 10px 
                     path
                         fill: #747474
+            p
+                padding-top: 15px
+                color: #686868
         &__img
             width: 30%   

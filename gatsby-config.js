@@ -83,7 +83,8 @@ module.exports = {
           "**/media",
           "**/users",
           "**/classe",
-          "**/product"
+          "**/product",
+          "**/course_week"
         ],
         // Blacklisted routes using glob patterns
         excludedRoutes: [],
@@ -99,11 +100,11 @@ module.exports = {
         username: `amauryguichon`,
       },
     },
-    {
-      resolve: 'gatsby-plugin-snipcart',
-      options: {
-        apiKey: 'Njg3ZGJmY2EtYTM1OC00Nzc4LTk4NmUtMDFhMjQxMmY4ZWQwNjM2ODg4MTc4Nzk4NzMxMzAy'
-      }
-    }
+    // {
+    //   resolve: 'gatsby-plugin-snipcart',
+    //   options: {
+    //     apiKey: 'Njg3ZGJmY2EtYTM1OC00Nzc4LTk4NmUtMDFhMjQxMmY4ZWQwNjM2ODg4MTc4Nzk4NzMxMzAy'
+    //   }
+    // }
   ],
 }

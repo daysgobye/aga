@@ -8,10 +8,9 @@
 // img obj gatsby image
 import React, { Component } from 'react';
 import Content from "../utility/Content/Content"
-import "./banner.sass"
+import "./background_banner.sass"
 import ButtonRound from '../buttonRound/buttonRound'
-import Img from "gatsby-image";
-
+import BackgroundImage from 'gatsby-background-image'
 
 class Banner extends Component {
     constructor(props) {
@@ -67,14 +66,18 @@ class Banner extends Component {
     }
     render() {
         return (
-            <div className=" banner">
+            <BackgroundImage Tag="section"
+                className={"className"}
+                fluid={this.props.img}
+                backgroundColor={`#040e18`}
+            >
                 <Content>
 
                     <div className="banner__col" style={{
                         flexDirection: this.dreaction("body")
                     }}>
                         <div className="banner__col__one">
-                            <Img fluid={this.props.img} />
+                            {/* <Img fluid={this.props.img} /> */}
                         </div>
                         <div className="banner__col__two" style={{
                             alignItems: this.dreaction("wrap")
@@ -84,9 +87,9 @@ class Banner extends Component {
                             </h2>
                             <h3>{this.props.subtitle}</h3>
                             <h4>{this.props.subSubHeadding}</h4>
-                            <p style={{
+                            <p dangerouslySetInnerHTML={{ __html: this.props.cta }} style={{
                                 textAlign: this.dreaction("text")
-                            }}>{this.props.cta}</p>
+                            }}></p>
                             <ButtonRound
                                 innerText={this.props.btnText}
                                 action={this.props.linkPage}
@@ -98,8 +101,9 @@ class Banner extends Component {
                         </div>
                     </div>
                 </Content>
-                <hr />
-            </div>
+                {/* <hr /> */}
+
+            </BackgroundImage>
         );
     }
 }
