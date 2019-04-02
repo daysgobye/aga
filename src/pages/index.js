@@ -8,6 +8,7 @@ import Content from '../components/utility/Content/Content'
 import BackgroundBanner from "../components/background_banner/background_banner"
 import "../components/styles/homepage.sass"
 import ButtonRound from '../components/buttonRound/buttonRound'
+import Signup from '../components/page_bottom_signup/page_signup'
 
 class IndexPage extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class IndexPage extends Component {
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <BackgroundBanner
           btnText="View FAQ"
-          linkPage="/"
+          linkPage="faq"
           title={data.acf.banner.hero_text}
           cta={data.acf.banner.cta}
           sides={true}
@@ -106,6 +107,7 @@ class IndexPage extends Component {
               )}
             </div>
 
+            <Signup></Signup>
           </div>
         </Content>
       </Layout>

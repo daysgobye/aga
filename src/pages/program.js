@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import Content from '../components/utility/Content/Content'
 import BackgroundBanner from '../components/background_banner/background_banner'
 import "../components/styles/program.sass"
+import Signup from '../components/page_bottom_signup/page_signup'
 
 class Program extends Component {
   constructor(props) {
@@ -23,7 +24,7 @@ class Program extends Component {
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <BackgroundBanner
           btnText="View FAQ"
-          linkPage="/"
+          linkPage="faq"
           title={data.acf.banner.hero_text}
           cta={data.acf.banner.cta}
           sides={false}
@@ -72,7 +73,7 @@ class Program extends Component {
                 )
               )}
             </div>
-
+            <Signup></Signup>
           </div>
         </Content>
       </Layout>

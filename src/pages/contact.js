@@ -5,6 +5,7 @@ import SEO from "../components/seo"
 import Content from '../components/utility/Content/Content'
 import Banner from '../components/banner/banner'
 import "../components/styles/contact.sass"
+import Signup from '../components/page_bottom_signup/page_signup'
 
 class Contact extends Component {
   constructor(props) {
@@ -19,8 +20,8 @@ class Contact extends Component {
       <Layout>
         <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
         <Banner
-          btnText="Contact Us"
-          linkPage="/"
+          btnText="View FAQ"
+          linkPage="faq"
           title={data.acf.banner.hero_text}
           cta={data.acf.banner.cta}
           sides={false}
@@ -64,6 +65,7 @@ class Contact extends Component {
             <div className="pageimage">
               <Img fluid={data.acf.page_image.localFile.childImageSharp.fluid} />
             </div>
+            <Signup></Signup>
           </div>
         </Content>
       </Layout>
