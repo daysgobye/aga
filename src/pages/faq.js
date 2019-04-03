@@ -7,6 +7,7 @@ import Banner from '../components/banner/banner'
 import "../components/styles/faq.sass"
 import SlideUpDown from '../components/slide_up_down/slide_up_down';
 import Signup from '../components/page_bottom_signup/page_signup'
+import Spacer from '../../../purpleandbold/purpleandbold/src/components/utility/Spacer/spacer'
 
 class Faq extends Component {
   constructor(props) {
@@ -36,6 +37,7 @@ class Faq extends Component {
         </Banner>
         <Content>
           <div className="wraper">
+            <Spacer></Spacer>
             <div className="faq">
               <div className="faq__section">
                 <div className="faq__section__left">
@@ -106,6 +108,7 @@ class Faq extends Component {
                 </div>
               </div>
             </div>
+            <Spacer></Spacer>
             <Signup></Signup>
           </div>
         </Content>

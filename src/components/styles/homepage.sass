@@ -1,3 +1,4 @@
+@import "../base.sass"
 .wraper
     .sponsers
         text-align: center
@@ -13,35 +14,61 @@
             justify-content: center
             width: 15%
             align-items: center
+            @include phone-large
+                width: 25%
             &__image
                 width: 70%
     .bio
         display: flex
         justify-content: space-between
+        @include phone-large
+            flex-direction: column-reverse
         &__info
             display: flex
             flex-direction: column
             justify-content: space-between
             text-align: right
             width: 68%
+            @include navsnap
+            width: 50%
+            @include phone-large
+                width: 100%
             &__title
                 margin-top: 50px
                 h4
                     margin-top: 15px
+    
         &__image
             width: 30%
+            @include phone-large
+                width: 100%
+            @include navsnap
+                width: 50% 
 .program__overview
     display: flex
     // justify-content: space-between
     background: mintcream
+    @include navsnap
+        justify-content: space-between
+    @include phone-large
+        flex-direction: column
+    
     &__card
         margin: 30px 0
-        // width: calc(100vw / 1.8 - 550px)
         width: calc(1100px / 2.1)
         // background: teal
         padding: 100px 50px
         display: flex
         flex-direction: column
+        @include phone-large
+            width: 100% !important
+            margin: 0
+            padding: 50px 20px
+        @include navsnap
+            padding: 0
+            width: 50%
+        @include edgesnap
+            padding: 50px 20px
         h4
             margin: 10px 0
             color: gold
@@ -56,3 +83,10 @@
                 color: gold
     &__image
         width: 50%
+        @include edgesnap
+            margin: auto
+        @include navsnap
+            width: 45%
+            margin: auto
+        @include phone-large
+            width: 100%

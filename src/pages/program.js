@@ -6,6 +6,7 @@ import Content from '../components/utility/Content/Content'
 import BackgroundBanner from '../components/background_banner/background_banner'
 import "../components/styles/program.sass"
 import Signup from '../components/page_bottom_signup/page_signup'
+import Spacer from '../../../purpleandbold/purpleandbold/src/components/utility/Spacer/spacer'
 
 class Program extends Component {
   constructor(props) {
@@ -34,6 +35,7 @@ class Program extends Component {
         </BackgroundBanner>
         <Content>
           <div className="wrapper">
+            <Spacer></Spacer>
             <h3 className="pagetitle">Pastry Academy by Amauy Guichon</h3>
             <div className="overview">
               <div className="overview__card">
@@ -61,6 +63,7 @@ class Program extends Component {
                 <Img fluid={data.acf.image.localFile.childImageSharp.fluid} />
               </div>
             </div>
+            <Spacer></Spacer>
             <div className="weeks">
               <h3>Course Overview</h3>
               {courses.map(course =>
@@ -73,6 +76,7 @@ class Program extends Component {
                 )
               )}
             </div>
+            <Spacer></Spacer>
             <Signup></Signup>
           </div>
         </Content>

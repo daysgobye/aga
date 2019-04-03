@@ -35,11 +35,25 @@ class Banner extends Component {
         }
 
     }
+    componentDidMount() {
+        if (window.matchMedia("(min-width: 424px)").matches) {
+            this.setState({ phone: false })
+        } else {
+            this.setState({ phone: true })
+        }
+    }
+    checkPhone(swap) {
+        if (this.state.phone) {
+            return "column"
+        } else {
+            return swap
+        }
+    }
     dreaction(el) {
         if (!this.props.sides) {
             switch (el) {
                 case "body":
-                    return "row-reverse"
+                    return this.checkPhone("row-reverse")
                     break
                 case "text":
                     return "left"
@@ -54,7 +68,7 @@ class Banner extends Component {
         } else {
             switch (el) {
                 case "body":
-                    return "row"
+                    return this.checkPhone("row")
                     break
                 case "text":
                     return "right"

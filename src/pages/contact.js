@@ -6,6 +6,7 @@ import Content from '../components/utility/Content/Content'
 import Banner from '../components/banner/banner'
 import "../components/styles/contact.sass"
 import Signup from '../components/page_bottom_signup/page_signup'
+import Spacer from '../components/spacer/spacer'
 
 class Contact extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class Contact extends Component {
         </Banner>
         <Content>
           <div className="wraper">
+            <Spacer></Spacer>
             <div className="contact">
               <div className="contact__info">
                 <Img fluid={data.acf.contact_block.image.localFile.childImageSharp.fluid} />
@@ -63,8 +65,10 @@ class Contact extends Component {
               </div>
             </div>
             <div className="pageimage">
+              <Spacer></Spacer>
               <Img fluid={data.acf.page_image.localFile.childImageSharp.fluid} />
             </div>
+            <Spacer></Spacer>
             <Signup></Signup>
           </div>
         </Content>

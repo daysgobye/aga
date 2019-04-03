@@ -1,3 +1,4 @@
+@import "../base.sass"
 .background__banner
     &__col
         width: 100%
@@ -5,12 +6,16 @@
         justify-content: space-between
         &__one
             width: 35%
+            @include phone-large
+                width: 100%
         &__two
             display: flex
             flex-direction: column
             width: 60%
             // background: seagreen
             justify-content: center
+            @include phone-large
+                width: 100%
             p
                 color: #5d5d5d
                 padding: 50px 0px 20px 0px

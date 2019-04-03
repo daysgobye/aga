@@ -9,6 +9,7 @@ import BackgroundBanner from "../components/background_banner/background_banner"
 import "../components/styles/homepage.sass"
 import ButtonRound from '../components/buttonRound/buttonRound'
 import Signup from '../components/page_bottom_signup/page_signup'
+import Spacer from '../components/spacer/spacer'
 
 class IndexPage extends Component {
   constructor(props) {
@@ -38,6 +39,7 @@ class IndexPage extends Component {
         </BackgroundBanner>
         <Content>
           <div className="wraper">
+            <Spacer></Spacer>
             <div className="bio">
               <div className="bio__info">
                 <div className="bio__info__title">
@@ -58,6 +60,7 @@ class IndexPage extends Component {
                 <Img fluid={data.acf.bio_section.image.localFile.childImageSharp.fluid} />
               </div>
             </div>
+            <Spacer></Spacer>
           </div>
         </Content>
         <div className="program__overview">
@@ -90,7 +93,7 @@ class IndexPage extends Component {
         </div>
         <Content>
           <div className="wraper">
-
+            <Spacer></Spacer>
             <div className="sponsers">
               <h3>Sponsors</h3>
               <p dangerouslySetInnerHTML={{ __html: data.acf.sponsor_info }}></p>
@@ -106,7 +109,7 @@ class IndexPage extends Component {
                 )
               )}
             </div>
-
+            <Spacer></Spacer>
             <Signup></Signup>
           </div>
         </Content>

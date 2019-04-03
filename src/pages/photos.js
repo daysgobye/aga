@@ -7,6 +7,7 @@ import "../components/styles/photos.sass"
 import Signup from '../components/page_bottom_signup/page_signup'
 import { Dialog } from '@reach/dialog';
 import '@reach/dialog/styles.css';
+import Spacer from '../components/spacer/spacer'
 
 class Photos extends Component {
     constructor(props) {
@@ -30,11 +31,13 @@ class Photos extends Component {
 
                 <Content>
                     <div className="wraper">
+                        <Spacer></Spacer>
                         <div className="pageinfo">
                             <h3>{data.acf.page_headding}</h3>
                             <p dangerouslySetInnerHTML={{ __html: data.acf.page_description }}></p>
                             <hr />
                         </div>
+                        <Spacer></Spacer>
                         <div className="photos">
                             {photos.map(photo =>
                                 (
@@ -49,6 +52,7 @@ class Photos extends Component {
 
                             )}
                         </div>
+                        <Spacer></Spacer>
                         <Signup></Signup>
 
                     </div>

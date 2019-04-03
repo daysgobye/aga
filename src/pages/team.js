@@ -6,6 +6,7 @@ import Content from '../components/utility/Content/Content'
 import Banner from '../components/banner/banner'
 import "../components/styles/team.sass"
 import Signup from '../components/page_bottom_signup/page_signup'
+import Spacer from '../components/spacer/spacer'
 
 class Team extends Component {
   constructor(props) {
@@ -32,6 +33,7 @@ class Team extends Component {
         </Banner>
         <Content>
           <div className="wraper">
+            <Spacer></Spacer>
             <div className="team">
 
               {teamMem.map(team =>
@@ -54,6 +56,7 @@ class Team extends Component {
                 )
               )}
             </div>
+            <Spacer></Spacer>
             <Signup></Signup>
 
           </div>

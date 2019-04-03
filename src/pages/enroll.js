@@ -9,6 +9,7 @@ import BackgroundBanner from "../components/background_banner/background_banner"
 import "../components/styles/enroll.sass"
 import ButtonRound from '../components/buttonRound/buttonRound'
 import McSignUp from '../components/mc_sign_up/mc_sign_up'
+import Spacer from '../components/spacer/spacer'
 
 class Enroll extends Component {
     constructor(props) {
@@ -38,14 +39,17 @@ class Enroll extends Component {
                 </BackgroundBanner>
                 <Content>
                     <div className="wraper">
+                        <Spacer></Spacer>
                         <div className="signup">
                             <h3> {data.acf.sign_up_form.headding} </h3>
                             <p dangerouslySetInnerHTML={{ __html: data.acf.sign_up_form.description }}></p>
                             <McSignUp></McSignUp>
                         </div>
                         <div className="enroll">
+                            <Spacer></Spacer>
                             <h3>Enrollment Process</h3>
                             <div className="enroll__body">
+
                                 <div className="enroll__body__steps">
                                     <div className="enroll__body__steps__single">
                                         <h3>
@@ -90,6 +94,7 @@ class Enroll extends Component {
                                 </div>
                             </div>
                         </div>
+                        <Spacer></Spacer>
                     </div>
                 </Content>
             </Layout>
