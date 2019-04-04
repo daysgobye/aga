@@ -1,16 +1,19 @@
 @import '../base.sass'
 .header__wrapper
     background: white
+    box-shadow: 0px 2px 2px 0px rgba(219,219,219,0.5)
+    position: sticky 
+    top: 0 
+    z-index: 9999
     @include navsnap
         position: sticky
         top: 0
         z-index: 10000
-
 .header
     color: black
     display: flex
     align-items: center
-    padding: 40px 0
+    padding: 15px 0
     justify-content: space-between
     width: 100vw
     @include navsnap
@@ -26,14 +29,14 @@
             font-family: $mainfont
     &__logo
         // background: teal
-        width: 10%
+        width: 4.5%
         height: 100%
         @include edgesnap
             display: none
     .desktop
         font-size: .9em
         display: flex
-        width: 32%
+        // width: 32%
         // background: lightseagreen
         @include edgesnap
             width: 50%
@@ -46,9 +49,11 @@
             width: 100%
             justify-content: space-between
             &__link
-                color: black
+                a, a:visited 
+                  color: $dark
+                  margin-left: .6em
                 &__active
-                    color: gold
+                    color: $accent !important
                     text-decoration: underline
     .mobile
         display: none
