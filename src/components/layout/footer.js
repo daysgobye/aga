@@ -40,7 +40,14 @@ class Footer extends Component {
           link: "contact"
         },
       ],
+      linkMatch: ""
     };
+  }
+  componentDidMount() {
+  }
+  findSite(str) {
+    const patt = /www.(.*?).com/g
+    return patt.exec(str)[1]
   }
   render() {
     const data = this.props
@@ -63,7 +70,7 @@ class Footer extends Component {
               </div>
               <div className="footer__cols__single__links">
                 {this.props.links.map((link, index) => (
-                  <a key={index} href={link.name} aria-label={`a link to The pastrie accadmy's ${"shosccout"}`} > <Img fluid={link.icon} /></a>
+                  <a key={index} href={link.name} aria-label={`link to ${this.props.siteTitle}'s ${this.findSite(link.name)} page`} > <Img fluid={link.icon} /></a>
                 ))}
               </div>
               <p>Telephone: <a href={`tel:+1${this.props.phone}`}>{this.props.phone}</a> </p>
