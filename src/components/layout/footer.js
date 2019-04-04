@@ -60,15 +60,17 @@ class Footer extends Component {
                     {this.props.subTitle}
                   </h5>
                 </Link>
-                {this.props.links.map(link => (
-                  <a href={link.name}> bla <img src={link.icom} alt="" /></a>
+                {this.props.links.map((link, index) => (
+                  <a key={index} href={link.name}> bla <img src={link.icom} alt="" /></a>
                 ))}
                 <p>Telephone: <a href={`tel:+1${this.props.phone}`}>{this.props.phone}</a> </p>
                 <p>E-Mail: <a href={`mailto:${this.props.email}`}>{this.props.email}</a></p>
               </div>
             </div>
             <div className="footer__cols__single">
-              <Img fluid={data.logo} />
+              <div className="footer__cols__single__image">
+                <Img fluid={data.logo} />
+              </div>
             </div>
             <div className="footer__cols__single">
               <nav className="nav">
