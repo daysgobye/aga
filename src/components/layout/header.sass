@@ -1,5 +1,6 @@
 @import '../base.sass'
 .header__wrapper
+    background: white
     @include navsnap
         position: sticky
         top: 0
@@ -27,7 +28,8 @@
         // background: teal
         width: 10%
         height: 100%
-        
+        @include edgesnap
+            display: none
     .desktop
         font-size: .9em
         display: flex

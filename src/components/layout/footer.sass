@@ -51,19 +51,35 @@
         width: 100%
         // background: coral
         justify-content: space-between
+        @include tablet-phone
+            flex-direction: column
         &__single
             width: 25%
+            @include tablet-phone
+                display: flex
+                align-items: center
+                flex-direction: column
+                width: 100%
             nav
                 display: flex
                 align-items: flex-end
                 flex-direction: column
+                @include tablet-phone
+                    width: 100%
+                    flex-direction: row
+                    justify-content: space-around
             &__image
                 width: 50%
                 margin: auto
+                @include tablet-phone
+                    width: 20% 
+                    margin: 25px
             &__links
                 display: flex
                 width: 20%
                 justify-content: space-between
+                @include tablet-phone
+                    width: 15%
                 a
                     width: 30%
             &__title
@@ -71,3 +87,5 @@
                 // background: skyblue
                 
                 text-align: center
+
+                
