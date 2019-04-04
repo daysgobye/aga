@@ -98,6 +98,11 @@ class Footer extends Component {
           </div>
           {/* <BuiltBy /> */}
         </Content>
+        <div className="copy">
+          <p>
+            © {new Date().getFullYear()} Pastry Academy, LLC. All Rights Reserved.
+            </p>
+        </div>
       </footer>
     );
   }
