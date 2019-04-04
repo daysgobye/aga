@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from "gatsby"
+import Img from "gatsby-image";
 import "./header.sass"
 import Content from '../utility/Content/Content'
 class Headder extends Component {
@@ -12,8 +13,28 @@ class Headder extends Component {
           link: "/"
         },
         {
-          title: "storybook",
-          link: "storybook"
+          title: "Team",
+          link: "team"
+        },
+        {
+          title: "Program",
+          link: "program"
+        },
+        {
+          title: "Photos",
+          link: "photos"
+        },
+        {
+          title: "FAQs",
+          link: "faq"
+        },
+        {
+          title: "Enroll",
+          link: "enroll"
+        },
+        {
+          title: "Contact",
+          link: "contact"
         },
       ],
       navOpen: false
@@ -29,21 +50,30 @@ class Headder extends Component {
       <div className="header__wrapper">
         <Content>
           <div className="header">
-
-            <h1>
+            <div className="header__title">
               <Link to={"/"}>
+                <h1>
 
-                {this.props.siteTitle}
+                  {this.props.siteTitle}
+                </h1>
+                <h5 className="headder__title__sub">
+                  {this.props.subTitle}
+                </h5>
               </Link>
-            </h1>
+            </div>
+            <div
+              style={{ width: "100px", height: "100px" }}
+              className="header__logo">
+              <Img fluid={this.props.logo} />
+            </div>
             {/* desktop nav */}
             <div className="desktop">
               <nav className="nav">
                 {/* this is for to pop up the cart
                 <a className="snipcart-checkout">cart</a> */}
                 {this.state.navlinks.map((link, index) => (
-                  <div className="nav__link">
-                    <Link to={link.link} key={index}>
+                  <div className="nav__link" key={index}>
+                    <Link to={link.link} >
                       {link.title}
                     </Link>
                   </div>

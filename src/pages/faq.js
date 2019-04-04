@@ -7,7 +7,7 @@ import Banner from '../components/banner/banner'
 import "../components/styles/faq.sass"
 import SlideUpDown from '../components/slide_up_down/slide_up_down';
 import Signup from '../components/page_bottom_signup/page_signup'
-import Spacer from '../../../purpleandbold/purpleandbold/src/components/utility/Spacer/spacer'
+import Spacer from '../components/spacer/spacer'
 
 class Faq extends Component {
   constructor(props) {

@@ -6,7 +6,7 @@ import Content from '../components/utility/Content/Content'
 import BackgroundBanner from '../components/background_banner/background_banner'
 import "../components/styles/program.sass"
 import Signup from '../components/page_bottom_signup/page_signup'
-import Spacer from '../../../purpleandbold/purpleandbold/src/components/utility/Spacer/spacer'
+import Spacer from '../components/spacer/spacer'
 
 class Program extends Component {
   constructor(props) {
