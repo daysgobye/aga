@@ -1,14 +1,16 @@
+@import "../base.sass"
+  
 .wraper
     display: flex
     .contact
         // background: teal
         display: flex
         justify-content: space-between
-        border: 1px solid gold
+        border: 1px solid $accent
         padding: 50px
         // margin: 100px 0
         hr
-            background: gold
+            background: $accent
             border: 0
             width: 1px
         &__info
@@ -20,7 +22,7 @@
                 margin: 5px
             &__email
                 a
-                    color: gold
+                    color: $accent
         &__form
             width: 55%
             // background: seagreen

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { Link } from "gatsby"
+import React, { Component } from "react";
+import { Link } from "gatsby";
 import Img from "gatsby-image";
-import "./header.sass"
-import Content from '../utility/Content/Content'
+import "./header.sass";
+import Content from "../utility/Content/Content";
 class Headder extends Component {
   constructor(props) {
     super(props);
@@ -35,14 +35,14 @@ class Headder extends Component {
         {
           title: "Contact",
           link: "contact"
-        },
+        }
       ],
       navOpen: false
-    }
-    this.toggleNav = this.toggleNav.bind(this)
+    };
+    this.toggleNav = this.toggleNav.bind(this);
   }
   toggleNav() {
-    const currentstate = this.state.navOpen
+    const currentstate = this.state.navOpen;
     this.setState({ navOpen: !currentstate });
   }
   render() {
@@ -52,17 +52,11 @@ class Headder extends Component {
           <div className="header">
             <div className="header__title">
               <Link to={"/"}>
-                <h1>
-
-                  {this.props.siteTitle}
-                </h1>
-                <h5 className="headder__title__sub">
-                  {this.props.subTitle}
-                </h5>
+                <h1>{this.props.siteTitle}</h1>
+                <h5 className="headder__title__sub">{this.props.subTitle}</h5>
               </Link>
             </div>
-            <div
-              className="header__logo">
+            <div className="header__logo">
               <Img fluid={this.props.logo} />
             </div>
             {/* desktop nav */}
@@ -72,23 +66,27 @@ class Headder extends Component {
                 <a className="snipcart-checkout">cart</a> */}
                 {this.state.navlinks.map((link, index) => (
                   <div className="nav__link" key={index}>
-                    <Link
-                      activeClassName="nav__link__active"
-                      to={link.link}
-                    >
+                    <Link activeClassName="nav__link__active" to={link.link}>
                       {link.title}
                     </Link>
                   </div>
-
                 ))}
               </nav>
             </div>
             {/* mobile nav */}
-            <div className={`mobile ${this.state.navOpen ? "nav__open" : "nav__closed"}`}>
-              <button className="dot" aria-label="click to expand nav" onClick={() => this.toggleNav()}>
-                <div className="dot__one"></div>
-                <div className="dot__two"></div>
-                <div className="dot__three"></div>
+            <div
+              className={`mobile ${
+                this.state.navOpen ? "nav__open" : "nav__closed"
+              }`}
+            >
+              <button
+                className="dot"
+                aria-label="click to expand nav"
+                onClick={() => this.toggleNav()}
+              >
+                <div className="dot__one" />
+                <div className="dot__two" />
+                <div className="dot__three" />
               </button>
               <nav className={`nav`}>
                 {this.state.navlinks.map((link, index) => (
@@ -97,7 +95,6 @@ class Headder extends Component {
                       {link.title}
                     </Link>
                   </div>
-
                 ))}
               </nav>
             </div>

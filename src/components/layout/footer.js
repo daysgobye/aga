@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import { Link } from "gatsby"
+import { Link } from "gatsby";
 
 import "./footer.sass";
 import Img from "gatsby-image";
 import BuiltBy from "./builtby";
-import Content from '../utility/Content/Content'
+import Content from "../utility/Content/Content";
 
 class Footer extends Component {
   constructor(props) {
@@ -38,47 +38,57 @@ class Footer extends Component {
         {
           title: "Contact",
           link: "contact"
-        },
+        }
       ],
       linkMatch: ""
     };
   }
-  componentDidMount() {
-  }
+  componentDidMount() {}
   findSite(str) {
-    const patt = /www.(.*?).com/g
-    return patt.exec(str)[1]
+    const patt = /www.(.*?).com/g;
+    return patt.exec(str)[1];
   }
   render() {
-    const data = this.props
+    const data = this.props;
     return (
       <footer className="footer">
         <Content>
-
           <div className="footer__cols">
             <div className="footer__cols__single">
               <div className="footer__cols__single__title">
                 <Link to={"/"}>
-                  <h1>
-
-                    {this.props.siteTitle}
-                  </h1>
-                  <h5 className="headder__title__sub">
-                    {this.props.subTitle}
-                  </h5>
+                  <h1>{this.props.siteTitle}</h1>
+                  <h5 className="headder__title__sub">{this.props.subTitle}</h5>
                 </Link>
               </div>
               <div className="footer__cols__single__links">
                 {this.props.links.map((link, index) => (
-                  <a key={index} href={link.name} aria-label={`link to ${this.props.siteTitle}'s ${this.findSite(link.name)} page`} > <Img fluid={link.icon} /></a>
+                  <a
+                    key={index}
+                    href={link.name}
+                    aria-label={`link to ${
+                      this.props.siteTitle
+                    }'s ${this.findSite(link.name)} page`}
+                  >
+                    {" "}
+                    <Img fluid={link.icon} />
+                  </a>
                 ))}
               </div>
-              <p>Telephone: <a href={`tel:+1${this.props.phone}`}>{this.props.phone}</a> </p>
-              <p>E-Mail: <a href={`mailto:${this.props.email}`}>{this.props.email}</a></p>
+              <p>
+                Telephone:{" "}
+                <a href={`tel:+1${this.props.phone}`}>{this.props.phone}</a>{" "}
+              </p>
+              <p>
+                E-Mail:{" "}
+                <a href={`mailto:${this.props.email}`}>{this.props.email}</a>
+              </p>
             </div>
             <div className="footer__cols__single">
               <div className="footer__cols__single__image">
-                <Img fluid={data.logo} />
+                <div className="footer__cols__single__image__container">
+                  <Img fluid={data.logo} />
+                </div>
               </div>
             </div>
             <div className="footer__cols__single">
@@ -87,11 +97,8 @@ class Footer extends Component {
                 <a className="snipcart-checkout">cart</a> */}
                 {this.state.navlinks.map((link, index) => (
                   <div className="nav__link" key={index}>
-                    <Link to={link.link} >
-                      {link.title}
-                    </Link>
+                    <Link to={link.link}>{link.title}</Link>
                   </div>
-
                 ))}
               </nav>
             </div>
@@ -100,8 +107,9 @@ class Footer extends Component {
         </Content>
         <div className="copy">
           <p>
-            © {new Date().getFullYear()} Pastry Academy, LLC. All Rights Reserved.
-            </p>
+            © {new Date().getFullYear()} Pastry Academy, LLC. All Rights
+            Reserved.
+          </p>
         </div>
       </footer>
     );
