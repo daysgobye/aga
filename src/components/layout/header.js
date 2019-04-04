@@ -72,7 +72,10 @@ class Headder extends Component {
                 <a className="snipcart-checkout">cart</a> */}
                 {this.state.navlinks.map((link, index) => (
                   <div className="nav__link" key={index}>
-                    <Link to={link.link} >
+                    <Link
+                      activeClassName="nav__link__active"
+                      to={link.link}
+                    >
                       {link.title}
                     </Link>
                   </div>

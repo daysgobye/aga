@@ -30,7 +30,7 @@
             text-align: right
             width: 68%
             @include navsnap
-            width: 50%
+                width: 50%
             @include phone-large
                 width: 100%
             &__title
@@ -40,10 +40,11 @@
     
         &__image
             width: 30%
-            @include phone-large
-                width: 100%
             @include navsnap
                 width: 50% 
+            @include phone-large
+                width: 100%
+                // background: teal
 .program__overview
     display: flex
     // justify-content: space-between
@@ -60,14 +61,14 @@
         padding: 100px 50px
         display: flex
         flex-direction: column
-        @include phone-large
-            width: 100% !important
-            margin: 0
+        @include edgesnap
             padding: 50px 20px
         @include navsnap
             padding: 0
             width: 50%
-        @include edgesnap
+        @include phone-large
+            width: 100% !important
+            margin: 0
             padding: 50px 20px
         h4
             margin: 10px 0

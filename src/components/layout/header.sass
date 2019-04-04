@@ -41,10 +41,15 @@
             width: 65%
         @include navsnap
             display: none
-        nav
+        .nav
             display: flex
             width: 100%
             justify-content: space-between
+            &__link
+                color: black
+                &__active
+                    color: gold
+                    text-decoration: underline
     .mobile
         display: none
         @include navsnap
