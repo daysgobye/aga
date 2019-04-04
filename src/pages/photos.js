@@ -88,7 +88,7 @@ query {
                   image {
                     localFile {
                         childImageSharp {
-                          fluid(maxWidth: 600) {
+                          fluid(maxWidth: 1500) {
                              ...GatsbyImageSharpFluid_noBase64
                           }
                         }

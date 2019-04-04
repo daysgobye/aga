@@ -164,7 +164,7 @@ query {
           academy_image {
             localFile {
               childImageSharp {
-                fluid(maxWidth: 600) {
+                fluid(maxWidth: 1000) {
                    ...GatsbyImageSharpFluid_noBase64
                 }
               }

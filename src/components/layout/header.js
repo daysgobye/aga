@@ -51,9 +51,14 @@ class Headder extends Component {
         <Content>
           <div className="header">
             <div className="header__title">
-              <Link to={"/"}>
-                <h1>{this.props.siteTitle}</h1>
-                <h5 className="headder__title__sub">{this.props.subTitle}</h5>
+              <Link to={"/"} aria-label={`${this.props.siteTitle}  ${this.props.subTitle}`}>
+                <h1>
+                  <div className="image">
+                    <Img
+                      fluid={this.props.textLogo}
+                    />
+                  </div>
+                </h1>
               </Link>
             </div>
             <div className="header__logo">
@@ -77,7 +82,7 @@ class Headder extends Component {
             <div
               className={`mobile ${
                 this.state.navOpen ? "nav__open" : "nav__closed"
-              }`}
+                }`}
             >
               <button
                 className="dot"

@@ -20,8 +20,8 @@ const Layout = ({ children }) => (
                   instagram_link
                   instagram_icon {
                     localFile {
-                      childImageSharp {
-                        fluid {
+                      childImageSharp  {
+                        fluid(maxWidth: 100) {
                            ...GatsbyImageSharpFluid_noBase64
                         }
                       }
@@ -30,7 +30,7 @@ const Layout = ({ children }) => (
                   facebook_icon {
                     localFile {
                       childImageSharp {
-                        fluid {
+                        fluid(maxWidth: 100)  {
                            ...GatsbyImageSharpFluid_noBase64
                         }
                       }
@@ -39,7 +39,7 @@ const Layout = ({ children }) => (
                   linked_in_icon {
                     localFile {
                       childImageSharp {
-                        fluid {
+                        fluid(maxWidth: 100)  {
                            ...GatsbyImageSharpFluid_noBase64
                         }
                       }
@@ -48,10 +48,19 @@ const Layout = ({ children }) => (
                 }
                 site_title
                 site_sub_title
-                main_logo {
+                main_text_logo {
                   localFile {
                     childImageSharp {
-                      fluid {
+                      fluid(maxWidth: 600) {
+                        ...GatsbyImageSharpFluid_noBase64
+                      }
+                    }
+                  }
+                }
+                main_logo {
+                  localFile {
+                    childImageSharp  {
+                      fluid(maxWidth: 600) {
                          ...GatsbyImageSharpFluid_noBase64
                       }
                     }
@@ -65,7 +74,8 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Header siteTitle={data.allWordpressPage.edges[0].node.acf.site_title} subTitle={data.allWordpressPage.edges[0].node.acf.site_sub_title} logo={data.allWordpressPage.edges[0].node.acf.main_logo.localFile.childImageSharp.fluid} />
+        <Header siteTitle={data.allWordpressPage.edges[0].node.acf.site_title} subTitle={data.allWordpressPage.edges[0].node.acf.site_sub_title} logo={data.allWordpressPage.edges[0].node.acf.main_logo.localFile.childImageSharp.fluid}
+          textLogo={data.allWordpressPage.edges[0].node.acf.main_text_logo.localFile.childImageSharp.fluid} />
         <div>
           <main>{children}</main>
           <Footer siteTitle={data.allWordpressPage.edges[0].node.acf.site_title} subTitle={data.allWordpressPage.edges[0].node.acf.site_sub_title} logo={data.allWordpressPage.edges[0].node.acf.main_logo.localFile.childImageSharp.fluid} email={data.allWordpressPage.edges[0].node.acf.footer.email} phone={data.allWordpressPage.edges[0].node.acf.footer.phone_number}
