@@ -50,7 +50,7 @@ class Footer extends Component {
 
           <div className="footer__cols">
             <div className="footer__cols__single">
-              <div className="header__title">
+              <div className="footer__cols__single__title">
                 <Link to={"/"}>
                   <h1>
 
@@ -60,12 +60,14 @@ class Footer extends Component {
                     {this.props.subTitle}
                   </h5>
                 </Link>
-                {this.props.links.map((link, index) => (
-                  <a key={index} href={link.name}> bla <img src={link.icom} alt="" /></a>
-                ))}
-                <p>Telephone: <a href={`tel:+1${this.props.phone}`}>{this.props.phone}</a> </p>
-                <p>E-Mail: <a href={`mailto:${this.props.email}`}>{this.props.email}</a></p>
               </div>
+              <div className="footer__cols__single__links">
+                {this.props.links.map((link, index) => (
+                  <a key={index} href={link.name} aria-label={`a link to The pastrie accadmy's ${"shosccout"}`} > <Img fluid={link.icon} /></a>
+                ))}
+              </div>
+              <p>Telephone: <a href={`tel:+1${this.props.phone}`}>{this.props.phone}</a> </p>
+              <p>E-Mail: <a href={`mailto:${this.props.email}`}>{this.props.email}</a></p>
             </div>
             <div className="footer__cols__single">
               <div className="footer__cols__single__image">

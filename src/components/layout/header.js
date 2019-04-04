@@ -62,7 +62,6 @@ class Headder extends Component {
               </Link>
             </div>
             <div
-              style={{ width: "100px", height: "100px" }}
               className="header__logo">
               <Img fluid={this.props.logo} />
             </div>
