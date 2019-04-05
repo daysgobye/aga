@@ -131,8 +131,8 @@ class Banner extends Component {
                 action={this.props.linkPage}
                 type="gatsbylink"
                 passedState={""}
-                padding="5px 30px"
-                fsize="1"
+                padding="4.5px 20px"
+                fsize="0.9"
               />
             </div>
           </div>
