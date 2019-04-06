@@ -8,7 +8,8 @@
         padding-top: 50px
         padding-bottom: 80px
         justify-content: space-between
-        border-bottom: 1px solid #000  
+        border-bottom: 1px solid lightgrey
+        align-items: center
         @include navsnap
             flex-direction: column
         &:first-child
@@ -16,15 +17,25 @@
     
         &__bio
             width: 65%
+            h3 
+              color: $dark
             @include navsnap
                 width: 100%
+                justify-content: center
             &__name
-                color: #9e948b
+                margin-top: .35em
                 display: flex
+                align-items: center
+                @include navsnap
+                  justify-content: center
+                h4 
+                  margin-right: .5em
+                  color: $accent
                 a
-                    padding: 0 10px 
-                    path
-                        fill: #747474
+                  padding: 0 6px 
+                  display: flex
+                  path
+                      fill: #747474
             p
                 padding-top: 15px
                 color: #686868
