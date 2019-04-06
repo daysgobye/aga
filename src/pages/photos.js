@@ -8,6 +8,7 @@ import Signup from '../components/page_bottom_signup/page_signup'
 import { Dialog } from '@reach/dialog';
 import '@reach/dialog/styles.css';
 import Spacer from '../components/spacer/spacer'
+import xIcon from "../images/x.svg"
 
 class Photos extends Component {
     constructor(props) {
@@ -59,10 +60,14 @@ class Photos extends Component {
                 </Content>
                 {showLightbox && (
                     <Dialog>
-                        <Img fluid={selectedImage.node.acf.image.localFile.childImageSharp.fluid} />
-                        <button type="button" onClick={() => this.setState({ showLightbox: false })}>
-                            Close
-          </button>
+                        <div className="light">
+                            <div className="light__image">
+                                <Img fluid={selectedImage.node.acf.image.localFile.childImageSharp.fluid} />
+                            </div>
+                            <button aria-label={"close light box"} type="button" onClick={() => this.setState({ showLightbox: false })}>
+                                <img src={xIcon} alt="x icon" />
+                            </button>
+                        </div>
                     </Dialog>
                 )}
             </Layout>
