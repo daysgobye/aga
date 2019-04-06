@@ -9,14 +9,23 @@
         border: 1px solid $accent
         padding: 50px
         // margin: 100px 0
+        @include tablet-phone 
+            flex-direction: column
+            padding: 20px
         hr
             background: $accent
             border: 0
             width: 1px
+            @include tablet-phone 
+                height: 1px
+                width: 100%
+                margin: 20px 0
         &__info
             width: 40%
             display: flex
             flex-direction: column
+            @include tablet-phone 
+                width: 100%
             p
                 text-align: center
                 margin: 5px
@@ -27,6 +36,8 @@
             width: 55%
             // background: seagreen
             display: flex
+            @include tablet-phone 
+                width: 100%
             form
                 width: 100%
                 // background: coral
