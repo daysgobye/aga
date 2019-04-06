@@ -4,34 +4,58 @@
     .faq
         display: flex
         flex-direction: column
-        background: red
+        // background: red
         &__section
             display: flex
             justify-content: space-between
             margin-top: 100px
+            @media(max-width: 760px)
+              flex-direction: column
             &__left
-                border-top: 2px solid #000
+                border-top: 1px solid $dark
                 width: 18%
+                @media(max-width: 760px)
+                  width: 100%
+                h3 
+                  font-size: 1.5em
+                  font-weight: 300
+                  color: $dark
+                  @media(max-width: 760px)
+                    margin-bottom: 1em
             &__right
                 width: 80%
                 display: flex
+                align-content: center
+                align-items: center
+                justify-content: center
+                @media(max-width: 760px)
+                  width: 100%
                 &__slide
                     width: 100%
                     display: flex
                     flex-direction: column
-                    background: teal
-                    border-top: 1px solid red
-                    border-bottom: 1px solid red
-                    color: red
+                    // background: teal
+                    border-top: 1px solid lightgrey
+                    border-bottom: 1px solid lightgrey
+                    color: $dark
+                    cursor: pointer
+                    p 
+                      margin-top: .4em
+                    h4 
+                      font-size: 1.15em
+                      align-self: center 
+                      color: $accent
+                      display: flex
+                      margin: .5em 0em .5em 0em
                     &__title
                         justify-content: space-between
                         display: flex
+                        line-height: 1em
                         img
-                            width: 25px
-                            height: 25px
-                            margin-bottom: .275em
-                            align-self: center
-                            width: 1.275em
+                            display: flex
+                            justify-self: center 
+                            height: 100%
+                            width: 1.1em
                             transition: all .35s ease-in-out
                             &.expanded 
                                 transform: rotateX(-180deg)
