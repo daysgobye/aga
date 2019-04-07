@@ -52,7 +52,7 @@ class Enroll extends Component {
               <div className="enroll__body">
                 <div className="enroll__body__steps">
                   <div className="enroll__body__steps__single">
-                    <h3>1.{data.acf.enrollment_process.step_1_title}</h3>
+                    <h4>1. {data.acf.enrollment_process.step_1_title}</h4>
                     <p
                       dangerouslySetInnerHTML={{
                         __html: data.acf.enrollment_process.step_1_description
@@ -61,7 +61,7 @@ class Enroll extends Component {
                     <hr />
                   </div>
                   <div className="enroll__body__steps__single">
-                    <h3>2.{data.acf.enrollment_process.step_2_title}</h3>
+                    <h4>2. {data.acf.enrollment_process.step_2_title}</h4>
                     <p
                       dangerouslySetInnerHTML={{
                         __html: data.acf.enrollment_process.step_2_description
@@ -70,7 +70,7 @@ class Enroll extends Component {
                     <hr />
                   </div>
                   <div className="enroll__body__steps__single">
-                    <h3>3.{data.acf.enrollment_process.step_3_title}</h3>
+                    <h4>3. {data.acf.enrollment_process.step_3_title}</h4>
                     <p
                       dangerouslySetInnerHTML={{
                         __html: data.acf.enrollment_process.step_3_description
@@ -79,7 +79,7 @@ class Enroll extends Component {
                     <hr />
                   </div>
                   <div className="enroll__body__steps__single">
-                    <h3>4.{data.acf.enrollment_process.step_4_title}</h3>
+                    <h4>4. {data.acf.enrollment_process.step_4_title}</h4>
                     <p
                       dangerouslySetInnerHTML={{
                         __html: data.acf.enrollment_process.step_4_description
@@ -88,7 +88,7 @@ class Enroll extends Component {
                     <hr />
                   </div>
                   <div className="enroll__body__steps__single">
-                    <h3>5.{data.acf.enrollment_process.step_5_title}</h3>
+                    <h4>5. {data.acf.enrollment_process.step_5_title}</h4>
                     <p
                       dangerouslySetInnerHTML={{
                         __html: data.acf.enrollment_process.step_5_description
