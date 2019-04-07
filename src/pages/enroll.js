@@ -29,7 +29,7 @@ class Enroll extends Component {
           linkPage="program"
           title={data.acf.banner.hero_text}
           subtitle={data.acf.banner.sub_hero_text}
-          subSubHeadding={data.acf.banner.sub_heading}
+          subSubHeadding={data.acf.banner.sub_headding}
           cta={data.acf.banner.cta}
           sides={false}
           img={data.acf.banner.image.localFile.childImageSharp.fluid}
@@ -127,6 +127,8 @@ export const query = graphql`
             banner {
               hero_text
               cta
+              sub_hero_text
+              sub_headding
               image {
                 localFile {
                   childImageSharp {

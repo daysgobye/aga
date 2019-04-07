@@ -48,6 +48,21 @@ class Banner extends Component {
       return swap;
     }
   }
+  SubtitleCheck(prop) {
+    const span = "span";
+    // check if this is the defult prop
+    if (prop.type === span) {
+      // check if we are on a phone
+      if (this.state.phone) {
+        //   if we are a default prop and its a phone then we do not have a string so its less of a gap
+        return "";
+      } else {
+        return prop;
+      }
+    } else {
+      return prop;
+    }
+  }
   dreaction(el) {
     if (!this.props.sides) {
       switch (el) {
@@ -118,8 +133,8 @@ class Banner extends Component {
               >
                 {this.props.title}
               </h2>
-              <h3>{this.props.subtitle}</h3>
-              <h4>{this.props.subSubHeadding}</h4>
+              <h3>{this.SubtitleCheck(this.props.subtitle)}</h3>
+              <h4>{this.SubtitleCheck(this.props.subSubHeadding)}</h4>
               <p
                 dangerouslySetInnerHTML={{ __html: this.props.cta }}
                 style={{
