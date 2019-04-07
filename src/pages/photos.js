@@ -59,13 +59,14 @@ class Photos extends Component {
                     </div>
                 </Content>
                 {showLightbox && (
-                    <Dialog>
+                    <Dialog className="dialog">
                         <div className="light">
                             <div className="light__image">
                                 <Img fluid={selectedImage.node.acf.image.localFile.childImageSharp.fluid} />
                             </div>
                             <button aria-label={"close light box"} type="button" onClick={() => this.setState({ showLightbox: false })}>
-                                <img src={xIcon} alt="x icon" />
+                                {/* <img src={xIcon} alt="x icon" /> */}
+                                close
                             </button>
                         </div>
                     </Dialog>
