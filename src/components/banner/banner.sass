@@ -7,8 +7,15 @@
         flex-direction: column
         &__one
             width: 50%
+            
             @include phone-large
                 width: 100%
+            &__gatimage
+                // height: 250px
+                // img
+                    // max-height: 250px
+                // max-width: 100%
+                // width: calc(100% - 50vh)
         &__two
             display: flex
             flex-direction: column
@@ -17,6 +24,9 @@
             justify-content: center
             @include phone-large
                 width: 100%
+            button
+                margin: 15px 0
+
             p
                 color: #5d5d5d
                 padding: 50px 0px 20px 0px

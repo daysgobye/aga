@@ -51,12 +51,13 @@ class Headder extends Component {
         <Content>
           <div className="header">
             <div className="header__title">
-              <Link to={"/"} aria-label={`${this.props.siteTitle}  ${this.props.subTitle}`}>
+              <Link
+                to={"/"}
+                aria-label={`${this.props.siteTitle}  ${this.props.subTitle}`}
+              >
                 <h1>
                   <div className="image">
-                    <Img
-                      fluid={this.props.textLogo}
-                    />
+                    <Img fluid={this.props.textLogo} />
                   </div>
                 </h1>
               </Link>
@@ -82,7 +83,7 @@ class Headder extends Component {
             <div
               className={`mobile ${
                 this.state.navOpen ? "nav__open" : "nav__closed"
-                }`}
+              }`}
             >
               <button
                 className="dot"
@@ -96,7 +97,11 @@ class Headder extends Component {
               <nav className={`nav`}>
                 {this.state.navlinks.map((link, index) => (
                   <div className="nav__link">
-                    <Link to={link.link} key={index}>
+                    <Link
+                      to={link.link}
+                      activeClassName="nav__link__active"
+                      key={index}
+                    >
                       {link.title}
                     </Link>
                   </div>
