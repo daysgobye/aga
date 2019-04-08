@@ -104,7 +104,7 @@ class Banner extends Component {
         Tag="section"
         className={"background__banner"}
         fluid={this.props.img}
-        backgroundColor={`#040e18`}
+        backgroundColor={`#ffff`}
       >
         <Content>
           <div
