@@ -156,7 +156,7 @@ class Banner extends Component {
                   type="gatsbylink"
                   passedState={""}
                   padding="4.5px 20px"
-                  fsize="0.9"
+                  fsize="0.85"
                 />
               </div>
             </div>
