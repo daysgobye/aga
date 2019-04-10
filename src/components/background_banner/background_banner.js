@@ -31,7 +31,7 @@ class Banner extends Component {
       src: "/static/b21ae5216543821d08c7da6bb11ab302/10566/bio_pic_2.png",
       srcSet:
         "/static/b21ae5216543821d08c7da6bb11ab302/45802/bio_pic_2.png 150w,\n/static/b21ae5216543821d08c7da6bb11ab302/7aaac/bio_pic_2.png 300w,\n/static/b21ae5216543821d08c7da6bb11ab302/10566/bio_pic_2.png 327w",
-      sizes: "(max-width: 327px) 100vw, 327px"
+      sizes: "(max-width: 650px) 100vw, 327px"
     }
   };
   componentDidMount() {
@@ -114,11 +114,17 @@ class Banner extends Component {
             }}
           >
             <div className="background__banner__col__one">
-              {!this.props.heroimg ? (
-                <span />
-              ) : (
-                  <Img fluid={this.props.heroimg} alt={this.props.heroimgalt} style={{ display: 'inherit' }} />
+              <div className="background__banner__col__one__image">
+                {!this.props.heroimg ? (
+                  <span />
+                ) : (
+                  <Img
+                    fluid={this.props.heroimg}
+                    alt={this.props.heroimgalt}
+                    style={{ display: "inherit" }}
+                  />
                 )}
+              </div>
             </div>
             <div
               className="background__banner__col__two"
@@ -126,29 +132,33 @@ class Banner extends Component {
                 alignItems: this.dreaction("wrap")
               }}
             >
-              <h2
-                style={{
-                  textAlign: this.dreaction("text")
-                }}
-              >
-                {this.props.title}
-              </h2>
-              <h3>{this.SubtitleCheck(this.props.subtitle)}</h3>
-              <h4>{this.SubtitleCheck(this.props.subSubHeadding)}</h4>
-              <p
-                dangerouslySetInnerHTML={{ __html: this.props.cta }}
-                style={{
-                  textAlign: this.dreaction("text")
-                }}
-              />
-              <ButtonRound
-                innerText={this.props.btnText}
-                action={this.props.linkPage}
-                type="gatsbylink"
-                passedState={""}
-                padding="4.5px 20px"
-                fsize="0.9"
-              />
+              <div className="background__banner__col__two__top">
+                <h2
+                  style={{
+                    textAlign: this.dreaction("text")
+                  }}
+                >
+                  {this.props.title}
+                </h2>
+                <h3>{this.SubtitleCheck(this.props.subtitle)}</h3>
+                <h4>{this.SubtitleCheck(this.props.subSubHeadding)}</h4>
+              </div>
+              <div className="background__banner__col__two__bottom">
+                <p
+                  dangerouslySetInnerHTML={{ __html: this.props.cta }}
+                  style={{
+                    textAlign: this.dreaction("text")
+                  }}
+                />
+                <ButtonRound
+                  innerText={this.props.btnText}
+                  action={this.props.linkPage}
+                  type="gatsbylink"
+                  passedState={""}
+                  padding="4.5px 20px"
+                  fsize="0.85"
+                />
+              </div>
             </div>
           </div>
         </Content>

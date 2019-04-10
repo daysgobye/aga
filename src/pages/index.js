@@ -71,17 +71,28 @@ class IndexPage extends Component {
         </Content>
         <div className="program__overview">
           <div className="program__overview__image">
-            <Img
-              fluid={data.acf.academy_image.localFile.childImageSharp.fluid}
-              alt={data.acf.academy_image.alt_text}
-            />
+            <div className="program__overview__image__container">
+              <Img
+                fluid={data.acf.academy_image.localFile.childImageSharp.fluid}
+                alt={data.acf.academy_image.alt_text}
+              />
+            </div>
           </div>
           <div className="program__overview__card">
+            <h3>The Academy</h3>
             <h4>Curriculum Overview</h4>
-            <p
+            <div
               dangerouslySetInnerHTML={{
                 __html: program.acf.curriculum_overview
               }}
+            />
+            <ButtonRound
+              innerText={"View Full Curriculum"}
+              action={"program"}
+              type="gatsbylink"
+              passedState={""}
+              padding="4.5px 20px"
+              fsize="0.85"
             />
             <div className="program__overview__card__info">
               <div className="program__overview__card__info__data">
@@ -94,17 +105,22 @@ class IndexPage extends Component {
               </div>
               <div className="program__overview__card__info__data">
                 <h4>Class Size</h4>
-                <p>{program.acf.class_size}</p>
+                <p>{program.acf.class_size} Students</p>
               </div>
             </div>
           </div>
         </div>
         <Content>
-          <div className="wraper">
+          <div className="wraper home">
             <Spacer />
             <div className="sponsers">
               <h3>Sponsors</h3>
-              <p dangerouslySetInnerHTML={{ __html: data.acf.sponsor_info }} />
+              <div className="sponsers__description">
+                <div
+                  dangerouslySetInnerHTML={{ __html: data.acf.sponsor_info }}
+                />
+              </div>
+
               {sponsors.map(el => (
                 <div className="sponsers__single" key={el.node.id}>
                   <div className="sponsers__single__image">

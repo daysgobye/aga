@@ -31,17 +31,13 @@
         // background: teal
         width: 4.5%
         height: 100%
-        @include edgesnap
+        @media(max-width: 1000px)
             display: none
     .desktop
         font-size: .9em
         display: flex
         // width: 32%
         // background: lightseagreen
-        @include edgesnap
-            width: 50%
-        @include tablet
-            width: 65%
         @include navsnap
             display: none
         .nav
