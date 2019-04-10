@@ -17,6 +17,8 @@ class Banner extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.imgRef = React.createRef()
+    this.imgWidth = this.imgWidth.bind(this)
   }
   static defaultProps = {
     btnText: "btn text",
@@ -35,6 +37,7 @@ class Banner extends Component {
     }
   };
   componentDidMount() {
+    this.imgWidth()
     if (window.matchMedia("(min-width: 424px)").matches) {
       this.setState({ phone: false });
     } else {
@@ -98,6 +101,14 @@ class Banner extends Component {
       }
     }
   }
+  imgWidth() {
+    const oldHeight = this.imgRef.current.offsetHeight
+    const oldWidth = this.imgRef.current.offsetWidth
+    const newWidth = 330 * oldWidth / oldHeight
+    if (oldHeight > 500) {
+      this.imgRef.current.style.width = `${newWidth / 4}%`
+    }
+  }
   render() {
     return (
       <div className=" banner">
@@ -108,8 +119,8 @@ class Banner extends Component {
               flexDirection: this.dreaction("body")
             }}
           >
-            <div className="banner__col__one">
-              <div className="banner__col__one__gatimage">
+            <div className="banner__col__one" >
+              <div className="banner__col__one__gatimage" ref={this.imgRef}>
                 <Img fluid={this.props.img} alt={this.props.heroimgalt} />
               </div>
             </div>

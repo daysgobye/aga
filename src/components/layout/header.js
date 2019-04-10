@@ -96,11 +96,12 @@ class Headder extends Component {
               </button>
               <nav className={`nav`}>
                 {this.state.navlinks.map((link, index) => (
-                  <div className="nav__link">
+                  <div
+                    key={index}
+                    className="nav__link">
                     <Link
                       to={link.link}
                       activeClassName="nav__link__active"
-                      key={index}
                     >
                       {link.title}
                     </Link>
