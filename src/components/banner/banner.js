@@ -110,7 +110,7 @@ class Banner extends Component {
           >
             <div className="banner__col__one">
               <div className="banner__col__one__gatimage">
-                <Img fluid={this.props.img} />
+                <Img fluid={this.props.img} alt={this.props.heroimgalt} />
               </div>
             </div>
             <div

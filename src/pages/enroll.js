@@ -104,6 +104,7 @@ class Enroll extends Component {
                         data.acf.enrollment_process.image.localFile
                           .childImageSharp.fluid
                       }
+                      alt={data.acf.enrollment_process.image.alt_text}
                     />
                   </div>
                 </div>
@@ -130,6 +131,7 @@ export const query = graphql`
               sub_hero_text
               sub_headding
               image {
+                alt_text
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 600) {
@@ -155,6 +157,7 @@ export const query = graphql`
               step_5_title
               step_5_description
               image {
+                alt_text
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 2000) {

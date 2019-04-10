@@ -34,6 +34,7 @@ class IndexPage extends Component {
           sides={true}
           img={data.acf.banner.background_image.localFile.childImageSharp.fluid}
           heroimg={data.acf.banner.hero_image.localFile.childImageSharp.fluid}
+          heroimgalt={data.acf.banner.hero_image.alt_text}
         />
         <Content>
           <div className="wraper">
@@ -61,6 +62,7 @@ class IndexPage extends Component {
                   fluid={
                     data.acf.bio_section.image.localFile.childImageSharp.fluid
                   }
+                  alt={data.acf.bio_section.image.alt_text}
                 />
               </div>
             </div>
@@ -71,6 +73,7 @@ class IndexPage extends Component {
           <div className="program__overview__image">
             <Img
               fluid={data.acf.academy_image.localFile.childImageSharp.fluid}
+              alt={data.acf.academy_image.alt_text}
             />
           </div>
           <div className="program__overview__card">
@@ -107,6 +110,7 @@ class IndexPage extends Component {
                   <div className="sponsers__single__image">
                     <Img
                       fluid={el.node.acf.logo.localFile.childImageSharp.fluid}
+                      alt={el.node.acf.logo.alt_text}
                     />
                   </div>
                 </div>
@@ -132,6 +136,7 @@ export const query = graphql`
               hero_text
               cta
               background_image {
+                alt_text
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 600) {
@@ -141,6 +146,7 @@ export const query = graphql`
                 }
               }
               hero_image {
+                alt_text
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 600) {
@@ -155,6 +161,7 @@ export const query = graphql`
               name
               bio
               image {
+                alt_text
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 600) {
@@ -165,6 +172,7 @@ export const query = graphql`
               }
             }
             academy_image {
+              alt_text
               localFile {
                 childImageSharp {
                   fluid(maxWidth: 1000) {
@@ -202,6 +210,7 @@ export const query = graphql`
           id
           acf {
             logo {
+              alt_text
               localFile {
                 childImageSharp {
                   fluid(maxWidth: 600) {

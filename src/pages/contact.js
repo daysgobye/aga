@@ -11,7 +11,12 @@ import Spacer from "../components/spacer/spacer";
 class Contact extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      path: ""
+    };
+  }
+  componentDidMount() {
+    this.setState({ path: window.location.href })
   }
 
   render() {
@@ -26,6 +31,7 @@ class Contact extends Component {
           cta={data.acf.banner.cta}
           sides={false}
           img={data.acf.banner.image.localFile.childImageSharp.fluid}
+          heroimgalt={data.acf.banner.image.alt_text}
         />
         <Content>
           <div className="wraper">
@@ -36,6 +42,7 @@ class Contact extends Component {
                   fluid={
                     data.acf.contact_block.image.localFile.childImageSharp.fluid
                   }
+                  alt={data.acf.contact_block.image.alt_text}
                 />
                 <p
                   dangerouslySetInnerHTML={{
@@ -62,7 +69,7 @@ class Contact extends Component {
                   <input
                     type="hidden"
                     name="redirect_to"
-                    value="localhost:8000/contact"
+                    value={this.state.path}
                   />
                   {/* <!-- all your input fields here.... --> */}
                   <label>
@@ -92,6 +99,7 @@ class Contact extends Component {
               <Spacer />
               <Img
                 fluid={data.acf.page_image.localFile.childImageSharp.fluid}
+                alt={data.acf.page_image.alt_text}
               />
             </div>
             <Spacer />
@@ -114,6 +122,7 @@ export const query = graphql`
               hero_text
               cta
               image {
+                alt_text
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 600) {
@@ -128,6 +137,7 @@ export const query = graphql`
               address
               email
               image {
+                alt_text
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 600) {
@@ -138,6 +148,7 @@ export const query = graphql`
               }
             }
             page_image {
+              alt_text
               localFile {
                 childImageSharp {
                   fluid(maxWidth: 600) {

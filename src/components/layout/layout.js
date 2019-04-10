@@ -19,6 +19,7 @@ const Layout = ({ children }) => (
                   email
                   instagram_link
                   instagram_icon {
+                    alt_text
                     localFile {
                       childImageSharp  {
                         fluid(maxWidth: 100) {
@@ -28,6 +29,7 @@ const Layout = ({ children }) => (
                     }
                   }
                   facebook_icon {
+                    alt_text
                     localFile {
                       childImageSharp {
                         fluid(maxWidth: 100)  {
@@ -37,6 +39,7 @@ const Layout = ({ children }) => (
                     }
                   }
                   linked_in_icon {
+                    alt_text
                     localFile {
                       childImageSharp {
                         fluid(maxWidth: 100)  {
@@ -49,6 +52,7 @@ const Layout = ({ children }) => (
                 site_title
                 site_sub_title
                 main_text_logo {
+                  alt_text
                   localFile {
                     childImageSharp {
                       fluid(maxWidth: 600) {
@@ -58,6 +62,7 @@ const Layout = ({ children }) => (
                   }
                 }
                 main_logo {
+                  alt_text
                   localFile {
                     childImageSharp  {
                       fluid(maxWidth: 600) {
@@ -74,12 +79,25 @@ const Layout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Header siteTitle={data.allWordpressPage.edges[0].node.acf.site_title} subTitle={data.allWordpressPage.edges[0].node.acf.site_sub_title} logo={data.allWordpressPage.edges[0].node.acf.main_logo.localFile.childImageSharp.fluid}
-          textLogo={data.allWordpressPage.edges[0].node.acf.main_text_logo.localFile.childImageSharp.fluid} />
+        <Header siteTitle={data.allWordpressPage.edges[0].node.acf.site_title} subTitle={data.allWordpressPage.edges[0].node.acf.site_sub_title} mainalt={data.allWordpressPage.edges[0].node.acf.main_logo.alt_text} logo={data.allWordpressPage.edges[0].node.acf.main_logo.localFile.childImageSharp.fluid}
+          textLogo={data.allWordpressPage.edges[0].node.acf.main_text_logo.localFile.childImageSharp.fluid} textalt={data.allWordpressPage.edges[0].node.acf.main_text_logo.alt_text} />
         <div>
           <main>{children}</main>
-          <Footer siteTitle={data.allWordpressPage.edges[0].node.acf.site_title} subTitle={data.allWordpressPage.edges[0].node.acf.site_sub_title} logo={data.allWordpressPage.edges[0].node.acf.main_logo.localFile.childImageSharp.fluid} email={data.allWordpressPage.edges[0].node.acf.footer.email} phone={data.allWordpressPage.edges[0].node.acf.footer.phone_number}
-            links={[{ name: data.allWordpressPage.edges[0].node.acf.footer.instagram_link, icon: data.allWordpressPage.edges[0].node.acf.footer.instagram_icon.localFile.childImageSharp.fluid }, { name: data.allWordpressPage.edges[0].node.acf.footer.facebook_link, icon: data.allWordpressPage.edges[0].node.acf.footer.facebook_icon.localFile.childImageSharp.fluid }, { name: data.allWordpressPage.edges[0].node.acf.footer.linkedin_link, icon: data.allWordpressPage.edges[0].node.acf.footer.linked_in_icon.localFile.childImageSharp.fluid },]} />
+          <Footer siteTitle={data.allWordpressPage.edges[0].node.acf.site_title} subTitle={data.allWordpressPage.edges[0].node.acf.site_sub_title} logo={data.allWordpressPage.edges[0].node.acf.main_logo.localFile.childImageSharp.fluid}
+            logoalt={data.allWordpressPage.edges[0].node.acf.main_logo.alt_text} email={data.allWordpressPage.edges[0].node.acf.footer.email} phone={data.allWordpressPage.edges[0].node.acf.footer.phone_number}
+            links={[{
+              name: data.allWordpressPage.edges[0].node.acf.footer.instagram_link,
+              alt: data.allWordpressPage.edges[0].node.acf.footer.instagram_icon.alt_text,
+              icon: data.allWordpressPage.edges[0].node.acf.footer.instagram_icon.localFile.childImageSharp.fluid
+            }, {
+              name: data.allWordpressPage.edges[0].node.acf.footer.facebook_link,
+              alt: data.allWordpressPage.edges[0].node.acf.footer.facebook_icon.alt_text,
+              icon: data.allWordpressPage.edges[0].node.acf.footer.facebook_icon.localFile.childImageSharp.fluid
+            }, {
+              name: data.allWordpressPage.edges[0].node.acf.footer.linkedin_link,
+              alt: data.allWordpressPage.edges[0].node.acf.footer.linked_in_icon.alt_text,
+              icon: data.allWordpressPage.edges[0].node.acf.footer.linked_in_icon.localFile.childImageSharp.fluid
+            },]} />
         </div>
       </>
     )}

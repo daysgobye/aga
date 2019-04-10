@@ -46,6 +46,7 @@ class Photos extends Component {
                                         <div className="photos__single__gats">
                                             <Img
                                                 fluid={photo.node.acf.image.localFile.childImageSharp.fluid}
+                                                alt={photo.node.acf.image.alt_text}
                                             />
                                         </div>
                                     </div>
@@ -62,7 +63,7 @@ class Photos extends Component {
                     <Dialog className="dialog">
                         <div className="light">
                             <div className="light__image">
-                                <Img fluid={selectedImage.node.acf.image.localFile.childImageSharp.fluid} />
+                                <Img fluid={selectedImage.node.acf.image.localFile.childImageSharp.fluid} alt={selectedImage.node.acf.image.alt_text} />
                             </div>
                             <button aria-label={"close light box"} type="button" onClick={() => this.setState({ showLightbox: false })}>
                                 {/* <img src={xIcon} alt="x icon" /> */}
@@ -92,6 +93,7 @@ query {
               node {
                 acf {
                   image {
+                    alt_text
                     localFile {
                         childImageSharp {
                           fluid(maxWidth: 1500) {

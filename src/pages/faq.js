@@ -31,6 +31,7 @@ class Faq extends Component {
           cta={data.acf.banner.cta}
           sides={true}
           img={data.acf.banner.image.localFile.childImageSharp.fluid}
+          heroimgalt={data.acf.banner.image.alt_text}
         />
         <Content>
           <div className="wraper">
@@ -169,6 +170,7 @@ export const query = graphql`
               hero_text
               cta
               image {
+                alt_text
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 600) {

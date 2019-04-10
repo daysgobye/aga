@@ -57,13 +57,13 @@ class Headder extends Component {
               >
                 <h1>
                   <div className="image">
-                    <Img fluid={this.props.textLogo} />
+                    <Img fluid={this.props.textLogo} alt={this.props.textalt} />
                   </div>
                 </h1>
               </Link>
             </div>
             <div className="header__logo">
-              <Img fluid={this.props.logo} />
+              <Img fluid={this.props.logo} alt={this.props.mainalt} />
             </div>
             {/* desktop nav */}
             <div className="desktop">
@@ -83,7 +83,7 @@ class Headder extends Component {
             <div
               className={`mobile ${
                 this.state.navOpen ? "nav__open" : "nav__closed"
-              }`}
+                }`}
             >
               <button
                 className="dot"

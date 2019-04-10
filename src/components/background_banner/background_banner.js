@@ -117,8 +117,8 @@ class Banner extends Component {
               {!this.props.heroimg ? (
                 <span />
               ) : (
-                <Img fluid={this.props.heroimg} />
-              )}
+                  <Img fluid={this.props.heroimg} alt={this.props.heroimgalt} />
+                )}
             </div>
             <div
               className="background__banner__col__two"

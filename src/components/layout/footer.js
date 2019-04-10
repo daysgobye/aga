@@ -43,7 +43,7 @@ class Footer extends Component {
       linkMatch: ""
     };
   }
-  componentDidMount() {}
+  componentDidMount() { }
   findSite(str) {
     const patt = /www.(.*?).com/g;
     return patt.exec(str)[1];
@@ -68,10 +68,11 @@ class Footer extends Component {
                     href={link.name}
                     aria-label={`link to ${
                       this.props.siteTitle
-                    }'s ${this.findSite(link.name)} page`}
+                      }'s ${this.findSite(link.name)} page`}
                   >
                     {" "}
-                    <Img fluid={link.icon} />
+                    <Img fluid={link.icon}
+                      alt={link.alt} />
                   </a>
                 ))}
               </div>
@@ -87,7 +88,7 @@ class Footer extends Component {
             <div className="footer__cols__single">
               <div className="footer__cols__single__image">
                 <div className="footer__cols__single__image__container">
-                  <Img fluid={data.logo} />
+                  <Img fluid={data.logo} alt={data.logoalt} />
                 </div>
               </div>
             </div>

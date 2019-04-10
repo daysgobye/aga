@@ -58,7 +58,8 @@ class Program extends Component {
                 </div>
               </div>
               <div className="overview__image">
-                <Img fluid={data.acf.image.localFile.childImageSharp.fluid} />
+                <Img fluid={data.acf.image.localFile.childImageSharp.fluid}
+                  alt={data.acf.image.alt_text} />
               </div>
             </div>
             <Spacer />
@@ -87,7 +88,7 @@ class Program extends Component {
 
 export const query = graphql`
   query {
-    allWordpressWpCourseWeek {
+    allWordpressWpCourseWeek(sort: {fields: [wordpress_id], order: ASC}) {
       edges {
         node {
           title
@@ -108,6 +109,7 @@ export const query = graphql`
               hero_text
               cta
               image {
+                alt_text
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 2000) {
@@ -120,6 +122,7 @@ export const query = graphql`
             curriculum_overview
             class_size
             image {
+              alt_text
               localFile {
                 childImageSharp {
                   fluid(maxWidth: 600) {
