@@ -1,23 +1,5 @@
 @import "../base.sass"
 .wraper
-    .sponsers
-        text-align: center
-        display: flex
-        flex-wrap: wrap
-        justify-content: space-between
-        h3
-            display: flex
-            width: 100%
-            justify-content: center
-        &__single
-            display: flex
-            justify-content: center
-            width: 15%
-            align-items: center
-            @include phone-large
-                width: 25%
-            &__image
-                width: 70%
     .bio
         display: flex
         justify-content: space-between
@@ -37,9 +19,9 @@
                 margin-top: 50px
                 h4
                     margin-top: 15px
+                    color: $accent
             button
                 margin: 20px 0
-    
         &__image
             width: 30%
             @include navsnap
@@ -47,6 +29,32 @@
             @include phone-large
                 width: 100%
                 // background: teal
+    .sponsers
+      text-align: center
+      display: flex
+      flex-wrap: wrap
+      justify-content: space-between
+      h3
+          display: flex
+          width: 100%
+          justify-content: center
+          margin-bottom: .5em
+      p 
+        margin-bottom: 2.15em
+      &__single
+          display: flex
+          justify-content: center
+          width: 15%
+          align-items: center
+          @include phone-large
+              width: 25%
+          &__image
+              width: 70%
+
+.home
+  .page__sign
+    margin-top: 0px
+
 .program__overview
     display: flex
     // justify-content: space-between
@@ -59,8 +67,8 @@
     &__card
         margin: 30px 0
         width: calc(1100px / 2.1)
-        background: teal
-        padding: 7em 2em
+        // background: teal
+        padding: 7em 1.8em
         display: flex
         flex-direction: column
         @include edgesnap

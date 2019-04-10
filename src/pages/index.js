@@ -54,7 +54,7 @@ class IndexPage extends Component {
                   type="gatsbylink"
                   passedState={""}
                   padding="4.5px 20px"
-                  fsize="0.85"
+                  fsize="0.9"
                 />
               </div>
               <div className="bio__image">
@@ -100,7 +100,7 @@ class IndexPage extends Component {
           </div>
         </div>
         <Content>
-          <div className="wraper">
+          <div className="wraper home">
             <Spacer />
             <div className="sponsers">
               <h3>Sponsors</h3>
