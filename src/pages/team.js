@@ -27,6 +27,7 @@ class Team extends Component {
           cta={data.acf.banner.cta}
           sides={true}
           img={data.acf.banner.image.localFile.childImageSharp.fluid}
+          heroimgalt={data.acf.banner.image.alt_text}
         />
         <Content>
           <div className="wraper">
@@ -39,6 +40,7 @@ class Team extends Component {
                       fluid={
                         team.node.acf.image.localFile.childImageSharp.fluid
                       }
+                      alt={team.node.acf.image.alt_text}
                     />
                   </div>
                   <div className="team__mem__bio">
@@ -49,7 +51,7 @@ class Team extends Component {
                         href={team.node.acf.instagram_link}
                         aria-label={`a link to ${
                           team.node.acf.name
-                        }'s Instagram`}
+                          }'s Instagram`}
                       >
                         {" "}
                         <svg
@@ -65,7 +67,7 @@ class Team extends Component {
                         href={team.node.acf.face_book_link}
                         aria-label={`a link to ${
                           team.node.acf.name
-                        }Facebook's `}
+                          }Facebook's `}
                       >
                         {" "}
                         <svg
@@ -107,6 +109,7 @@ export const query = graphql`
             instagram_link
             bio
             image {
+              alt_text
               localFile {
                 childImageSharp {
                   fluid(maxWidth: 600) {
@@ -128,6 +131,7 @@ export const query = graphql`
               hero_text
               cta
               image {
+                alt_text
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 600) {
