@@ -31,7 +31,7 @@ class Banner extends Component {
       src: "/static/b21ae5216543821d08c7da6bb11ab302/10566/bio_pic_2.png",
       srcSet:
         "/static/b21ae5216543821d08c7da6bb11ab302/45802/bio_pic_2.png 150w,\n/static/b21ae5216543821d08c7da6bb11ab302/7aaac/bio_pic_2.png 300w,\n/static/b21ae5216543821d08c7da6bb11ab302/10566/bio_pic_2.png 327w",
-      sizes: "(max-width: 327px) 100vw, 327px"
+      sizes: "(max-width: 650px) 100vw, 327px"
     }
   };
   componentDidMount() {
@@ -114,11 +114,17 @@ class Banner extends Component {
             }}
           >
             <div className="background__banner__col__one">
-              {!this.props.heroimg ? (
-                <span />
-              ) : (
-                  <Img fluid={this.props.heroimg} alt={this.props.heroimgalt} style={{ display: 'inherit' }} />
+              <div className="background__banner__col__one__image">
+                {!this.props.heroimg ? (
+                  <span />
+                ) : (
+                  <Img
+                    fluid={this.props.heroimg}
+                    alt={this.props.heroimgalt}
+                    style={{ display: "inherit" }}
+                  />
                 )}
+              </div>
             </div>
             <div
               className="background__banner__col__two"
