@@ -104,7 +104,12 @@ class IndexPage extends Component {
             <Spacer />
             <div className="sponsers">
               <h3>Sponsors</h3>
-              <p dangerouslySetInnerHTML={{ __html: data.acf.sponsor_info }} />
+              <div className="sponsers__description">
+                <div
+                  dangerouslySetInnerHTML={{ __html: data.acf.sponsor_info }}
+                />
+              </div>
+
               {sponsors.map(el => (
                 <div className="sponsers__single" key={el.node.id}>
                   <div className="sponsers__single__image">
