@@ -132,29 +132,33 @@ class Banner extends Component {
                 alignItems: this.dreaction("wrap")
               }}
             >
-              <h2
-                style={{
-                  textAlign: this.dreaction("text")
-                }}
-              >
-                {this.props.title}
-              </h2>
-              <h3>{this.SubtitleCheck(this.props.subtitle)}</h3>
-              <h4>{this.SubtitleCheck(this.props.subSubHeadding)}</h4>
-              <p
-                dangerouslySetInnerHTML={{ __html: this.props.cta }}
-                style={{
-                  textAlign: this.dreaction("text")
-                }}
-              />
-              <ButtonRound
-                innerText={this.props.btnText}
-                action={this.props.linkPage}
-                type="gatsbylink"
-                passedState={""}
-                padding="4.5px 20px"
-                fsize="0.9"
-              />
+              <div className="background__banner__col__two__top">
+                <h2
+                  style={{
+                    textAlign: this.dreaction("text")
+                  }}
+                >
+                  {this.props.title}
+                </h2>
+                <h3>{this.SubtitleCheck(this.props.subtitle)}</h3>
+                <h4>{this.SubtitleCheck(this.props.subSubHeadding)}</h4>
+              </div>
+              <div className="background__banner__col__two__bottom">
+                <p
+                  dangerouslySetInnerHTML={{ __html: this.props.cta }}
+                  style={{
+                    textAlign: this.dreaction("text")
+                  }}
+                />
+                <ButtonRound
+                  innerText={this.props.btnText}
+                  action={this.props.linkPage}
+                  type="gatsbylink"
+                  passedState={""}
+                  padding="4.5px 20px"
+                  fsize="0.9"
+                />
+              </div>
             </div>
           </div>
         </Content>

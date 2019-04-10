@@ -35,26 +35,37 @@
         &__two
             display: flex
             flex-direction: column
+            justify-content: space-between
             // background: green
-            max-height: 90%
-            height: 90%
+            max-height: 100%
+            height: 100%
             width: 60%
+            padding: 3em 0em
             // background: seagreen
             // justify-content: space-between
+            &__top
+              h2 
+                margin-top: -10px
+            &__bottom 
+              display: flex 
+              flex-direction: column
+              align-items: flex-end
+              button 
+                margin-top: 1.25em
             @include phone-large
                 width: 100%
-            p
-                color: $light
-                padding-top: 3em
-                padding-bottom: 1em
-            h2
-                padding: 0px 0px 10px 0px
-                font-size: 45px
-            h3
-                font-size: 30px
-                padding: 0px 0px 5px 0px
-            h4
-                color: #9f958b
+            // p
+            //     color: $light
+            //     // padding-top: 3em
+            //     // padding-bottom: 1em
+            // h2
+            //     // padding: 0px 0px 10px 0px
+            //     font-size: 45px
+            // h3
+            //     font-size: 30px
+            //     padding: 0px 0px 5px 0px
+            // h4
+            //     color: #9f958b
     hr
         background: #cdccca
         border: 0
