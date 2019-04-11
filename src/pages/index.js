@@ -45,9 +45,10 @@ class IndexPage extends Component {
                   <h3>{data.acf.bio_section.title}</h3>
                   <h4>{data.acf.bio_section.name} </h4>
                 </div>
-                <p
+                <div
                   dangerouslySetInnerHTML={{ __html: data.acf.bio_section.bio }}
-                />
+                >
+                </div>
                 <ButtonRound
                   innerText={"Meet The Team"}
                   action={"team"}
