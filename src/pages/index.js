@@ -10,11 +10,37 @@ import "../components/styles/homepage.sass";
 import ButtonRound from "../components/buttonRound/buttonRound";
 import Signup from "../components/page_bottom_signup/page_signup";
 import Spacer from "../components/spacer/spacer";
+import ReactGA from "react-ga";
 
 class IndexPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      page: "Home"
+    };
+  }
+  componentDidMount() {
+    //adds event listener to the page for scroll events to log in custom GA event if page is scrolled below a certain %
+    // window.addEventListener("scroll", this.getScrollPercent);
+  }
+  getScrollPercent() {
+    //gets overall height of page
+    const pageHeight = document.body.getBoundingClientRect().height;
+    //the amount of the page that is scrolled down
+    const currentPage = this.homepage;
+    const scrolledDown = currentPage.offsetTop;
+    console.log(scrolledDown);
+    // ref={div => (this.homepage = div)}
+  }
+  logScrollEvent() {
+    console.log(`you're over 50% down the page`);
+  }
+  logButtonEvent(clickThrough) {
+    ReactGA.event({
+      category: `Button Click`,
+      action: `User on ${this.state.page} clicked ${clickThrough} Button`
+    });
+    console.log(this.state.page, clickThrough);
   }
   render() {
     const courses = this.props.data.allWordpressWpCourseWeek.edges;
@@ -25,7 +51,7 @@ class IndexPage extends Component {
 
     return (
       <Layout>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO page="Home" />
         <BackgroundBanner
           btnText="View FAQ"
           linkPage="faq"
@@ -48,22 +74,26 @@ class IndexPage extends Component {
                 <p
                   dangerouslySetInnerHTML={{ __html: data.acf.bio_section.bio }}
                 />
-                <ButtonRound
-                  innerText={"Meet The Team"}
-                  action={"team"}
-                  type="gatsbylink"
-                  passedState={""}
-                  padding="4.5px 20px"
-                  fsize="0.85"
-                />
+                <div onClick={this.logButtonEvent("Team")}>
+                  <ButtonRound
+                    innerText={"Meet The Team"}
+                    action={"team"}
+                    type="gatsbylink"
+                    passedState={""}
+                    padding="4.5px 20px"
+                    fsize="0.85"
+                  />
+                </div>
               </div>
               <div className="bio__image">
-                <Img
-                  fluid={
-                    data.acf.bio_section.image.localFile.childImageSharp.fluid
-                  }
-                  alt={data.acf.bio_section.image.alt_text}
-                />
+                <div className="bio__image__container">
+                  <Img
+                    fluid={
+                      data.acf.bio_section.image.localFile.childImageSharp.fluid
+                    }
+                    alt={data.acf.bio_section.image.alt_text}
+                  />
+                </div>
               </div>
             </div>
             <Spacer />
@@ -80,20 +110,26 @@ class IndexPage extends Component {
           </div>
           <div className="program__overview__card">
             <h3>The Academy</h3>
-            <h4>Curriculum Overview</h4>
+            <h4 className="mobile-centered">Curriculum Overview</h4>
             <div
+              className="mobile-centered"
               dangerouslySetInnerHTML={{
                 __html: program.acf.curriculum_overview
               }}
             />
-            <ButtonRound
-              innerText={"View Full Curriculum"}
-              action={"program"}
-              type="gatsbylink"
-              passedState={""}
-              padding="4.5px 20px"
-              fsize="0.85"
-            />
+            <div className="program__overview__card__button">
+              <div onClick={this.logButtonEvent("Program")}>
+                <ButtonRound
+                  innerText={"View Full Curriculum"}
+                  action={"program"}
+                  type="gatsbylink"
+                  passedState={""}
+                  padding="4.5px 20px"
+                  fsize="0.85"
+                />
+              </div>
+            </div>
+
             <div className="program__overview__card__info">
               <div className="program__overview__card__info__data">
                 <h4>Location</h4>

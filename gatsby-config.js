@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`
+    title: `Pastry Academy by Amaury Guichon`,
+    description: `Start your new sweet career. Enroll now and join the next class at Pastry Academy by Amaury Guichon.`,
+    author: `Pastry Academy by Amaury Guichon`
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -25,6 +25,14 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/favicon.png` // This path is relative to the root of the site.
+      }
+    },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        // replace "UA-XXXXXXXXX-X" with your own Tracking ID
+        trackingId: "UA-138054696-1",
+        head: false
       }
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

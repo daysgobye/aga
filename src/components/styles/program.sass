@@ -2,8 +2,11 @@
 .wrapper
     display: flex
     flex-direction: column
-    .pagetitle
         // margin-top: 50px
+    &, .weeks 
+      h3 
+        @include tablet-phone 
+          text-align: center
     .overview
         display: flex
         justify-content: space-between
@@ -41,19 +44,16 @@
             @include tablet-phone
                 width: 98%
     .weeks
-
-        h3
-
         &__single
             margin-top: 50px
             display: flex
             flex-direction: column
             h4
-                margin-bottom: .45em
+                margin-bottom: .65em
                 color: $accent
                 width: 50%
                 border-bottom: 1px solid $accent
             h5
               font-size: 1.2em
-              margin-bottom: .2em
+              margin-bottom: .3em
             p

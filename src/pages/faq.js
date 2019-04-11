@@ -23,7 +23,10 @@ class Faq extends Component {
     const general = this.props.data.general.edges;
     return (
       <Layout>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          page="FAQ"
+          description="View answers to our frequently asked questions."
+        />
         <Banner
           btnText="Contact Us"
           linkPage="contact"

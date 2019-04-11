@@ -16,14 +16,17 @@ class Contact extends Component {
     };
   }
   componentDidMount() {
-    this.setState({ path: window.location.href })
+    this.setState({ path: window.location.href });
   }
 
   render() {
     const data = this.props.data.allWordpressPage.edges[0].node;
     return (
       <Layout>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          page="Contact"
+          description="Contact the team at Pastry Academy by Amaury Guichon, we are happy to answer any questions you may have."
+        />
         <Banner
           btnText="View FAQ"
           linkPage="faq"
@@ -38,18 +41,24 @@ class Contact extends Component {
             <Spacer />
             <div className="contact">
               <div className="contact__info">
-                <Img
-                  fluid={
-                    data.acf.contact_block.image.localFile.childImageSharp.fluid
-                  }
-                  alt={data.acf.contact_block.image.alt_text}
-                />
+                <div className="contact__info__image">
+                  <div className="contact__info__image__container">
+                    <Img
+                      fluid={
+                        data.acf.contact_block.image.localFile.childImageSharp
+                          .fluid
+                      }
+                      alt={data.acf.contact_block.image.alt_text}
+                    />
+                  </div>
+                </div>
+
                 <p
                   dangerouslySetInnerHTML={{
                     __html: data.acf.contact_block.address
                   }}
                 />
-                <p>Phone:{data.acf.contact_block.phone_number}</p>
+                <p>Phone: {data.acf.contact_block.phone_number}</p>
                 <p>
                   Email:{" "}
                   <span className="contact__info__email">
@@ -82,7 +91,7 @@ class Contact extends Component {
                     <input type="tel" placeholder="Phone Number" />
                   </label>
                   <label>
-                    message
+                    Message
                     <textarea
                       name="message"
                       id=""
@@ -91,7 +100,7 @@ class Contact extends Component {
                       placeholder=""
                     />
                   </label>
-                  <button type="submit">Send message</button>
+                  <button type="submit">Send Message</button>
                 </form>
               </div>
             </div>
