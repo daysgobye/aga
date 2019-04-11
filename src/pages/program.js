@@ -21,7 +21,10 @@ class Program extends Component {
 
     return (
       <Layout>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          page="Program"
+          description="Learn more about our curriculum and Academy."
+        />
         <BackgroundBanner
           btnText="View FAQ"
           linkPage="faq"
@@ -58,8 +61,10 @@ class Program extends Component {
                 </div>
               </div>
               <div className="overview__image">
-                <Img fluid={data.acf.image.localFile.childImageSharp.fluid}
-                  alt={data.acf.image.alt_text} />
+                <Img
+                  fluid={data.acf.image.localFile.childImageSharp.fluid}
+                  alt={data.acf.image.alt_text}
+                />
               </div>
             </div>
             <Spacer />
@@ -88,7 +93,7 @@ class Program extends Component {
 
 export const query = graphql`
   query {
-    allWordpressWpCourseWeek(sort: {fields: [wordpress_id], order: ASC}) {
+    allWordpressWpCourseWeek(sort: { fields: [wordpress_id], order: ASC }) {
       edges {
         node {
           title

@@ -23,7 +23,10 @@ class Enroll extends Component {
 
     return (
       <Layout>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          page="Enroll"
+          description="Enroll now and take the first steps to starting your new career."
+        />
         <BackgroundBanner
           btnText="View Program Details"
           linkPage="program"

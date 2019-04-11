@@ -3,6 +3,8 @@ import { Link } from "gatsby";
 import Img from "gatsby-image";
 import "./header.sass";
 import Content from "../utility/Content/Content";
+import ReactGA from "react-ga";
+
 class Headder extends Component {
   constructor(props) {
     super(props);
@@ -41,10 +43,24 @@ class Headder extends Component {
     };
     this.toggleNav = this.toggleNav.bind(this);
   }
+
   toggleNav() {
     const currentstate = this.state.navOpen;
     this.setState({ navOpen: !currentstate });
   }
+  logNavEvent() {
+    ReactGA.event({
+      category: `Navigation Click`,
+      action: `User click on Navigation Link`
+    });
+  }
+  logMobileNavEvent() {
+    ReactGA.event({
+      category: `Mobile Navigation Click`,
+      action: `User click on Navigation Link`
+    });
+  }
+
   render() {
     return (
       <div className="header__wrapper">
@@ -72,7 +88,11 @@ class Headder extends Component {
                 <a className="snipcart-checkout">cart</a> */}
                 {this.state.navlinks.map((link, index) => (
                   <div className="nav__link" key={index}>
-                    <Link activeClassName="nav__link__active" to={link.link}>
+                    <Link
+                      activeClassName="nav__link__active"
+                      to={link.link}
+                      onClickDo={this.logNavEvent.bind(this)}
+                    >
                       {link.title}
                     </Link>
                   </div>
@@ -83,7 +103,7 @@ class Headder extends Component {
             <div
               className={`mobile ${
                 this.state.navOpen ? "nav__open" : "nav__closed"
-                }`}
+              }`}
             >
               <button
                 className="dot"
@@ -96,12 +116,11 @@ class Headder extends Component {
               </button>
               <nav className={`nav`}>
                 {this.state.navlinks.map((link, index) => (
-                  <div
-                    key={index}
-                    className="nav__link">
+                  <div key={index} className="nav__link">
                     <Link
                       to={link.link}
                       activeClassName="nav__link__active"
+                      onClickDo={this.logMobileNavEvent.bind(this)}
                     >
                       {link.title}
                     </Link>

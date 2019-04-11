@@ -19,7 +19,10 @@ class Team extends Component {
     const data = this.props.data.allWordpressPage.edges[0].node;
     return (
       <Layout>
-        <SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+        <SEO
+          page="Team"
+          description="Meet the team at Pastry Acaemy by Amaury Guichon."
+        />
         <Banner
           btnText="Contact Us"
           linkPage="contact"
@@ -51,7 +54,7 @@ class Team extends Component {
                         href={team.node.acf.instagram_link}
                         aria-label={`a link to ${
                           team.node.acf.name
-                          }'s Instagram`}
+                        }'s Instagram`}
                       >
                         {" "}
                         <svg
@@ -67,7 +70,7 @@ class Team extends Component {
                         href={team.node.acf.face_book_link}
                         aria-label={`a link to ${
                           team.node.acf.name
-                          }Facebook's `}
+                        }Facebook's `}
                       >
                         {" "}
                         <svg
