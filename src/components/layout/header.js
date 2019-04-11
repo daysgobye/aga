@@ -103,7 +103,7 @@ class Headder extends Component {
             <div
               className={`mobile ${
                 this.state.navOpen ? "nav__open" : "nav__closed"
-              }`}
+                }`}
             >
               <button
                 className="dot"

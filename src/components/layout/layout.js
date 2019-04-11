@@ -85,6 +85,7 @@ const Layout = ({ children }) => (
           <main>{children}</main>
           <Footer siteTitle={data.allWordpressPage.edges[0].node.acf.site_title} subTitle={data.allWordpressPage.edges[0].node.acf.site_sub_title} logo={data.allWordpressPage.edges[0].node.acf.main_logo.localFile.childImageSharp.fluid}
             logoalt={data.allWordpressPage.edges[0].node.acf.main_logo.alt_text} email={data.allWordpressPage.edges[0].node.acf.footer.email} phone={data.allWordpressPage.edges[0].node.acf.footer.phone_number}
+            textLogo={data.allWordpressPage.edges[0].node.acf.main_text_logo.localFile.childImageSharp.fluid} textalt={data.allWordpressPage.edges[0].node.acf.main_text_logo.alt_text}
             links={[{
               name: data.allWordpressPage.edges[0].node.acf.footer.instagram_link,
               alt: data.allWordpressPage.edges[0].node.acf.footer.instagram_icon.alt_text,
