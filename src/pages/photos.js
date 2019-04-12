@@ -9,6 +9,7 @@ import { Dialog } from "@reach/dialog";
 import "@reach/dialog/styles.css";
 import Spacer from "../components/spacer/spacer";
 import xIcon from "../images/x.svg";
+import LightBox from '../components/lightbox/lightbox'
 
 class Photos extends Component {
   constructor(props) {
@@ -44,7 +45,10 @@ class Photos extends Component {
             </div>
             <Spacer />
             <div className="photos">
-              {photos.map(photo => (
+              <LightBox
+                photos={photos}
+              />
+              {/* {photos.map(photo => (
                 <div
                   className="photos__single"
                   key={photo.node.id}
@@ -61,7 +65,7 @@ class Photos extends Component {
                     />
                   </div>
                 </div>
-              ))}
+              ))} */}
             </div>
             <Spacer />
             <Signup />
@@ -113,9 +117,11 @@ export const query = graphql`
             image {
               alt_text
               localFile {
+                url
                 childImageSharp {
                   fluid(maxWidth: 1500) {
-                    ...GatsbyImageSharpFluid_noBase64
+                     ...GatsbyImageSharpFluid_noBase64
+                    src
                   }
                 }
               }

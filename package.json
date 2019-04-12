@@ -22,6 +22,7 @@
     "gatsby-source-wordpress": "^3.0.48",
     "gatsby-transformer-sharp": "^2.1.13",
     "google-map-react": "^1.1.2",
+    "lightbox-react": "^0.3.7",
     "node-sass": "^4.11.0",
     "prop-types": "^15.6.2",
     "react": "^16.8.0",
