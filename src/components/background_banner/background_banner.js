@@ -118,12 +118,12 @@ class Banner extends Component {
                 {!this.props.heroimg ? (
                   <span />
                 ) : (
-                    <Img
-                      fluid={this.props.heroimg}
-                      alt={this.props.heroimgalt}
-                      style={{ display: "inherit" }}
-                    />
-                  )}
+                  <Img
+                    fluid={this.props.heroimg}
+                    alt={this.props.heroimgalt}
+                    style={{ display: "inherit" }}
+                  />
+                )}
               </div>
             </div>
             <div
@@ -149,7 +149,7 @@ class Banner extends Component {
                   style={{
                     textAlign: this.dreaction("text")
                   }}
-                ></div>
+                />
                 <ButtonRound
                   innerText={this.props.btnText}
                   action={this.props.linkPage}

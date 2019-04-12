@@ -1,16 +1,29 @@
 @import "../base.sass"
 .banner
+    max-height: 425px
+    height: 425px
+    overflow: hidden
+    border-bottom: 1px solid $accent
+    .page__section
+      height: 100%
     &__col
         width: 100%
+        height: 100%
         display: flex
-        background: red
+        justify-content: center 
+        align-items: center
+        // background: red
         @include phone-large
-        flex-direction: column
+          flex-direction: column
         &__one
             width: 50%
+            height: 100%
             @include phone-large
                 width: 100%
             &__gatimage
+              // display: none
+              height: 100%
+              max-height: 100%
                 // height: 250px
                 // img
                     // max-height: 250px
@@ -19,25 +32,25 @@
         &__two
             display: flex
             flex-direction: column
-            width: 50%
-            // background: seagreen
             justify-content: center
+            // background: green
+            max-height: 100%
+            height: 100%
+            width: 65%
+            padding: 3em 0em
+            // background: seagreen
+            // justify-content: space-between
+            &__top
+              h2 
+                margin-top: -10px
+            &__bottom 
+              display: flex 
+              flex-direction: column
+              align-items: flex-end
+              button 
+                margin-top: 1.25em
             @include phone-large
                 width: 100%
-            button
-                margin: 15px 0
-
-            p
-                color: #5d5d5d
-                padding: 50px 0px 20px 0px
-            h2
-                padding: 0px 0px 10px 0px
-                font-size: 45px
-            h3
-                font-size: 30px
-                padding: 0px 0px 5px 0px
-            h4
-                color: #9f958b
     hr
         background: #cdccca
         border: 0
