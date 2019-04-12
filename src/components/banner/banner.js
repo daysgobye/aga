@@ -17,8 +17,8 @@ class Banner extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.imgRef = React.createRef()
-    this.imgWidth = this.imgWidth.bind(this)
+    this.imgRef = React.createRef();
+    this.imgWidth = this.imgWidth.bind(this);
   }
   static defaultProps = {
     btnText: "btn text",
@@ -37,7 +37,7 @@ class Banner extends Component {
     }
   };
   componentDidMount() {
-    this.imgWidth()
+    this.imgWidth();
     if (window.matchMedia("(min-width: 424px)").matches) {
       this.setState({ phone: false });
     } else {
@@ -102,11 +102,11 @@ class Banner extends Component {
     }
   }
   imgWidth() {
-    const oldHeight = this.imgRef.current.offsetHeight
-    const oldWidth = this.imgRef.current.offsetWidth
-    const newWidth = 330 * oldWidth / oldHeight
+    const oldHeight = this.imgRef.current.offsetHeight;
+    const oldWidth = this.imgRef.current.offsetWidth;
+    const newWidth = (330 * oldWidth) / oldHeight;
     if (oldHeight > 500) {
-      this.imgRef.current.style.width = `${newWidth / 4}%`
+      this.imgRef.current.style.width = `${newWidth / 4}%`;
     }
   }
   render() {
@@ -119,7 +119,7 @@ class Banner extends Component {
               flexDirection: this.dreaction("body")
             }}
           >
-            <div className="banner__col__one" >
+            <div className="banner__col__one">
               <div className="banner__col__one__gatimage" ref={this.imgRef}>
                 <Img fluid={this.props.img} alt={this.props.heroimgalt} />
               </div>
@@ -130,29 +130,33 @@ class Banner extends Component {
                 alignItems: this.dreaction("wrap")
               }}
             >
-              <h2
-                style={{
-                  textAlign: this.dreaction("text")
-                }}
-              >
-                {this.props.title}
-              </h2>
-              <h3>{this.SubtitleCheck(this.props.subtitle)}</h3>
-              <h4>{this.SubtitleCheck(this.props.subSubHeadding)}</h4>
-              <p
-                dangerouslySetInnerHTML={{ __html: this.props.cta }}
-                style={{
-                  textAlign: this.dreaction("text")
-                }}
-              />
-              <ButtonRound
-                innerText={this.props.btnText}
-                action={this.props.linkPage}
-                type="gatsbylink"
-                passedState={""}
-                padding="5px 30px"
-                fsize="1"
-              />
+              <div className="banner__col__two__top">
+                <h2
+                  style={{
+                    textAlign: this.dreaction("text")
+                  }}
+                >
+                  {this.props.title}
+                </h2>
+                <h3>{this.SubtitleCheck(this.props.subtitle)}</h3>
+                <h4>{this.SubtitleCheck(this.props.subSubHeadding)}</h4>
+              </div>
+              <div className="banner__col__two__bottom">
+                <p
+                  dangerouslySetInnerHTML={{ __html: this.props.cta }}
+                  style={{
+                    textAlign: this.dreaction("text")
+                  }}
+                />
+                <ButtonRound
+                  innerText={this.props.btnText}
+                  action={this.props.linkPage}
+                  type="gatsbylink"
+                  passedState={""}
+                  padding="4.5px 20px"
+                  fsize="0.85"
+                />
+              </div>
             </div>
           </div>
         </Content>
