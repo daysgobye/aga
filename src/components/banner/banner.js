@@ -104,8 +104,8 @@ class Banner extends Component {
   imgWidth() {
     const oldHeight = this.imgRef.current.offsetHeight;
     const oldWidth = this.imgRef.current.offsetWidth;
-    const newWidth = (330 * oldWidth) / oldHeight;
-    if (oldHeight > 500) {
+    const newWidth = (305 * oldWidth) / oldHeight;
+    if (oldHeight > 425) {
       this.imgRef.current.style.width = `${newWidth / 4}%`;
     }
   }
