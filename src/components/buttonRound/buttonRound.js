@@ -37,8 +37,7 @@ class ButtonRound extends React.Component {
               borderRadius: ".9rem",
               border: `1px solid ${this.props.color}`,
               borderColor: this.props.color,
-              padding: this.props.padding,
-              fontSize: `${this.props.fsize}rem`
+              padding: this.props.padding
             }}
           >
             {this.props.innerText}{" "}

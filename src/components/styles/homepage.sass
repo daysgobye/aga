@@ -27,11 +27,18 @@
                     color: $accent
                     @include tablet 
                       margin-bottom: .5em
+                &__button 
+                  // display: none
+                  display: flex
+                  .buttonround-module--wrapper--1ejEC
+                    justify-content: flex-end !important
+                    @include tablet 
+                      justify-content: center !important
             button
                 margin: 20px 0
         &__image
           display: flex 
-          justify-content: center
+          align-items: center
           width: 30% 
           @include tablet 
             width: 100%
@@ -166,19 +173,15 @@
         // align-content: center
         display: flex
         justify-content: center
-        align-content: center
-        // background: red
+        align-items: center
         width: 50%
-        object-fit: cover
         @include tablet
-          background: red
           width: 100% !important
         @include tablet
             width: 38%
         @include tablet
             width: 80%
         &__container 
-          height: 100%
           width: 100%
           @include tablet 
             width: 80%
