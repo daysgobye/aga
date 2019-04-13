@@ -150,14 +150,17 @@ class Banner extends Component {
                     textAlign: this.dreaction("text")
                   }}
                 />
-                <ButtonRound
-                  innerText={this.props.btnText}
-                  action={this.props.linkPage}
-                  type="gatsbylink"
-                  passedState={""}
-                  padding="4.5px 20px"
-                  fsize="0.85"
-                />
+                <div className="background__banner__col__two__bottom__btn">
+                  <ButtonRound
+                    innerText={this.props.btnText}
+                    action={this.props.linkPage}
+                    type="gatsbylink"
+                    passedState={""}
+                    padding="4.5px 20px"
+                    fsize="0.85"
+                    pos={this.dreaction("wrap")}
+                  />
+                </div>
               </div>
             </div>
           </div>

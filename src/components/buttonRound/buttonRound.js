@@ -86,7 +86,7 @@ class ButtonRound extends React.Component {
     }
 
     return (
-      <div className={style.wraper} style={{ justifyContent: this.props.pos }}>
+      <div className={style.wrapper} style={{ justifyContent: this.props.pos }}>
         {button}
       </div>
     );
