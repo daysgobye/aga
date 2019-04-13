@@ -19,6 +19,7 @@ class Banner extends Component {
     this.state = {};
     this.imgRef = React.createRef();
     this.imgWidth = this.imgWidth.bind(this);
+    this.bannerRef = React.createRef()
   }
   static defaultProps = {
     btnText: "btn text",
@@ -107,11 +108,13 @@ class Banner extends Component {
     const newWidth = (305 * oldWidth) / oldHeight;
     if (oldHeight > 425) {
       this.imgRef.current.style.width = `${newWidth / 4}%`;
+      this.bannerRef.current.style.height = "425px"
+
     }
   }
   render() {
     return (
-      <div className=" banner">
+      <div className=" banner" ref={this.bannerRef} >
         <Content>
           <div
             className="banner__col"
