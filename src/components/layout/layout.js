@@ -94,10 +94,6 @@ const Layout = ({ children }) => (
               name: data.allWordpressPage.edges[0].node.acf.footer.facebook_link,
               alt: data.allWordpressPage.edges[0].node.acf.footer.facebook_icon.alt_text,
               icon: data.allWordpressPage.edges[0].node.acf.footer.facebook_icon.localFile.childImageSharp.fluid
-            }, {
-              name: data.allWordpressPage.edges[0].node.acf.footer.linkedin_link,
-              alt: data.allWordpressPage.edges[0].node.acf.footer.linked_in_icon.alt_text,
-              icon: data.allWordpressPage.edges[0].node.acf.footer.linked_in_icon.localFile.childImageSharp.fluid
             },]} />
         </div>
       </>
