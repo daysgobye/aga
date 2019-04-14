@@ -150,7 +150,7 @@ class Banner extends Component {
                 <h4>{this.SubtitleCheck(this.props.subSubHeadding)}</h4>
               </div>
               <div className="banner__col__two__bottom">
-                <p
+                <div
                   dangerouslySetInnerHTML={{ __html: this.props.cta }}
                   style={{
                     textAlign: this.dreaction("text")
