@@ -37,7 +37,7 @@ class Photos extends Component {
           <div className="wrapper">
             {/* <Spacer /> */}
             <div className="pageinfo">
-              <h3>{data.acf.page_headding}</h3>
+              <h2>{data.acf.page_headding}</h2>
               <p
                 dangerouslySetInnerHTML={{ __html: data.acf.page_description }}
               />

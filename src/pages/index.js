@@ -52,37 +52,86 @@ class IndexPage extends Component {
     return (
       <Layout>
         <SEO page="Home" />
-        <BackgroundBanner
-          btnText="View FAQ"
-          linkPage="faq"
-          title={data.acf.banner.hero_text}
-          cta={data.acf.banner.cta}
-          sides={true}
-          img={
-            data.acf.banner.background_image.localFile.childImageSharp.fluid.src
-          }
-          heroimg={data.acf.banner.hero_image.localFile.childImageSharp.fluid}
-          heroimgalt={data.acf.banner.hero_image.alt_text}
-        />
-        <Content>
-          <div className="wrapper">
-            <Spacer />
-            <div className="bio">
-              <div className="bio__info">
-                <div className="bio__info__title">
-                  <h3>{data.acf.bio_section.title}</h3>
-                  <h4>{data.acf.bio_section.name} </h4>
+        <div className="index">
+          <BackgroundBanner
+            btnText="View FAQ"
+            linkPage="faq"
+            title={data.acf.banner.hero_text}
+            cta={data.acf.banner.cta}
+            sides={true}
+            img={
+              data.acf.banner.background_image.localFile.childImageSharp.fluid
+                .src
+            }
+            heroimg={data.acf.banner.hero_image.localFile.childImageSharp.fluid}
+            heroimgalt={data.acf.banner.hero_image.alt_text}
+          />
+          <Content>
+            <div className="wrapper">
+              <Spacer />
+              <div className="bio">
+                <div className="bio__info">
+                  <div className="bio__info__title">
+                    <h3>{data.acf.bio_section.title}</h3>
+                    <h4>{data.acf.bio_section.name} </h4>
+                  </div>
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data.acf.bio_section.bio
+                    }}
+                  />
+                  <div
+                    className="bio__info__title__button"
+                    onClick={this.logButtonEvent("Team")}
+                  >
+                    <ButtonRound
+                      innerText={"Meet The Team"}
+                      action={"team"}
+                      type="gatsbylink"
+                      passedState={""}
+                      padding="4.5px 20px"
+                      fsize="0.85"
+                    />
+                  </div>
                 </div>
-                <div
-                  dangerouslySetInnerHTML={{ __html: data.acf.bio_section.bio }}
+                <div className="bio__image">
+                  <div className="bio__image__container">
+                    <Img
+                      fluid={
+                        data.acf.bio_section.image.localFile.childImageSharp
+                          .fluid
+                      }
+                      alt={data.acf.bio_section.image.alt_text}
+                    />
+                  </div>
+                </div>
+              </div>
+              <Spacer />
+            </div>
+          </Content>
+          <div className="program__overview">
+            <div className="program__overview__image">
+              <div className="program__overview__image__container">
+                <Img
+                  fluid={data.acf.academy_image.localFile.childImageSharp.fluid}
+                  alt={data.acf.academy_image.alt_text}
                 />
-                <div
-                  className="bio__info__title__button"
-                  onClick={this.logButtonEvent("Team")}
-                >
+              </div>
+            </div>
+            <div className="program__overview__card">
+              <h3>The Academy</h3>
+              <h4 className="mobile-centered">Curriculum Overview</h4>
+              <div
+                className="mobile-centered"
+                dangerouslySetInnerHTML={{
+                  __html: program.acf.curriculum_overview
+                }}
+              />
+              <div className="program__overview__card__button">
+                <div onClick={this.logButtonEvent("Program")}>
                   <ButtonRound
-                    innerText={"Meet The Team"}
-                    action={"team"}
+                    innerText={"View Full Curriculum"}
+                    action={"program"}
                     type="gatsbylink"
                     passedState={""}
                     padding="4.5px 20px"
@@ -90,93 +139,50 @@ class IndexPage extends Component {
                   />
                 </div>
               </div>
-              <div className="bio__image">
-                <div className="bio__image__container">
-                  <Img
-                    fluid={
-                      data.acf.bio_section.image.localFile.childImageSharp.fluid
-                    }
-                    alt={data.acf.bio_section.image.alt_text}
+
+              <div className="program__overview__card__info">
+                <div className="program__overview__card__info__data">
+                  <h4>Location</h4>
+                  <p>Las Vegas, NV</p>
+                </div>
+                <div className="program__overview__card__info__data">
+                  <h4>Course Length</h4>
+                  <p>{courses.length} Weeks</p>
+                </div>
+                <div className="program__overview__card__info__data">
+                  <h4>Class Size</h4>
+                  <p>{program.acf.class_size} Students</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <Content>
+            <div className="wrapper home">
+              <Spacer />
+              <div className="sponsers">
+                <h3>Sponsors</h3>
+                <div className="sponsers__description">
+                  <div
+                    dangerouslySetInnerHTML={{ __html: data.acf.sponsor_info }}
                   />
                 </div>
-              </div>
-            </div>
-            <Spacer />
-          </div>
-        </Content>
-        <div className="program__overview">
-          <div className="program__overview__image">
-            <div className="program__overview__image__container">
-              <Img
-                fluid={data.acf.academy_image.localFile.childImageSharp.fluid}
-                alt={data.acf.academy_image.alt_text}
-              />
-            </div>
-          </div>
-          <div className="program__overview__card">
-            <h3>The Academy</h3>
-            <h4 className="mobile-centered">Curriculum Overview</h4>
-            <div
-              className="mobile-centered"
-              dangerouslySetInnerHTML={{
-                __html: program.acf.curriculum_overview
-              }}
-            />
-            <div className="program__overview__card__button">
-              <div onClick={this.logButtonEvent("Program")}>
-                <ButtonRound
-                  innerText={"View Full Curriculum"}
-                  action={"program"}
-                  type="gatsbylink"
-                  passedState={""}
-                  padding="4.5px 20px"
-                  fsize="0.85"
-                />
-              </div>
-            </div>
 
-            <div className="program__overview__card__info">
-              <div className="program__overview__card__info__data">
-                <h4>Location</h4>
-                <p>Las Vegas, NV</p>
-              </div>
-              <div className="program__overview__card__info__data">
-                <h4>Course Length</h4>
-                <p>{courses.length} Weeks</p>
-              </div>
-              <div className="program__overview__card__info__data">
-                <h4>Class Size</h4>
-                <p>{program.acf.class_size} Students</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <Content>
-          <div className="wrapper home">
-            <Spacer />
-            <div className="sponsers">
-              <h3>Sponsors</h3>
-              <div className="sponsers__description">
-                <div
-                  dangerouslySetInnerHTML={{ __html: data.acf.sponsor_info }}
-                />
-              </div>
-
-              {sponsors.map(el => (
-                <div className="sponsers__single" key={el.node.id}>
-                  <div className="sponsers__single__image">
-                    <Img
-                      fluid={el.node.acf.logo.localFile.childImageSharp.fluid}
-                      alt={el.node.acf.logo.alt_text}
-                    />
+                {sponsors.map(el => (
+                  <div className="sponsers__single" key={el.node.id}>
+                    <div className="sponsers__single__image">
+                      <Img
+                        fluid={el.node.acf.logo.localFile.childImageSharp.fluid}
+                        alt={el.node.acf.logo.alt_text}
+                      />
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+              <Spacer />
+              <Signup />
             </div>
-            <Spacer />
-            <Signup />
-          </div>
-        </Content>
+          </Content>
+        </div>
       </Layout>
     );
   }
@@ -196,7 +202,7 @@ export const query = graphql`
                 alt_text
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 2000) {
+                    fluid(maxWidth: 3000) {
                       ...GatsbyImageSharpFluid_noBase64
                       src
                     }

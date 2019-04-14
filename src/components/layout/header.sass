@@ -8,7 +8,7 @@
     @include navsnap
         position: sticky
         top: 0
-        z-index: 10000
+        // z-index: 10000
 .header
     color: black
     display: flex
@@ -66,29 +66,17 @@
             padding: 10px
             &:hover
                 animation: spin-dot 2s 2
+            &__one, &__two, &__three
+              animation: dot-in .8s forwards
+              border-radius: 100%
+              background: $lighter
+              width: 5px
+              height: 5px
+              margin: 2px
             &__one
-                animation: dot-in .8s forwards
                 transform: translateX(300%)
-                border-radius: 100%
-                background: black
-                width: 5px
-                height: 5px
-                margin: 2px
             &__two
-                animation: dot-in .8s forwards
-                border-radius: 100%
                 transform: translateX(150%)
-                background: black
-                width: 5px
-                height: 5px
-                margin: 2px
-            &__three
-                animation: dot-in .8s forwards
-                border-radius: 100%
-                background: black
-                width: 5px
-                height: 5px
-                margin: 2px
         .nav
             width: 100vw
             display: flex
@@ -110,7 +98,7 @@
       position: relatve 
       z-index: 1000
       .nav 
-        transition: all 1.5s ease-in-out
+        transition: all 1s ease-in-out
         width: 100vw
         height: calc(100vh - 50px)
         position: absolute
@@ -128,8 +116,9 @@
             width: 100vw
             right: 0
     a
-        &:hover
-            color: $light-grey
+      margin-right: 16px
+      &:hover
+          color: $light-grey
 @keyframes spin-dot
     0%
         transform: rotate(0deg)
