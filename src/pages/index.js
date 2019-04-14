@@ -58,7 +58,7 @@ class IndexPage extends Component {
           title={data.acf.banner.hero_text}
           cta={data.acf.banner.cta}
           sides={true}
-          img={data.acf.banner.background_image.localFile.childImageSharp.fluid}
+          img={data.acf.banner.background_image.localFile.childImageSharp.fluid.src}
           heroimg={data.acf.banner.hero_image.localFile.childImageSharp.fluid}
           heroimgalt={data.acf.banner.hero_image.alt_text}
         />
@@ -196,6 +196,7 @@ export const query = graphql`
                   childImageSharp {
                     fluid(maxWidth: 600) {
                       ...GatsbyImageSharpFluid_noBase64
+                      src
                     }
                   }
                 }

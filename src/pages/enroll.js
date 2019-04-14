@@ -35,7 +35,7 @@ class Enroll extends Component {
           subSubHeadding={data.acf.banner.sub_headding}
           cta={data.acf.banner.cta}
           sides={false}
-          img={data.acf.banner.image.localFile.childImageSharp.fluid}
+          img={data.acf.banner.image.localFile.childImageSharp.fluid.src}
         />
         <Content>
           <div className="wraper">
@@ -138,6 +138,7 @@ export const query = graphql`
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 600) {
+                      src
                       ...GatsbyImageSharpFluid_noBase64
                     }
                   }

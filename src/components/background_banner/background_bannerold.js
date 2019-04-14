@@ -138,7 +138,16 @@ class Banner extends Component {
   }
   render() {
     return (
-      <div className="background__banner" ref={this.bannerRef} style={{ backgroundImage: `url(${this.props.img})` }}>
+      <BackgroundImage
+        Tag="section"
+        className={"background__banner"}
+        fluid={this.props.img}
+        backgroundColor={`#ffff`}
+        style={{
+          backgroundSize: "contain"
+        }}
+      // ref={this.bannerRef}
+      >
         <Content>
           <div
             className="background__banner__col"
@@ -206,7 +215,7 @@ class Banner extends Component {
           </div>
         </Content>
         {/* <hr /> */}
-      </div>
+      </BackgroundImage>
     );
   }
 }

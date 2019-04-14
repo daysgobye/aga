@@ -31,7 +31,7 @@ class Program extends Component {
           title={data.acf.banner.hero_text}
           cta={data.acf.banner.cta}
           sides={false}
-          img={data.acf.banner.image.localFile.childImageSharp.fluid}
+          img={data.acf.banner.image.localFile.childImageSharp.fluid.src}
         />
         <Content>
           <div className="wrapper">
@@ -118,6 +118,7 @@ export const query = graphql`
                 localFile {
                   childImageSharp {
                     fluid(maxWidth: 2000) {
+                      src
                       ...GatsbyImageSharpFluid_noBase64
                     }
                   }
