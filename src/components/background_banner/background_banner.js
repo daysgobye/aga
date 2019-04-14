@@ -193,8 +193,20 @@ class Banner extends Component {
                 >
                   {this.props.title}
                 </h2>
-                <h3>{this.SubtitleCheck(this.props.subtitle)}</h3>
-                <h4>{this.SubtitleCheck(this.props.subSubHeadding)}</h4>
+                {/* <h3
+                  style={{
+                    textAlign: this.dreaction("text")
+                  }}
+                >
+                  {this.SubtitleCheck(this.props.subtitle)}
+                </h3> */}
+                <h4
+                  style={{
+                    textAlign: this.dreaction("text")
+                  }}
+                >
+                  {this.SubtitleCheck(this.props.subSubHeadding)}
+                </h4>
               </div>
               <div className="background__banner__col__two__bottom">
                 <div

@@ -4,7 +4,7 @@
     border-bottom: 0.5px solid $accent
     display: flex
     @include tablet-phone 
-      height: 60vh !important
+      height: 70vh !important
     &__col
         width: 100%
         display: flex
@@ -19,7 +19,7 @@
             height: 100%
             @include tablet-phone
                 width: 100%
-                height: 60%
+                height: 55%
                 // background: lightgreen
             &__image 
               display: flex 
@@ -78,6 +78,11 @@
             &__top
               h2 
                 margin-top: -10px
+              h4 
+                margin-top: 1em
+                @include tablet-phone 
+                  margin-top: 0em
+                  margin-bottom: .5em
             &__bottom 
               display: flex 
               flex-direction: column

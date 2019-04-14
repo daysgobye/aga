@@ -57,16 +57,14 @@
                     width: 98%
                 &__gats
                     width: 100%
-
-.background__banner
-  background-repeat: no-repeat
-  background-size: cover
-  background-position: bottom right
-  @include tablet-phone 
-    background-size: contain !important
-    background-position: top right !important
-    background-size: auto 50% !important
-
-
-.gatsby-background-image-tbsukwk::after
-   display: none
+.enroll
+  .background__banner
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: bottom right
+    @include tablet 
+      background-position: 78% 0% !important
+    @include tablet-phone 
+      // background-size: contain !important
+      background-position: 72% 0% !important
+      // background-size: auto 10% !important
