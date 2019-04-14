@@ -67,13 +67,16 @@ class Banner extends Component {
 
   }
   imgWidth() {
-    const oldHeight = this.imgRef.current.offsetHeight;
-    const oldWidth = this.imgRef.current.offsetWidth;
-    const newWidth = (305 * oldWidth) / oldHeight;
-    if (oldHeight > 425) {
-      this.imgRef.current.style.width = `${newWidth / 4}%`;
-      // this.bannerRef.current.style.height = "425px";
+    if (this.props.heroimg) {
+      const oldHeight = this.imgRef.current.offsetHeight;
+      const oldWidth = this.imgRef.current.offsetWidth;
+      const newWidth = (305 * oldWidth) / oldHeight;
+      if (oldHeight > 425) {
+        this.imgRef.current.style.width = `${newWidth / 4}%`;
+        // this.bannerRef.current.style.height = "425px";
+      }
     }
+
   }
 
   checkPhone(swap) {
