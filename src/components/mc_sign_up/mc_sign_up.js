@@ -20,16 +20,18 @@ class McSignUp extends Component {
         >
           <div id="mc_embed_signup_scroll">
             <div className="mc-field-group">
-              <label htmlFor="mce-EMAIL" className="visuallyhidden">
-                Email Sign up
-              </label>
-              <input
-                type="email"
-                placeholder="enter your email"
-                name="EMAIL"
-                className="required email"
-                id="mce-EMAIL"
-              />
+              <label htmlFor="mce-EMAIL">
+                <p className="visuallyhidden">
+                  Email Sign up
+                 </p>
+
+                <input
+                  type="email"
+                  placeholder="enter your email"
+                  name="EMAIL"
+                  className="required email"
+                  id="mce-EMAIL"
+                />  </label>
             </div>
             <div id="mce-responses" className="clear">
               <div

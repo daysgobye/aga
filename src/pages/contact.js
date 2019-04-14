@@ -82,12 +82,24 @@ class Contact extends Component {
                   />
                   {/* <!-- all your input fields here.... --> */}
                   <label>
+                    <p className="visuallyhidden">
+                      Email name
+                 </p>
+
                     <input type="text" placeholder="Name" />
                   </label>
                   <label>
+                    <p className="visuallyhidden">
+                      Email
+                 </p>
+
                     <input type="email" placeholder="Email" />
                   </label>
                   <label>
+                    <p className="visuallyhidden">
+                      phone number
+                 </p>
+
                     <input type="tel" placeholder="Phone Number" />
                   </label>
                   <label>
