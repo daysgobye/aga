@@ -27,6 +27,10 @@
     h1
         width: 100%
         .image
+          width: 40%
+          @media(max-with: 1100px)
+            width: 30%
+          &__container
             width: 230px 
             height: auto
             @include tablet-phone 
@@ -35,23 +39,27 @@
         // background: teal
         width: 5%
         height: 100%
+        margin: auto
         @media(max-width: 1000px)
             display: none
     .desktop
         font-size: .9em
         display: flex
-        // width: 32%
+        width: 40%
         // background: lightseagreen
+        @media(max-with: 1100px)
+          width: 30%
         @include navsnap
             display: none
         .nav
             display: flex
+            justify-content: flex-end
             width: 100%
-            justify-content: space-between
+            // justify-content: space-between
             &__link
                 a, a:visited 
                   color: $dark
-                  margin-left: .6em
+                  // margin-left: .4em
                   font-size: .95em
                 &__active
                     color: $accent !important
@@ -117,6 +125,8 @@
             right: 0
     a
       margin-right: 16px
+      @media(max-width: 850px)
+        margin-right: 8px
       &:hover
           color: $light-grey
 @keyframes spin-dot
