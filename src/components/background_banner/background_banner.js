@@ -40,7 +40,26 @@ class Banner extends Component {
     } else {
       this.setState({ phone: true });
     }
+    // addEventListener that will trigger a rerender so that the new functions will fire on resizeBy
+    window.addEventListener("resize", this.trigger);
   }
+
+  componentWillUnmount() {
+    // removeing EventListener
+    window.removeEventListener("resize", this.trigger);
+  }
+
+  trigger() {
+    // setting state to trigger rerener
+    if (window.matchMedia("(min-width: 650px)").matches) {
+      this.setState({ phone: false });
+      this.imgWidth();
+    } else {
+      this.setState({ phone: true });
+    }
+
+  }
+
   checkPhone(swap) {
     if (this.state.phone) {
       return "column";
@@ -119,12 +138,12 @@ class Banner extends Component {
                   {!this.props.heroimg ? (
                     <span />
                   ) : (
-                    <Img
-                      fluid={this.props.heroimg}
-                      alt={this.props.heroimgalt}
-                      style={{ display: "inherit" }}
-                    />
-                  )}
+                      <Img
+                        fluid={this.props.heroimg}
+                        alt={this.props.heroimgalt}
+                        style={{ display: "inherit" }}
+                      />
+                    )}
                 </div>
               </div>
             </div>

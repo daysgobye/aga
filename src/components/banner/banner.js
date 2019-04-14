@@ -20,6 +20,9 @@ class Banner extends Component {
     this.imgRef = React.createRef();
     this.imgWidth = this.imgWidth.bind(this);
     this.bannerRef = React.createRef();
+    this.trigger = this.trigger.bind(this)
+    this.dreaction = this.dreaction.bind(this)
+    this.SubtitleCheck = this.SubtitleCheck.bind(this)
   }
   static defaultProps = {
     btnText: "btn text",
@@ -44,6 +47,20 @@ class Banner extends Component {
     } else {
       this.setState({ phone: true });
     }
+    window.addEventListener("resize", this.trigger);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.trigger);
+  }
+  trigger() {
+    // this.forceUpdate()
+    if (window.matchMedia("(min-width: 650px)").matches) {
+      this.setState({ phone: false });
+      this.imgWidth();
+    } else {
+      this.setState({ phone: true });
+    }
+
   }
   checkPhone(swap) {
     if (this.state.phone) {
