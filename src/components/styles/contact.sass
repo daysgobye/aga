@@ -4,9 +4,10 @@
     display: flex
     .contact
         // background: teal
+        box-shadow: 0px 0px 5px 1px rgba(219,219,219,0.5)
         display: flex
         justify-content: space-between
-        border: 1px solid $accent
+        // border: 1px solid $accent
         padding: 50px
         // margin: 100px 0
         @include tablet-phone 
@@ -46,6 +47,7 @@
             // background: seagreen
             display: flex
             font-size: 12pt !important
+            color: $dark !important
             @include tablet-phone 
                 width: 100%
             form
@@ -53,8 +55,11 @@
                 // background: coral
                 display: flex
                 flex-direction: column
+                p 
+                  color: $dark !important
                 input, label
-                  font-size: 11pt  
+                  font-size: 11pt 
+                  color: $dark !important 
                 input
                     border: none
                     border-bottom: 1px solid lightgrey
@@ -64,7 +69,6 @@
                     resize: none
                     border: 1px solid lightgrey
                     padding: .65em
-                    
                 button
                     align-self: flex-end
                     border: 1px solid lightgrey
@@ -80,3 +84,9 @@
         align-self: center
         @include tablet 
           width: 75%
+
+.right__banner 
+  .gatsby-image-wrapper, img 
+    object-position: right !important
+    @include tablet-phone
+      object-position: center !important

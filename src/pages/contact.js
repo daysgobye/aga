@@ -27,15 +27,17 @@ class Contact extends Component {
           page="Contact"
           description="Contact the team at Pastry Academy by Amaury Guichon, we are happy to answer any questions you may have."
         />
-        <Banner
-          btnText="View FAQ"
-          linkPage="faq"
-          title={data.acf.banner.hero_text}
-          cta={data.acf.banner.cta}
-          sides={false}
-          img={data.acf.banner.image.localFile.childImageSharp.fluid}
-          heroimgalt={data.acf.banner.image.alt_text}
-        />
+        <div className="right__banner">
+          <Banner
+            btnText="View FAQ"
+            linkPage="faq"
+            title={data.acf.banner.hero_text}
+            cta={data.acf.banner.cta}
+            sides={false}
+            img={data.acf.banner.image.localFile.childImageSharp.fluid}
+            heroimgalt={data.acf.banner.image.alt_text}
+          />
+        </div>
         <Content>
           <div className="wraper">
             <Spacer />
@@ -82,28 +84,22 @@ class Contact extends Component {
                   />
                   {/* <!-- all your input fields here.... --> */}
                   <label>
-                    <p className="visuallyhidden">
-                      Email name
-                 </p>
+                    <p className="visuallyhidden">Email name</p>
 
                     <input type="text" placeholder="Name" />
                   </label>
                   <label>
-                    <p className="visuallyhidden">
-                      Email
-                 </p>
+                    <p className="visuallyhidden">Email</p>
 
                     <input type="email" placeholder="Email" />
                   </label>
                   <label>
-                    <p className="visuallyhidden">
-                      phone number
-                 </p>
+                    <p className="visuallyhidden">phone number</p>
 
                     <input type="tel" placeholder="Phone Number" />
                   </label>
                   <label>
-                    Message
+                    <p>Message</p>
                     <textarea
                       name="message"
                       id=""

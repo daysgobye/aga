@@ -38,7 +38,7 @@ class Enroll extends Component {
           img={data.acf.banner.image.localFile.childImageSharp.fluid.src}
         />
         <Content>
-          <div className="wraper">
+          <div className="wrapper">
             <Spacer />
             <div className="signup">
               <h3> {data.acf.sign_up_form.headding} </h3>
@@ -56,7 +56,7 @@ class Enroll extends Component {
                 <div className="enroll__body__steps">
                   <div className="enroll__body__steps__single">
                     <h4>1. {data.acf.enrollment_process.step_1_title}</h4>
-                    <p
+                    <div
                       dangerouslySetInnerHTML={{
                         __html: data.acf.enrollment_process.step_1_description
                       }}
@@ -65,7 +65,7 @@ class Enroll extends Component {
                   </div>
                   <div className="enroll__body__steps__single">
                     <h4>2. {data.acf.enrollment_process.step_2_title}</h4>
-                    <p
+                    <div
                       dangerouslySetInnerHTML={{
                         __html: data.acf.enrollment_process.step_2_description
                       }}
@@ -74,7 +74,7 @@ class Enroll extends Component {
                   </div>
                   <div className="enroll__body__steps__single">
                     <h4>3. {data.acf.enrollment_process.step_3_title}</h4>
-                    <p
+                    <div
                       dangerouslySetInnerHTML={{
                         __html: data.acf.enrollment_process.step_3_description
                       }}
@@ -83,7 +83,7 @@ class Enroll extends Component {
                   </div>
                   <div className="enroll__body__steps__single">
                     <h4>4. {data.acf.enrollment_process.step_4_title}</h4>
-                    <p
+                    <div
                       dangerouslySetInnerHTML={{
                         __html: data.acf.enrollment_process.step_4_description
                       }}
@@ -92,7 +92,7 @@ class Enroll extends Component {
                   </div>
                   <div className="enroll__body__steps__single">
                     <h4>5. {data.acf.enrollment_process.step_5_title}</h4>
-                    <p
+                    <div
                       dangerouslySetInnerHTML={{
                         __html: data.acf.enrollment_process.step_5_description
                       }}
@@ -137,7 +137,7 @@ export const query = graphql`
                 alt_text
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 600) {
+                    fluid(maxWidth: 2000) {
                       src
                       ...GatsbyImageSharpFluid_noBase64
                     }

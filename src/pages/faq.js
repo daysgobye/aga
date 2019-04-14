@@ -37,8 +37,8 @@ class Faq extends Component {
           heroimgalt={data.acf.banner.image.alt_text}
         />
         <Content>
-          <div className="wraper">
-            {/* <Spacer /> */}
+          <div className="wrapper">
+            <Spacer />
             <div className="faq">
               <div className="faq__section">
                 <div className="faq__section__left">

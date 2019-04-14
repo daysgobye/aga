@@ -58,12 +58,14 @@ class IndexPage extends Component {
           title={data.acf.banner.hero_text}
           cta={data.acf.banner.cta}
           sides={true}
-          img={data.acf.banner.background_image.localFile.childImageSharp.fluid.src}
+          img={
+            data.acf.banner.background_image.localFile.childImageSharp.fluid.src
+          }
           heroimg={data.acf.banner.hero_image.localFile.childImageSharp.fluid}
           heroimgalt={data.acf.banner.hero_image.alt_text}
         />
         <Content>
-          <div className="wraper">
+          <div className="wrapper">
             <Spacer />
             <div className="bio">
               <div className="bio__info">
@@ -150,7 +152,7 @@ class IndexPage extends Component {
           </div>
         </div>
         <Content>
-          <div className="wraper home">
+          <div className="wrapper home">
             <Spacer />
             <div className="sponsers">
               <h3>Sponsors</h3>
@@ -194,7 +196,7 @@ export const query = graphql`
                 alt_text
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 600) {
+                    fluid(maxWidth: 2000) {
                       ...GatsbyImageSharpFluid_noBase64
                       src
                     }
@@ -205,7 +207,7 @@ export const query = graphql`
                 alt_text
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 600) {
+                    fluid(maxWidth: 1200) {
                       ...GatsbyImageSharpFluid_noBase64
                     }
                   }
@@ -220,7 +222,7 @@ export const query = graphql`
                 alt_text
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 600) {
+                    fluid(maxWidth: 800) {
                       ...GatsbyImageSharpFluid_noBase64
                     }
                   }
@@ -231,7 +233,7 @@ export const query = graphql`
               alt_text
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 1000) {
+                  fluid(maxWidth: 1400) {
                     ...GatsbyImageSharpFluid_noBase64
                   }
                 }
