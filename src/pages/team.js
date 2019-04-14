@@ -34,7 +34,7 @@ class Team extends Component {
         />
         <Content>
           <div className="wraper">
-            <Spacer />
+            {/* <Spacer /> */}
             <div className="team">
               {teamMem.map(team => (
                 <div className="team__mem" key={team.node.id}>

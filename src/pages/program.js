@@ -46,15 +46,15 @@ class Program extends Component {
                   }}
                 />
                 <div className="overview__card__info">
-                  <div className="overview__card__info__data">
+                  <div className="overview__card__info__data mobile-small">
                     <h4>Location</h4>
                     <p>Las Vegas, NV</p>
                   </div>
-                  <div className="overview__card__info__data">
+                  <div className="overview__card__info__data mobile-small">
                     <h4>Course Length</h4>
                     <p>{courses.length} Weeks</p>
                   </div>
-                  <div className="overview__card__info__data">
+                  <div className="overview__card__info__data mobile-small">
                     <h4>Class Size</h4>
                     <p>{data.acf.class_size}</p>
                   </div>

@@ -38,7 +38,7 @@ class Faq extends Component {
         />
         <Content>
           <div className="wraper">
-            <Spacer />
+            {/* <Spacer /> */}
             <div className="faq">
               <div className="faq__section">
                 <div className="faq__section__left">

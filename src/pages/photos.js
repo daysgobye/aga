@@ -9,7 +9,7 @@ import { Dialog } from "@reach/dialog";
 import "@reach/dialog/styles.css";
 import Spacer from "../components/spacer/spacer";
 import xIcon from "../images/x.svg";
-import LightBox from '../components/lightbox/lightbox'
+import LightBox from "../components/lightbox/lightbox";
 
 class Photos extends Component {
   constructor(props) {
@@ -35,7 +35,7 @@ class Photos extends Component {
 
         <Content>
           <div className="wraper">
-            <Spacer />
+            {/* <Spacer /> */}
             <div className="pageinfo">
               <h3>{data.acf.page_headding}</h3>
               <p
@@ -45,9 +45,7 @@ class Photos extends Component {
             </div>
             <Spacer />
             <div className="photos">
-              <LightBox
-                photos={photos}
-              />
+              <LightBox photos={photos} />
               {/* {photos.map(photo => (
                 <div
                   className="photos__single"
@@ -120,7 +118,7 @@ export const query = graphql`
                 url
                 childImageSharp {
                   fluid(maxWidth: 1500) {
-                     ...GatsbyImageSharpFluid_noBase64
+                    ...GatsbyImageSharpFluid_noBase64
                     src
                   }
                 }
