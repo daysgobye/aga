@@ -20,9 +20,9 @@ class Banner extends Component {
     this.imgRef = React.createRef();
     this.imgWidth = this.imgWidth.bind(this);
     this.bannerRef = React.createRef();
-    this.trigger = this.trigger.bind(this)
-    this.dreaction = this.dreaction.bind(this)
-    this.SubtitleCheck = this.SubtitleCheck.bind(this)
+    this.trigger = this.trigger.bind(this);
+    this.dreaction = this.dreaction.bind(this);
+    this.SubtitleCheck = this.SubtitleCheck.bind(this);
   }
   static defaultProps = {
     btnText: "btn text",
@@ -64,7 +64,6 @@ class Banner extends Component {
     } else {
       this.setState({ phone: true });
     }
-
   }
   imgWidth() {
     if (this.props.heroimg) {
@@ -76,7 +75,6 @@ class Banner extends Component {
         // this.bannerRef.current.style.height = "425px";
       }
     }
-
   }
 
   checkPhone(swap) {
@@ -143,7 +141,10 @@ class Banner extends Component {
         className={"background__banner"}
         fluid={this.props.img}
         backgroundColor={`#ffff`}
-      // ref={this.bannerRef}
+        style={{
+          backgroundSize: "contain"
+        }}
+        // ref={this.bannerRef}
       >
         <Content>
           <div
@@ -158,17 +159,17 @@ class Banner extends Component {
                   {!this.props.heroimg ? (
                     <span />
                   ) : (
-                      <div
-                        className="banner__col__one__image__container"
-                        ref={this.imgRef}
-                      >
-                        <Img
-                          fluid={this.props.heroimg}
-                          alt={this.props.heroimgalt}
-                          style={{ display: "inherit" }}
-                        />
-                      </div>
-                    )}
+                    <div
+                      className="banner__col__one__image__container"
+                      ref={this.imgRef}
+                    >
+                      <Img
+                        fluid={this.props.heroimg}
+                        alt={this.props.heroimgalt}
+                        style={{ display: "inherit" }}
+                      />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
