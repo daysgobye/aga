@@ -35,7 +35,7 @@ class Banner extends Component {
     }
   };
   componentDidMount() {
-    if (window.matchMedia("(min-width: 424px)").matches) {
+    if (window.matchMedia("(min-width: 650px)").matches) {
       this.setState({ phone: false });
     } else {
       this.setState({ phone: true });
@@ -115,15 +115,17 @@ class Banner extends Component {
           >
             <div className="background__banner__col__one">
               <div className="background__banner__col__one__image">
-                {!this.props.heroimg ? (
-                  <span />
-                ) : (
+                <div className="background__banner__col__one__image__container">
+                  {!this.props.heroimg ? (
+                    <span />
+                  ) : (
                     <Img
                       fluid={this.props.heroimg}
                       alt={this.props.heroimgalt}
                       style={{ display: "inherit" }}
                     />
                   )}
+                </div>
               </div>
             </div>
             <div

@@ -74,7 +74,10 @@ class IndexPage extends Component {
                 <div
                   dangerouslySetInnerHTML={{ __html: data.acf.bio_section.bio }}
                 />
-                <div onClick={this.logButtonEvent("Team")}>
+                <div
+                  className="bio__info__title__button"
+                  onClick={this.logButtonEvent("Team")}
+                >
                   <ButtonRound
                     innerText={"Meet The Team"}
                     action={"team"}
@@ -84,7 +87,6 @@ class IndexPage extends Component {
                     fsize="0.85"
                   />
                 </div>
-
               </div>
               <div className="bio__image">
                 <div className="bio__image__container">
