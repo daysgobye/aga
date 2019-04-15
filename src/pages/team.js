@@ -33,7 +33,7 @@ class Team extends Component {
           heroimgalt={data.acf.banner.image.alt_text}
         />
         <Content>
-          <div className="wraper">
+          <div className="wrapper">
             {/* <Spacer /> */}
             <div className="team">
               {teamMem.map(team => (

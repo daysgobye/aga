@@ -1,6 +1,5 @@
 @import "../base.sass"
-.wraper 
-  margin-top: 2em
+.wrapper 
   .team
     display: flex
     flex-direction: column-reverse
@@ -21,6 +20,11 @@
             width: 65%
             h3 
               color: $dark
+            h6
+              font-size: 1.15em
+              // margin-bottom: 0em
+              font-weight: 300
+              margin-top: 1.2em
             @media(max-width: 760px)
                 width: 100%
                 text-align: center
@@ -40,11 +44,15 @@
                   path
                       fill: #747474
             p
-                padding-top: 15px
+                padding-top: 10px
                 color: #686868
                 @media(max-width: 760px)
                   text-align: left
         &__img
             width: 30%   
+            align-self: flex-start
             @media(max-width: 760px)
                 width: 60%
+                align-self: center
+            @media(max-width: 600px)
+                width: 80%

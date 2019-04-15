@@ -18,7 +18,7 @@ class Banner extends Component {
     super(props);
     this.state = {};
     this.imgRef = React.createRef();
-    this.imgWidth = this.imgWidth.bind(this);
+    // this.imgWidth = this.imgWidth.bind(this);
     this.bannerRef = React.createRef();
     this.trigger = this.trigger.bind(this);
     this.dreaction = this.dreaction.bind(this);
@@ -43,7 +43,7 @@ class Banner extends Component {
   componentDidMount() {
     if (window.matchMedia("(min-width: 650px)").matches) {
       this.setState({ phone: false });
-      this.imgWidth();
+      // this.imgWidth();
     } else {
       this.setState({ phone: true });
     }
@@ -60,30 +60,44 @@ class Banner extends Component {
     // setting state to trigger rerener
     if (window.matchMedia("(min-width: 650px)").matches) {
       this.setState({ phone: false });
-      this.imgWidth();
+      // this.imgWidth();
     } else {
       this.setState({ phone: true });
     }
   }
-  imgWidth() {
-    if (this.props.heroimg) {
-      console.log("fired in has hero img");
+  // imgWidth() {
+  //   if (this.props.heroimg) {
+  //     console.log("fired in has hero img");
 
-      const oldHeight = this.imgRef.current.offsetHeight;
-      const oldWidth = this.imgRef.current.offsetWidth;
-      const newWidth = (305 * oldWidth) / oldHeight;
-      if (oldHeight > 425) {
-        this.imgRef.current.style.width = `${newWidth / 4}%`;
-        // this.bannerRef.current.style.height = "425px";
-      }
-    }
-  }
+  //     const oldHeight = this.imgRef.current.offsetHeight;
+  //     const oldWidth = this.imgRef.current.offsetWidth;
+  //     const newWidth = (305 * oldWidth) / oldHeight;
+  //     if (oldHeight > 425) {
+  //       this.imgRef.current.style.width = `${newWidth / 4}%`;
+  //       // this.bannerRef.current.style.height = "425px";
+  //     }
+  //   }
+  // }
 
   checkPhone(swap) {
     if (this.state.phone) {
       return "column";
     } else {
       return swap;
+    }
+  }
+  checkMobileText(textAlign) {
+    if (this.state.phone) {
+      return "center";
+    } else {
+      return textAlign;
+    }
+  }
+  checkMobileButton(alignment) {
+    if (this.state.phone) {
+      return "center";
+    } else {
+      return alignment;
     }
   }
   SubtitleCheck(prop) {
@@ -108,10 +122,10 @@ class Banner extends Component {
           return this.checkPhone("row-reverse");
           break;
         case "text":
-          return "left";
+          return this.checkMobileText("left");
           break;
         case "wrap":
-          return "flex-start";
+          return this.checkMobileButton("flex-start");
           break;
         default:
           console.log(
@@ -124,10 +138,10 @@ class Banner extends Component {
           return this.checkPhone("row");
           break;
         case "text":
-          return "right";
+          return this.checkMobileText("right");
           break;
         case "wrap":
-          return "flex-end";
+          return this.checkMobileButton("flex-end");
           break;
         default:
           console.log(
@@ -138,7 +152,11 @@ class Banner extends Component {
   }
   render() {
     return (
-      <div className="background__banner" ref={this.bannerRef} style={{ backgroundImage: `url(${this.props.img})` }}>
+      <div
+        className="background__banner"
+        ref={this.bannerRef}
+        style={{ backgroundImage: `url(${this.props.img})` }}
+      >
         <Content>
           <div
             className="background__banner__col"
@@ -152,17 +170,12 @@ class Banner extends Component {
                   {!this.props.heroimg ? (
                     <span />
                   ) : (
-                      <div
-                        className="banner__col__one__image__container"
-                        ref={this.imgRef}
-                      >
-                        <Img
-                          fluid={this.props.heroimg}
-                          alt={this.props.heroimgalt}
-                          style={{ display: "inherit" }}
-                        />
-                      </div>
-                    )}
+                    <Img
+                      fluid={this.props.heroimg}
+                      alt={this.props.heroimgalt}
+                      style={{ display: "inherit" }}
+                    />
+                  )}
                 </div>
               </div>
             </div>
@@ -180,8 +193,20 @@ class Banner extends Component {
                 >
                   {this.props.title}
                 </h2>
-                <h3>{this.SubtitleCheck(this.props.subtitle)}</h3>
-                <h4>{this.SubtitleCheck(this.props.subSubHeadding)}</h4>
+                {/* <h3
+                  style={{
+                    textAlign: this.dreaction("text")
+                  }}
+                >
+                  {this.SubtitleCheck(this.props.subtitle)}
+                </h3> */}
+                <h4
+                  style={{
+                    textAlign: this.dreaction("text")
+                  }}
+                >
+                  {this.SubtitleCheck(this.props.subSubHeadding)}
+                </h4>
               </div>
               <div className="background__banner__col__two__bottom">
                 <div

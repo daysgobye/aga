@@ -1,5 +1,5 @@
 @import "../base.sass"
-.wraper
+.wrapper
     .signup
         // padding: 50px 150px
         box-shadow: 0px 0px 5px 1px rgba(219,219,219,0.5)
@@ -24,6 +24,8 @@
             margin-bottom: .75em
             width: 80%
             align-self: center
+            @include tablet-phone 
+              width: 95%
        
     .enroll
         display: flex
@@ -57,8 +59,14 @@
                     width: 98%
                 &__gats
                     width: 100%
-
-
-
-.gatsby-background-image-tbsukwk::after
-   display: none
+.enroll
+  .background__banner
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: bottom right
+    @include tablet 
+      background-position: 78% 0% !important
+    @include tablet-phone 
+      // background-size: contain !important
+      background-position: 72% 0% !important
+      // background-size: auto 10% !important

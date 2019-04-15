@@ -17,12 +17,12 @@ class Banner extends Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.imgRef = React.createRef();
-    this.imgWidth = this.imgWidth.bind(this);
+    // this.imgRef = React.createRef();
+    // this.imgWidth = this.imgWidth.bind(this);
     this.bannerRef = React.createRef();
-    this.trigger = this.trigger.bind(this)
-    this.dreaction = this.dreaction.bind(this)
-    this.SubtitleCheck = this.SubtitleCheck.bind(this)
+    this.trigger = this.trigger.bind(this);
+    this.dreaction = this.dreaction.bind(this);
+    this.SubtitleCheck = this.SubtitleCheck.bind(this);
   }
   static defaultProps = {
     btnText: "btn text",
@@ -43,7 +43,7 @@ class Banner extends Component {
   componentDidMount() {
     if (window.matchMedia("(min-width: 650px)").matches) {
       this.setState({ phone: false });
-      this.imgWidth();
+      // this.imgWidth();
     } else {
       this.setState({ phone: true });
     }
@@ -56,17 +56,30 @@ class Banner extends Component {
     // this.forceUpdate()
     if (window.matchMedia("(min-width: 650px)").matches) {
       this.setState({ phone: false });
-      this.imgWidth();
+      // this.imgWidth();
     } else {
       this.setState({ phone: true });
     }
-
   }
   checkPhone(swap) {
     if (this.state.phone) {
       return "column";
     } else {
       return swap;
+    }
+  }
+  checkMobileText(textAlign) {
+    if (this.state.phone) {
+      return "center";
+    } else {
+      return textAlign;
+    }
+  }
+  checkMobileButton(alignment) {
+    if (this.state.phone) {
+      return "center";
+    } else {
+      return alignment;
     }
   }
   SubtitleCheck(prop) {
@@ -91,10 +104,10 @@ class Banner extends Component {
           return this.checkPhone("row-reverse");
           break;
         case "text":
-          return "left";
+          return this.checkMobileText("left");
           break;
         case "wrap":
-          return "flex-start";
+          return this.checkMobileButton("flex-start");
           break;
         default:
           console.log(
@@ -107,10 +120,10 @@ class Banner extends Component {
           return this.checkPhone("row");
           break;
         case "text":
-          return "right";
+          return this.checkMobileText("right");
           break;
         case "wrap":
-          return "flex-end";
+          return this.checkMobileButton("flex-end");
           break;
         default:
           console.log(
@@ -138,7 +151,15 @@ class Banner extends Component {
               flexDirection: this.dreaction("body")
             }}
           >
-            <div className="banner__col__one">
+            <div
+              className="banner__col__one"
+              // style={{
+              //   alignItems: "flex-end",
+              //   justifyContent: "flex-end",
+              //   alignContent: "flex-end",
+              //   background: "green"
+              // }}
+            >
               <div className="banner__col__one__image">
                 <div
                   className="banner__col__one__image__container"

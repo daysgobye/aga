@@ -25,67 +25,70 @@ class Program extends Component {
           page="Program"
           description="Learn more about our curriculum and Academy."
         />
-        <BackgroundBanner
-          btnText="View FAQ"
-          linkPage="faq"
-          title={data.acf.banner.hero_text}
-          cta={data.acf.banner.cta}
-          sides={false}
-          img={data.acf.banner.image.localFile.childImageSharp.fluid.src}
-        />
-        <Content>
-          <div className="wrapper">
-            <Spacer />
-            <h3 className="pagetitle">Pastry Academy by Amauy Guichon</h3>
-            <div className="overview">
-              <div className="overview__card">
-                <h4>Curriculum Overview</h4>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: data.acf.curriculum_overview
-                  }}
-                />
-                <div className="overview__card__info">
-                  <div className="overview__card__info__data mobile-small">
-                    <h4>Location</h4>
-                    <p>Las Vegas, NV</p>
-                  </div>
-                  <div className="overview__card__info__data mobile-small">
-                    <h4>Course Length</h4>
-                    <p>{courses.length} Weeks</p>
-                  </div>
-                  <div className="overview__card__info__data mobile-small">
-                    <h4>Class Size</h4>
-                    <p>{data.acf.class_size}</p>
-                  </div>
-                </div>
-              </div>
-              <div className="overview__image">
-                <Img
-                  fluid={data.acf.image.localFile.childImageSharp.fluid}
-                  alt={data.acf.image.alt_text}
-                />
-              </div>
-            </div>
-            <Spacer />
-            <div className="weeks">
-              <h3>Course Overview</h3>
-              {courses.map(course => (
-                <div className="weeks__single" key={course.node.id}>
-                  <h4> {course.node.title}</h4>
-                  <h5>{course.node.acf.week_focus}</h5>
+        <div className="program">
+          <BackgroundBanner
+            btnText="View FAQ"
+            linkPage="faq"
+            title={data.acf.banner.hero_text}
+            cta={data.acf.banner.cta}
+            sides={false}
+            img={data.acf.banner.image.localFile.childImageSharp.fluid.src}
+          />
+
+          <Content>
+            <div className="wrapper">
+              <Spacer />
+              <h3 className="pagetitle">Pastry Academy by Amauy Guichon</h3>
+              <div className="overview">
+                <div className="overview__card">
+                  <h4>Curriculum Overview</h4>
                   <p
                     dangerouslySetInnerHTML={{
-                      __html: course.node.acf.summary
+                      __html: data.acf.curriculum_overview
                     }}
                   />
+                  <div className="overview__card__info">
+                    <div className="overview__card__info__data mobile-small">
+                      <h4>Location</h4>
+                      <p>Las Vegas, NV</p>
+                    </div>
+                    <div className="overview__card__info__data mobile-small">
+                      <h4>Course Length</h4>
+                      <p>{courses.length} Weeks</p>
+                    </div>
+                    <div className="overview__card__info__data mobile-small">
+                      <h4>Class Size</h4>
+                      <p>{data.acf.class_size}</p>
+                    </div>
+                  </div>
                 </div>
-              ))}
+                <div className="overview__image">
+                  <Img
+                    fluid={data.acf.image.localFile.childImageSharp.fluid}
+                    alt={data.acf.image.alt_text}
+                  />
+                </div>
+              </div>
+              <Spacer />
+              <div className="weeks">
+                <h3>Course Overview</h3>
+                {courses.map(course => (
+                  <div className="weeks__single" key={course.node.id}>
+                    <h4> {course.node.title}</h4>
+                    <h5>{course.node.acf.week_focus}</h5>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: course.node.acf.summary
+                      }}
+                    />
+                  </div>
+                ))}
+              </div>
+              <Spacer />
+              <Signup />
             </div>
-            <Spacer />
-            <Signup />
-          </div>
-        </Content>
+          </Content>
+        </div>
       </Layout>
     );
   }
@@ -117,7 +120,7 @@ export const query = graphql`
                 alt_text
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 2000) {
+                    fluid(maxWidth: 4000) {
                       src
                       ...GatsbyImageSharpFluid_noBase64
                     }

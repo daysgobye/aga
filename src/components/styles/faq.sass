@@ -1,27 +1,36 @@
 @import "../base.sass"
 
-.wraper
+.wrapper
+    width: 100%
     .faq
         display: flex
         flex-direction: column
+        width: 100%
         // background: red
         &__section
             display: flex
             justify-content: space-between
             margin-top: 100px
+            width: 100%
             @media(max-width: 760px)
               flex-direction: column
+            &:nth-child(1)
+              margin-top: 0px
             &__left
                 border-top: 1px solid $dark
                 width: 18%
                 @media(max-width: 760px)
                   width: 100%
+                  border-top: none
+                  border-bottom: 1px solid $dark
+                  margin-bottom: 1.5em
+                  
                 h3 
                   font-size: 1.5em
                   font-weight: 300
                   color: $dark
                   @media(max-width: 760px)
-                    margin-bottom: 1em
+                    // margin-bottom: 1em
             &__right
                 width: 80%
                 display: flex
