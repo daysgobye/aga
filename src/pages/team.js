@@ -95,6 +95,7 @@ class Team extends Component {
                       key={team.node.id}
                       name={"Read Full Bio"}
                       expandedName={"Collapse"}
+                      diffText={true}
                       desc={team.node.acf.bio}
                     />
                     {/* <p
