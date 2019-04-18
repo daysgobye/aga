@@ -85,7 +85,8 @@ class Team extends Component {
                       </a>
                     </div>
                     <div className="team__mem__bio__summary">
-                      <p
+                      <div
+                        className="team__mem__bio__summary__text"
                         dangerouslySetInnerHTML={{
                           __html: team.node.acf.bio_summerie
                         }}
