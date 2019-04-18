@@ -7,6 +7,7 @@ import Banner from "../components/banner/banner";
 import "../components/styles/team.sass";
 import Signup from "../components/page_bottom_signup/page_signup";
 import Spacer from "../components/spacer/spacer";
+import SlideUpDown from "../components/slide_up_down/slide_up_down";
 
 class Team extends Component {
   constructor(props) {
@@ -70,7 +71,7 @@ class Team extends Component {
                         href={team.node.acf.face_book_link}
                         aria-label={`a link to ${
                           team.node.acf.name
-                        }Facebook's `}
+                        }'s Facebook `}
                       >
                         {" "}
                         <svg
@@ -83,9 +84,23 @@ class Team extends Component {
                         </svg>
                       </a>
                     </div>
-                    <p
-                      dangerouslySetInnerHTML={{ __html: team.node.acf.bio }}
+                    <div className="team__mem__bio__summary">
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: team.node.acf.bio_summerie
+                        }}
+                      />
+                    </div>
+                    <SlideUpDown
+                      key={team.node.id}
+                      name={"Read Full Bio"}
+                      expandedName={"Collapse"}
+                      diffText={true}
+                      desc={team.node.acf.bio}
                     />
+                    {/* <p
+                      dangerouslySetInnerHTML={{ __html: team.node.acf.bio }}
+                    /> */}
                   </div>
                 </div>
               ))}
@@ -111,6 +126,7 @@ export const query = graphql`
             face_book_link
             instagram_link
             bio
+            bio_summerie
             image {
               alt_text
               localFile {
