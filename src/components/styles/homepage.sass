@@ -80,9 +80,12 @@
           justify-content: center
           width: 24%
           align-items: center
+          @include tablet-phone 
+            width: 40%
           &__image
               width: 70%
-
+              @include tablet-phone 
+                width: 100%
 
 .home
   .page__sign
@@ -122,8 +125,7 @@
         @include navsnap
           padding: 0px 30px
         @include phone-large
-            // margin: 0
-            // padding: 50px 20px
+          font-size: 3.4vw !important
         @include tablet
           font-size: 12pt
         .mobile-centered
