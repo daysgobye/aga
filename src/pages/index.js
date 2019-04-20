@@ -170,10 +170,14 @@ class IndexPage extends Component {
                 {sponsors.map(el => (
                   <div className="sponsers__single" key={el.node.id}>
                     <div className="sponsers__single__image">
-                      <Img
-                        fluid={el.node.acf.logo.localFile.childImageSharp.fluid}
-                        alt={el.node.acf.logo.alt_text}
-                      />
+                      <a href={el.node.acf.link} target="__blank">
+                        <Img
+                          fluid={
+                            el.node.acf.logo.localFile.childImageSharp.fluid
+                          }
+                          alt={el.node.acf.logo.alt_text}
+                        />
+                      </a>
                     </div>
                   </div>
                 ))}
@@ -273,6 +277,7 @@ export const query = graphql`
         node {
           id
           acf {
+            link
             logo {
               alt_text
               localFile {
