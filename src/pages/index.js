@@ -170,7 +170,11 @@ class IndexPage extends Component {
                 {sponsors.map(el => (
                   <div className="sponsers__single" key={el.node.id}>
                     <div className="sponsers__single__image">
-                      <a aria-label={`link to ${el.node.acf.logo.alt_text}`} href={el.node.acf.link} target="_blank">
+                      <a
+                        aria-label={`link to ${el.node.acf.logo.alt_text}`}
+                        href={el.node.acf.link}
+                        target="_blank"
+                      >
                         <Img
                           fluid={
                             el.node.acf.logo.localFile.childImageSharp.fluid

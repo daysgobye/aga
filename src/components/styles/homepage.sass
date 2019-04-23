@@ -78,14 +78,16 @@
       &__single
           display: flex
           justify-content: center
-          width: 24%
+          width: 18%
           align-items: center
+          @include tablet
+            width: 25%
           @include tablet-phone 
-            width: 40%
+            width: 30%
           &__image
-              width: 70%
-              @include tablet-phone 
-                width: 100%
+              width: 80%
+              // @include tablet-phone 
+              //   width: 100%
 
 .home
   .page__sign

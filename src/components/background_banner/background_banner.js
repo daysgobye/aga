@@ -16,7 +16,12 @@ import Img from "gatsby-image";
 class Banner extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      imgLoaded: false,
+      mainHeaderLoaded: false,
+      subHeaderLoaded: false,
+      buttonLoaded: false
+    };
     this.imgRef = React.createRef();
     // this.imgWidth = this.imgWidth.bind(this);
     this.bannerRef = React.createRef();
@@ -49,13 +54,44 @@ class Banner extends Component {
     }
     // addEventListener that will trigger a rerender so that the new functions will fire on resizeBy
     window.addEventListener("resize", this.trigger);
+    setTimeout(() => {
+      this.loadBannerImage();
+    }, 100);
+    setTimeout(() => {
+      this.loadMainHeader();
+    }, 400);
+    setTimeout(() => {
+      this.loadSubHeader();
+    }, 1400);
+    setTimeout(() => {
+      this.loadButton();
+    }, 2000);
   }
 
   componentWillUnmount() {
     // removeing EventListener
     window.removeEventListener("resize", this.trigger);
   }
-
+  loadBannerImage() {
+    this.setState({
+      imgLoaded: true
+    });
+  }
+  loadMainHeader() {
+    this.setState({
+      mainHeaderLoaded: true
+    });
+  }
+  loadSubHeader() {
+    this.setState({
+      subHeaderLoaded: true
+    });
+  }
+  loadButton() {
+    this.setState({
+      buttonLoaded: true
+    });
+  }
   trigger() {
     // setting state to trigger rerener
     if (window.matchMedia("(min-width: 650px)").matches) {
@@ -166,7 +202,11 @@ class Banner extends Component {
           >
             <div className="background__banner__col__one">
               <div className="background__banner__col__one__image">
-                <div className="background__banner__col__one__image__container">
+                <div
+                  className={`background__banner__col__one__image__container ${
+                    this.state.imgLoaded ? ` loaded` : ``
+                  }`}
+                >
                   {!this.props.heroimg ? (
                     <span />
                   ) : (
@@ -187,6 +227,7 @@ class Banner extends Component {
             >
               <div className="background__banner__col__two__top">
                 <h2
+                  className={`${this.state.mainHeaderLoaded ? " loaded" : ""}`}
                   style={{
                     textAlign: this.dreaction("text")
                   }}
@@ -210,12 +251,17 @@ class Banner extends Component {
               </div>
               <div className="background__banner__col__two__bottom">
                 <div
+                  className={`background__banner__col__two__bottom__text
+                   ${this.state.subHeaderLoaded ? " loaded" : ""}`}
                   dangerouslySetInnerHTML={{ __html: this.props.cta }}
                   style={{
                     textAlign: this.dreaction("text")
                   }}
                 />
-                <div className="background__banner__col__two__bottom__btn">
+                <div
+                  className={`background__banner__col__two__bottom__btn
+                   ${this.state.buttonLoaded ? " loaded" : ""}`}
+                >
                   <ButtonRound
                     innerText={this.props.btnText}
                     action={this.props.linkPage}
