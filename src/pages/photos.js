@@ -16,10 +16,38 @@ class Photos extends Component {
     super(props);
     this.state = {
       showLightbox: false,
-      selectedImage: null
+      selectedImage: null,
+      mainHeaderLoaded: false,
+      subHeaderLoaded: false,
+      photosLoaded: false
     };
   }
-
+  componentDidMount() {
+    setTimeout(() => {
+      this.loadMainHeader();
+    }, 400);
+    setTimeout(() => {
+      this.loadSubHeader();
+    }, 1400);
+    setTimeout(() => {
+      this.loadPhotos();
+    }, 1600);
+  }
+  loadMainHeader() {
+    this.setState({
+      mainHeaderLoaded: true
+    });
+  }
+  loadSubHeader() {
+    this.setState({
+      subHeaderLoaded: true
+    });
+  }
+  loadPhotos() {
+    this.setState({
+      photosLoaded: true
+    });
+  }
   render() {
     const photos = this.props.data.allWordpressAcfPhoto.edges;
     const data = this.props.data.allWordpressPage.edges[0].node;
@@ -37,14 +65,23 @@ class Photos extends Component {
           <div className="wrapper">
             {/* <Spacer /> */}
             <div className="pageinfo">
-              <h2>{data.acf.page_headding}</h2>
-              <p
+              <h2 className={`${this.state.mainHeaderLoaded ? " loaded" : ""}`}>
+                {data.acf.page_headding}
+              </h2>
+              <div
+                className={`gallery__text
+              ${this.state.subHeaderLoaded ? " loaded" : ""}`}
                 dangerouslySetInnerHTML={{ __html: data.acf.page_description }}
               />
-              <hr />
+              <hr
+                className={`photo__hr
+              ${this.state.subHeaderLoaded ? " loaded" : ""}`}
+              />
             </div>
             <Spacer />
-            <div className="photos">
+            <div
+              className={`photos ${this.state.photosLoaded ? " loaded" : ""}`}
+            >
               <LightBox photos={photos} />
               {/* {photos.map(photo => (
                 <div

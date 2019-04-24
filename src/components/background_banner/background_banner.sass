@@ -105,14 +105,20 @@
                   transform: translateY(0%)
               h4 
                 margin-top: 1em
-                // color: green
+                // color: green 
+                opacity: 0
+                // transform: translateY(20%)
+                transition: all 1s ease-in-out
+                &.loaded 
+                  opacity: 1
+                  // transform: translateY(0%)
                 @include tablet-phone 
                   margin-top: 0em
                   margin-bottom: .5em
             &__bottom 
               display: flex 
               flex-direction: column
-              align-items: flex-end
+              // align-items: flex-end
               @include tablet-phone 
                 align-items: center !important
                 text-align: center !important
@@ -123,8 +129,6 @@
                 &.loaded 
                   transform: translateY(0%)
                   opacity: 1
-                
-                  
               &__btn
                 display: flex
                 width: 100%

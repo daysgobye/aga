@@ -242,6 +242,7 @@ class Banner extends Component {
                   {this.SubtitleCheck(this.props.subtitle)}
                 </h3> */}
                 <h4
+                  className={`${this.state.subHeaderLoaded ? " loaded" : ""}`}
                   style={{
                     textAlign: this.dreaction("text")
                   }}
