@@ -53,13 +53,13 @@ class Banner extends Component {
     }, 100);
     setTimeout(() => {
       this.loadMainHeader();
-    }, 400);
+    }, 200);
     setTimeout(() => {
       this.loadSubHeader();
-    }, 1400);
+    }, 1200);
     setTimeout(() => {
       this.loadButton();
-    }, 2000);
+    }, 1800);
   }
   componentWillUnmount() {
     window.removeEventListener("resize", this.trigger);
