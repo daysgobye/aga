@@ -62,7 +62,9 @@
       text-align: center
       display: flex
       flex-wrap: wrap
-      justify-content: space-between
+      // justify-content: space-between
+      justify-content: center
+      background: red
       flex-direction: row-reverse
       h3
           display: flex
@@ -91,6 +93,9 @@
             width: 25%
           @include tablet-phone 
             width: 30%
+          &:nth-last-child(1)
+            background: orange
+            margin: auto
           &__image
               width: 80%
               // @include tablet-phone 
