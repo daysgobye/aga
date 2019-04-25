@@ -48,9 +48,41 @@ class Banner extends Component {
       this.setState({ phone: true });
     }
     window.addEventListener("resize", this.trigger);
+    setTimeout(() => {
+      this.loadBannerImage();
+    }, 100);
+    setTimeout(() => {
+      this.loadMainHeader();
+    }, 200);
+    setTimeout(() => {
+      this.loadSubHeader();
+    }, 1200);
+    setTimeout(() => {
+      this.loadButton();
+    }, 1800);
   }
   componentWillUnmount() {
     window.removeEventListener("resize", this.trigger);
+  }
+  loadBannerImage() {
+    this.setState({
+      imgLoaded: true
+    });
+  }
+  loadMainHeader() {
+    this.setState({
+      mainHeaderLoaded: true
+    });
+  }
+  loadSubHeader() {
+    this.setState({
+      subHeaderLoaded: true
+    });
+  }
+  loadButton() {
+    this.setState({
+      buttonLoaded: true
+    });
   }
   trigger() {
     // this.forceUpdate()
@@ -178,6 +210,7 @@ class Banner extends Component {
             >
               <div className="banner__col__two__top">
                 <h2
+                  className={`${this.state.mainHeaderLoaded ? " loaded" : ""}`}
                   style={{
                     textAlign: this.dreaction("text")
                   }}
@@ -185,16 +218,25 @@ class Banner extends Component {
                   {this.props.title}
                 </h2>
                 <h3>{this.SubtitleCheck(this.props.subtitle)}</h3>
-                <h4>{this.SubtitleCheck(this.props.subSubHeadding)}</h4>
+                <h4
+                  className={`${this.state.mainHeaderLoaded ? " loaded" : ""}`}
+                >
+                  {this.SubtitleCheck(this.props.subSubHeadding)}
+                </h4>
               </div>
               <div className="banner__col__two__bottom">
                 <div
+                  className={`background__banner__col__two__bottom__text
+                ${this.state.subHeaderLoaded ? " loaded" : ""}`}
                   dangerouslySetInnerHTML={{ __html: this.props.cta }}
                   style={{
                     textAlign: this.dreaction("text")
                   }}
                 />
-                <div className="background__banner__col__two__bottom__btn">
+                <div
+                  className={`background__banner__col__two__bottom__btn
+                   ${this.state.buttonLoaded ? " loaded" : ""}`}
+                >
                   <ButtonRound
                     innerText={this.props.btnText}
                     action={this.props.linkPage}

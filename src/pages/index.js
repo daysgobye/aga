@@ -16,12 +16,21 @@ class IndexPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      page: "Home"
+      page: "Home",
+      bioNameLoaded: false
     };
   }
   componentDidMount() {
     //adds event listener to the page for scroll events to log in custom GA event if page is scrolled below a certain %
     // window.addEventListener("scroll", this.getScrollPercent);
+    setTimeout(() => {
+      this.loadBioName();
+    }, 625);
+  }
+  loadBioName() {
+    this.setState({
+      bioNameLoaded: true
+    });
   }
   getScrollPercent() {
     //gets overall height of page
@@ -72,16 +81,33 @@ class IndexPage extends Component {
               <div className="bio">
                 <div className="bio__info">
                   <div className="bio__info__title">
-                    <h3>{data.acf.bio_section.title}</h3>
-                    <h4>{data.acf.bio_section.name} </h4>
+                    <h3
+                      className={`bio__info__title__title ${
+                        this.state.bioNameLoaded ? " loaded" : ""
+                      }`}
+                    >
+                      {data.acf.bio_section.title}
+                    </h3>
+                    <h4
+                      className={`bio__info__title__name ${
+                        this.state.bioNameLoaded ? " loaded" : ""
+                      }`}
+                    >
+                      {data.acf.bio_section.name}{" "}
+                    </h4>
                   </div>
                   <div
+                    className={`bio__info__title__text ${
+                      this.state.bioNameLoaded ? " loaded" : ""
+                    }`}
                     dangerouslySetInnerHTML={{
                       __html: data.acf.bio_section.bio
                     }}
                   />
                   <div
-                    className="bio__info__title__button"
+                    className={`bio__info__title__button ${
+                      this.state.bioNameLoaded ? " loaded" : ""
+                    }`}
                     onClick={this.logButtonEvent("Team")}
                   >
                     <ButtonRound
@@ -170,7 +196,11 @@ class IndexPage extends Component {
                 {sponsors.map(el => (
                   <div className="sponsers__single" key={el.node.id}>
                     <div className="sponsers__single__image">
-                      <a aria-label={`link to ${el.node.acf.logo.alt_text}`} href={el.node.acf.link} target="_blank">
+                      <a
+                        aria-label={`link to ${el.node.acf.logo.alt_text}`}
+                        href={el.node.acf.link}
+                        target="_blank"
+                      >
                         <Img
                           fluid={
                             el.node.acf.logo.localFile.childImageSharp.fluid

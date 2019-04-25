@@ -22,6 +22,13 @@
                 width: 100%
             &__title
                 margin-top: 50px
+                &__title, &__name, &__text, &__button 
+                 transform: translateX(-8%)
+                 opacity: 0 
+                 transition: all 1.5s ease-in-out
+                 &.loaded 
+                  opacity: 1
+                  transform: translateX(0)
                 h4
                     margin-top: 15px
                     color: $accent
@@ -78,14 +85,16 @@
       &__single
           display: flex
           justify-content: center
-          width: 24%
+          width: 18%
           align-items: center
+          @include tablet
+            width: 25%
           @include tablet-phone 
-            width: 40%
+            width: 30%
           &__image
-              width: 70%
-              @include tablet-phone 
-                width: 100%
+              width: 80%
+              // @include tablet-phone 
+              //   width: 100%
 
 .home
   .page__sign

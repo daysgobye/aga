@@ -1,6 +1,7 @@
 @import '../base.sass'
 .header__wrapper
     background: white
+    // background: lightskyblue
     box-shadow: 0px 2px 2px 0px rgba(219,219,219,0.5)
     position: sticky 
     top: 0 
@@ -16,12 +17,14 @@
     padding: 12px 0
     justify-content: space-between
     width: 100vw
+    // background: pink
     @include navsnap
         padding: 10px 0
     @include tablet-phone 
       padding: 15px 0px
     &__title
-        width: 32%
+        width: 36%
+        // background: red
         display: flex
         text-align: center
     h1
@@ -43,24 +46,33 @@
         @media(max-width: 1000px)
             display: none
     .desktop
+        // background: red
         font-size: .9em
         display: flex
-        width: 40%
+        width: 36%
         // background: lightseagreen
-        @media(max-with: 1100px)
-          width: 30%
+        @media(max-width: 1000px)
+          width: 43% !important
+        // @media(max-width: 1100px)
+          // width: 30%
         @include navsnap
             display: none
         .nav
             display: flex
             justify-content: flex-end
             width: 100%
-            // justify-content: space-between
+            justify-content: space-between
             &__link
                 a, a:visited 
                   color: $dark
                   // margin-left: .4em
                   font-size: .95em
+                  @media(max-width: 1000px) 
+                    font-size: .9em
+                  @media(max-width: 850px)
+                    font-size: .75em
+                  @media(max-width: 750px)
+                    font-size: .70em
                 &__active
                     color: $accent !important
                     text-decoration: underline
@@ -73,9 +85,9 @@
             display: flex
             padding: 10px
             &:hover
-                animation: spin-dot 2s 2
+                animation: spin-dot 1.25s 2
             &__one, &__two, &__three
-              animation: dot-in .8s forwards
+              animation: dot-in .6s forwards
               border-radius: 100%
               background: $lighter
               width: 5px
@@ -106,7 +118,7 @@
       position: relatve 
       z-index: 1000
       .nav 
-        transition: all 1s ease-in-out
+        transition: all .75s ease-in-out
         width: 100vw
         height: calc(100vh - 50px)
         position: absolute
@@ -124,7 +136,7 @@
             width: 100vw
             right: 0
     a
-      margin-right: 16px
+      // margin-right: 16px
       @media(max-width: 850px)
         margin-right: 8px
       &:hover
