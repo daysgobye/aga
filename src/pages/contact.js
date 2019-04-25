@@ -73,7 +73,7 @@ class Contact extends Component {
               <hr />
               <div className="contact__form">
                 <form
-                  action="https://getsimpleform.com/messages?form_api_token=716e8ed73218e778b78c65a6dfd94862"
+                  action="https://getsimpleform.com/messages?form_api_token=e07afecd7e586621b98a5e464c17d023"
                   method="post"
                 >
                   {/* <!-- the redirect_to is optional, the form will redirect to the referrer on submission --> */}
@@ -91,7 +91,7 @@ class Contact extends Component {
                   <label>
                     <p className="visuallyhidden">Email</p>
 
-                    <input type="email" placeholder="Email" />
+                    <input name="email" type="email" placeholder="Email" />
                   </label>
                   <label>
                     <p className="visuallyhidden">phone number</p>
