@@ -13,7 +13,7 @@ class Signup extends Component {
         <h3>Join the Waiting List</h3>
         <p>
           Sign up below to be the first to know when enrollment opens. Classes
-          begin Octboer 2019.
+          begin October 2019.
         </p>
         <McSignUp />
       </div>
