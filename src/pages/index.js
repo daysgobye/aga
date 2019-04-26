@@ -193,7 +193,7 @@ class IndexPage extends Component {
                   />
                 </div>
 
-                {sponsors.map(el => (
+                {sponsors.sort((a, b) => parseInt(a.node.acf.order) - parseInt(b.node.acf.order)).map(el => (
                   <div className="sponsers__single" key={el.node.id}>
                     <div className="sponsers__single__image">
                       <a
@@ -302,11 +302,12 @@ export const query = graphql`
         }
       }
     }
-    allWordpressAcfSponsor {
+    allWordpressAcfSponsor(sort: {fields: [acf___order], order: ASC}) {
       edges {
         node {
           id
           acf {
+	  order
             link
             logo {
               alt_text
