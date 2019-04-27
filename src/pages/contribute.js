@@ -16,15 +16,16 @@ class Contribute extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      donationBalance: 1000,
+      donationBalance: 0,
       tuitionPrice: 5000,
-      percentEarned: 50
+      percentEarned: 50,
+      animationTiming: 100
     };
   }
   componentDidMount() {
     setTimeout(() => {
       this.calculatePercents();
-    }, 100);
+    }, 10);
   }
   calculatePercents() {
     const balance = this.props.data.allWordpressPage.edges[0].node.acf
@@ -33,9 +34,10 @@ class Contribute extends Component {
       .tuition_price;
     const percentPaid = Math.floor((balance / tuition) * 100);
     this.setState({
-      donationBalance: this.formatNumber(balance),
+      donationBalance: balance,
       tuitionPrice: tuition
     });
+    // this.incrementBalance(balance);
     this.incrementPercent(percentPaid);
   }
   incrementPercent(num) {
@@ -93,28 +95,32 @@ class Contribute extends Component {
                     </div>
                     <div className="contribute__statistics__image__container__info__container__graph">
                       <div className="graph">
-                        <p className="graph__title">
-                          Progress Towards Next Student's Tuition
-                        </p>
-                        <div
-                          className="graph__progress"
-                          style={{
-                            width: this.state.percentEarned + "%"
-                          }}
-                        >
-                          <p>{this.state.percentEarned}%</p>
+                        <div className="graph__top">
+                          <p className="graph__top__title">
+                            Progress Towards Next Student's Tuition
+                          </p>
                         </div>
-                        <div className="graph__bar">
+                        <div className="graph__bottom">
                           <div
-                            className="graph__bar__fill"
+                            className="graph__bottom__progress"
                             style={{
                               width: this.state.percentEarned + "%"
                             }}
-                          />
-                        </div>
-                        <div className="graph__labels">
-                          <p>0%</p>
-                          <p>100%</p>
+                          >
+                            <p>{this.state.percentEarned}%</p>
+                          </div>
+                          <div className="graph__bottom__bar">
+                            <div
+                              className="graph__bottom__bar__fill"
+                              style={{
+                                width: this.state.percentEarned + "%"
+                              }}
+                            />
+                          </div>
+                          <div className="graph__bottom__labels">
+                            <p>0%</p>
+                            <p>100%</p>
+                          </div>
                         </div>
                       </div>
                     </div>

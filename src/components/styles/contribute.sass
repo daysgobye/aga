@@ -54,12 +54,13 @@
             width: 100%
             padding: 0px 60px
             font-size: 2vw
+            margin: 6em
         @include navsnap
           padding: 0px 30px
         @include phone-large
           font-size: 3.4vw !important
-        @include tablet
-          font-size: 12pt
+          margin: 4em
+          
         .mobile-centered
           @include tablet 
             text-align: center
@@ -70,9 +71,15 @@
           @include tablet 
             // margin-top: 1em
             // margin-bottom: 0.35em
-            // text-align: center
+            text-align: center
           @include tablet
             font-size: 1.65em
+          @include tablet-phone 
+            font-size: 1.85em
+          @media(max-width: 500px)
+            font-size: 2.3em
+          @include phone-large 
+            font-size: 1.6em
         // h4
         //     margin: 10px 0
         //     color: $accent
@@ -83,13 +90,17 @@
         p
             flex: 1
             color: #787878
-            @media(max-width: 1150px)
-              font-size: .95em
             @include navsnap
               font-size: 1em
               // margin-bottom: 1em
-            @include tablet
-              font-size: .88em
+            @media(max-width: 1200px)
+              font-size: 1em
+            @include tablet-phone 
+              font-size: 1.1em
+            @media(max-width: 500px) 
+              font-size: 1.4em
+            @include phone-large 
+              font-size: .95em
         &__info 
             margin-bottom: 10px
             justify-self: flex-end
@@ -110,25 +121,43 @@
         position: relative
         @include tablet
           width: 100% !important
+          height: 100%
         @include tablet
             width: 38%
-        @include tablet
-            width: 80%
         &__container 
+          // display: flex
           width: 100%
+          height: 100%
           position: relative
+          // justify-self: center 
+          // align-self: center
           // display: flex
           @include tablet
-            width: 80%
+            // width: 100%
           &__info 
             position: absolute
-            display: flex 
+            display: flex
             width: 100% 
             height: 100%
             max-width: 610px
             padding: 4em 0em 4em 6em
+            // background: orange
             z-index: 100
-            // background: rgba(50,46,121,.3)
+            @include edgesnap
+              // padding: 50px 20px
+              padding: 2em 0em 2em 4em
+              width: 91%
+            @media(max-width: 950px)
+              width: 88%
+              padding: 1.5em 0em 1.5em 2em
+            @include tablet
+              width: 100%
+              padding: 4em 6em 4em 6em 
+              max-width: 100%
+            @include tablet-phone 
+              padding: 2.5em 3em 2.5em 3em
+            @media(max-width: 500px) 
+              padding: 0
             &__container
               display: flex 
               flex-direction: column
@@ -139,52 +168,89 @@
               height: 100%
               border-radius: 3px
               background: rgba(250,250,250,0.55)
+              // background: purple
+              @include edgesnap 
+                padding: 2.5em 2.5em
+              @media(max-width: 950px)
+                padding: 1.5em 1.5em
+              @include tablet
+                padding: 4em 
+              @include tablet-phone 
+                padding: 2.5em 4em
+              
               &__data
                 text-align: center
                 h4 
                   // color: red
                   color: #4F3131
-                &, .bold
+                  @media(max-width: 850px)
+                    font-size: 1.2em
+                  @include tablet 
+                    font-size: 1.75em
+                  @include tablet-phone 
+                    font-size: 1.8em
+                  @media(max-width: 500px) 
+                    font-size: 1.6em
+                .bold
                   margin-bottom: .2em 
                   font-weight: 400
+                  @media(max-width: 1150px)
+                    font-size: 2.2vw
+                  @include tablet 
+                    font-size: 3.6vw
+                    margin-bottom: .35em
+                  @include tablet-phone 
+                    font-size: 4.5vw
+                  @media(max-width: 500px) 
+                    font-size: 5.5vw
               &__graph
                 display: flex
                 width: 100%
                 .graph
+                  display: flex 
+                  flex-direction: column
                   width: 100%
-                  &__title 
-                    text-align: center 
-                    margin-bottom: 1em
-                  &__progress
-                    display: flex 
-                    // background: yellow 
-                    justify-content: flex-end
-                  &__bar
-                    display: flex 
-                    --height: 25px
-                    height: var(--height)
-                    border-radius: 100px
-                    overflow: hidden
-                    background: rgba(0,0,0,0.4)
-                    border: 1px solid lightgrey
-                    margin: .3em
-                    // line-height: 1em
-                    &__fill 
-                      display: flex
-                      height: 100%
-                      // width: 80% 
-                      background: rgba(250,250,250,1)
-                      border-top-left-radius: 100px
-                      border-bottom-left-radius: 100px
-                    p 
-                      line-height: var(--height)
-                  &__labels
-                    display: flex 
-                    justify-content: space-between
+                  @media(max-width: 850px)
+                    flex-direction: column-reverse
+                  &__top
+                    &__title 
+                      text-align: center 
+                      margin-bottom: 1em
+                      @media(max-width: 850px)
+                        margin-bottom: 0px
+                  &__bottom
+                    &__progress
+                      display: flex 
+                      // background: yellow 
+                      justify-content: flex-end
+                    &__bar
+                      display: flex 
+                      --height: 25px
+                      height: var(--height)
+                      border-radius: 100px
+                      overflow: hidden
+                      background: rgba(0,0,0,0.4)
+                      border: 1px solid lightgrey
+                      margin: .3em
+                      // line-height: 1em
+                      &__fill 
+                        display: flex
+                        height: 100%
+                        // width: 80% 
+                        background: rgba(250,250,250,1)
+                        border-top-left-radius: 100px
+                        border-bottom-left-radius: 100px
+                      p 
+                        line-height: var(--height)
+                    &__labels
+                      display: flex 
+                      justify-content: space-between
                 p
                   // color: $dark
                   font-weight: 500
                   font-size: .8em
+                  @include tablet 
+                    font-size: .9em
 
         img 
           // height: 100% !important
