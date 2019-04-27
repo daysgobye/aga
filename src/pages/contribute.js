@@ -34,7 +34,7 @@ class Contribute extends Component {
       .tuition_price;
     const percentPaid = Math.floor((balance / tuition) * 100);
     this.setState({
-      donationBalance: balance,
+      donationBalance: this.formatNumber(balance),
       tuitionPrice: tuition
     });
     // this.incrementBalance(balance);
