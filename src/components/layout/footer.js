@@ -36,6 +36,10 @@ class Footer extends Component {
           link: "enroll"
         },
         {
+          title: "Contribute",
+          link: "contribute"
+        },
+        {
           title: "Contact",
           link: "contact"
         }
@@ -43,7 +47,7 @@ class Footer extends Component {
       linkMatch: ""
     };
   }
-  componentDidMount() { }
+  componentDidMount() {}
   findSite(str) {
     const patt = /www.(.*?).com/g;
     return patt.exec(str)[1];
@@ -72,7 +76,7 @@ class Footer extends Component {
                     href={link.name}
                     aria-label={`link to ${
                       this.props.siteTitle
-                      }'s ${this.findSite(link.name)} page`}
+                    }'s ${this.findSite(link.name)} page`}
                   >
                     {" "}
                     <Img fluid={link.icon} alt={link.alt} />

@@ -60,17 +60,16 @@ class Contribute extends Component {
       <Layout>
         <SEO page="Contribute" />
 
-        <Banner
-          btnText="Contact Us"
-          linkPage="contact"
-          title={data.acf.banner.hero_text}
-          cta={data.acf.banner.cta}
-          sides={false}
-          img={data.acf.banner.image.localFile.childImageSharp.fluid}
-          heroimgalt={data.acf.banner.alt_text}
-        />
-
         <div className="contribute">
+          <Banner
+            btnText="Contact Us"
+            linkPage="contact"
+            title={data.acf.banner.hero_text}
+            cta={data.acf.banner.cta}
+            sides={false}
+            img={data.acf.banner.image.localFile.childImageSharp.fluid}
+            heroimgalt={data.acf.banner.alt_text}
+          />
           <Spacer />
           <Content>
             <div className="contribute__cta">

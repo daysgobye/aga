@@ -5,7 +5,6 @@ import "./header.sass";
 import Content from "../utility/Content/Content";
 import ReactGA from "react-ga";
 
-
 class Headder extends Component {
   constructor(props) {
     super(props);
@@ -36,13 +35,17 @@ class Headder extends Component {
           link: "enroll"
         },
         {
+          title: "Contribute",
+          link: "contribute"
+        },
+        {
           title: "Contact",
           link: "contact"
         }
       ],
       navOpen: false
     };
-	this.logMobileNavEvent = this.logMobileNavEvent.bind(this)
+    this.logMobileNavEvent = this.logMobileNavEvent.bind(this);
     this.toggleNav = this.toggleNav.bind(this);
   }
 
@@ -56,10 +59,10 @@ class Headder extends Component {
       action: `User click on Navigation Link`
     });
   }
-  
-logMobileNavEvent() { 
-	this.toggleNav()
-	ReactGA.event({
+
+  logMobileNavEvent() {
+    this.toggleNav();
+    ReactGA.event({
       category: `Mobile Navigation Click`,
       action: `User click on Navigation Link`
     });

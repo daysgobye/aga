@@ -258,3 +258,39 @@
           object-fit: cover
         // @include edgesnap
         //     margin: auto
+
+
+.contribute 
+  .banner
+    .page__section
+      &__content
+        .banner__col 
+          &__one 
+            @media(max-width: 975px)
+              display: flex
+              // background: red
+            &__image
+              @media(max-width: 975px)
+                display: flex 
+                height: 100% 
+                width: 100%
+              &__container
+                @media(max-width: 975px)
+                  height: 100% 
+                  width: 100% 
+                  position: relative
+                .gatsby-image-wrapper, img 
+                  @media(max-width: 975px)
+                    right: 0
+                    object-fit: cover !important
+                    overflow: visible !important
+                    width: 120% !important
+                    object-position: 100% 50% !important 
+                    @include tablet-phone 
+                      width: 90% !important 
+                      object-fit: contain !important
+
+                img 
+                  @media(max-width: 975px)
+                    height: 100% !important
+                    right: 0 !important
