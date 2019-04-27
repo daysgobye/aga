@@ -60,7 +60,7 @@ class Contact extends Component {
                     __html: data.acf.contact_block.address
                   }}
                 />
-                <p>Phone: {data.acf.contact_block.phone_number}</p>
+                {/* <p>Phone: {data.acf.contact_block.phone_number}</p> */}
                 <p>
                   Email:{" "}
                   <span className="contact__info__email">

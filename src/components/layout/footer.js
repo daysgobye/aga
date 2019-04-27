@@ -60,41 +60,50 @@ class Footer extends Component {
           <div className="footer__cols">
             <div className="footer__cols__single">
               <div className="footer__cols__single__title">
-                <Link
-                  to={"/"}
-                  aria-label={`${this.props.siteTitle}  ${this.props.subTitle}`}
-                >
-                  <div className="image">
-                    <Img fluid={this.props.textLogo} alt={this.props.textalt} />
-                  </div>
-                </Link>
-              </div>
-              <div className="footer__cols__single__links">
-                {this.props.links.map((link, index) => (
-                  <a
-                    key={index}
-                    href={link.name}
-                    aria-label={`link to ${
-                      this.props.siteTitle
-                    }'s ${this.findSite(link.name)} page`}
+                <div className="footer__cols__single__title__top">
+                  <Link
+                    to={"/"}
+                    aria-label={`${this.props.siteTitle}  ${
+                      this.props.subTitle
+                    }`}
                   >
-                    {" "}
-                    <Img fluid={link.icon} alt={link.alt} />
-                  </a>
-                ))}
-              </div>
-              <p>
+                    <div className="image">
+                      <Img
+                        fluid={this.props.textLogo}
+                        alt={this.props.textalt}
+                      />
+                    </div>
+                  </Link>
+                </div>
+                <div className="footer__cols__single__title__bottom">
+                  <div className="footer__cols__single__links">
+                    {this.props.links.map((link, index) => (
+                      <a
+                        key={index}
+                        href={link.name}
+                        aria-label={`link to ${
+                          this.props.siteTitle
+                        }'s ${this.findSite(link.name)} page`}
+                      >
+                        {" "}
+                        <Img fluid={link.icon} alt={link.alt} />
+                      </a>
+                    ))}
+                  </div>
+                  {/* <p>
                 <span>Telephone: </span>
                 <a className="leftlink" href={`tel:+1${this.props.phone}`}>
                   {this.props.phone}
                 </a>{" "}
-              </p>
-              <p>
-                <span>E-Mail: </span>
-                <a className="leftlink" href={`mailto:${this.props.email}`}>
-                  {this.props.email}
-                </a>
-              </p>
+              </p> */}
+                  <p>
+                    {/* <span>E-Mail: </span> */}
+                    <a className="leftlink" href={`mailto:${this.props.email}`}>
+                      {this.props.email}
+                    </a>
+                  </p>
+                </div>
+              </div>
             </div>
             <div className="footer__cols__single">
               <div className="footer__cols__single__image">
