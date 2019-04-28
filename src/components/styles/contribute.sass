@@ -20,7 +20,18 @@
         @include tablet-phone 
           width: 95%
       &__button 
-        margin-top: 2em
+        margin-top: 1.5em
+        height: 35px
+        object-fit: contain
+        form 
+          height: 100%
+          input 
+            height: 100%
+            @media(max-width: 1050px)
+              height: 80%
+            @include phone-large 
+              height: 70%
+
   &__statistics
     display: flex
     // justify-content: center 
