@@ -84,11 +84,28 @@
                     width: 20px
                     margin-right: 14px
             &__title
-                width: 70%
+                display: flex 
+                // background: red
+                height: 100%
+                justify-content: space-between
+                flex-direction: column
+                width: 100%
                 // display: flex
                 // background: skyblue
                 
-                text-align: center
+                // text-align: center
+                @media(max-width: 720px)
+                  width: 70%
+                &__top 
+                &__bottom
+                  @media(max-width: 720px)
+                    // widht: 100% 
+                    text-align: center 
+                    display: flex
+                    flex-direction: column 
+                    align-items: center
+                  p 
+                    font-size: 1em
 .copy
   color: $lighter
   bottom: 0
