@@ -12,6 +12,9 @@ import Signup from "../components/page_bottom_signup/page_signup";
 import Spacer from "../components/spacer/spacer";
 import ReactGA from "react-ga";
 
+import payPalLogo from "../images/pp_logo.jpg";
+import payPalButton from "../images/pp_button.jpg";
+
 class Contribute extends Component {
   constructor(props) {
     super(props);
@@ -26,6 +29,10 @@ class Contribute extends Component {
     setTimeout(() => {
       this.calculatePercents();
     }, 10);
+    this.incorporatePP();
+  }
+  incorporatePP() {
+    console.log(payPalLogo, payPalButton);
   }
   calculatePercents() {
     const balance = this.props.data.allWordpressPage.edges[0].node.acf
@@ -77,7 +84,33 @@ class Contribute extends Component {
                 <h3>{data.acf.donation_title}</h3>
                 <p>{data.acf.donation_text}</p>
                 <div className="contribute__cta__content__button">
-                  Donate Now
+                  <form
+                    action="https://www.paypal.com/cgi-bin/webscr"
+                    method="post"
+                    target="_top"
+                  >
+                    <input type="hidden" name="cmd" value="_s-xclick" />
+                    <input
+                      type="hidden"
+                      name="hosted_button_id"
+                      value="STL4ZAGPADD9N"
+                    />
+                    <input
+                      type="image"
+                      src={payPalButton}
+                      border="0"
+                      name="submit"
+                      title="PayPal - The safer, easier way to pay online!"
+                      alt="Donate with PayPal button"
+                    />
+                    <img
+                      alt=""
+                      border="0"
+                      src="https://www.paypal.com/en_US/i/scr/pixel.gif"
+                      width="1"
+                      height="1"
+                    />
+                  </form>
                 </div>
               </div>
             </div>
