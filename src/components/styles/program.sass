@@ -65,11 +65,36 @@
               margin-bottom: .3em
             p
 
+//before the switch to the red mushroom, this is the full width chocolate thing
+// .program
+//   .background__banner 
+//     background-size: cover !important
+//     background-position: 70% 30% !important
+//     @include tablet-phone
+//       background-size: 2800px !important
+//       background-position: 100% 80%
 
-.program
-  .background__banner 
+
+.program 
+  .background__banner
     background-size: cover !important
-    background-position: 70% 30% !important
-    @include tablet-phone
-      background-size: 2800px !important
-      background-position: 100% 80%
+    // background-positon: 70% 30% !important
+    @media(max-width: 1360px)
+      background-position: 60% 30%
+    @media(max-width: 1050px)
+      background-position: 72% 30%
+    @media(max-width: 815px)
+      background-position: 75% 30%
+    @include tablet 
+      background-position: 74% 0% !important
+    @include tablet-phone 
+      background-repeat: no-repeat !important
+      background-size: 1500px !important
+      background-position: 90% 0% !important
+    @media(max-width: 515px)
+      background-position: 85% 0% !important
+    @include phone-large
+      background-size: 1000px !important 
+      // background-repeat: no-repeat !important
+      background-position: 90% 0% !important
+      // background-size: auto 10% !important
