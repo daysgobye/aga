@@ -27,7 +27,7 @@ class Contact extends Component {
           page="Contact"
           description="Contact the team at Pastry Academy by Amaury Guichon, we are happy to answer any questions you may have."
         />
-        <div className="right__banner">
+        <div className="right__banner contactbanner">
           <Banner
             btnText="View FAQ"
             linkPage="faq"
