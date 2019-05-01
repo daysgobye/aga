@@ -38,7 +38,7 @@ class Program extends Component {
           <Content>
             <div className="wrapper">
               <Spacer />
-              <h3 className="pagetitle">Pastry Academy by Amauy Guichon</h3>
+              <h3 className="pagetitle">Pastry Academy by Amaury Guichon</h3>
               <div className="overview">
                 <div className="overview__card">
                   <h4>Curriculum Overview</h4>
