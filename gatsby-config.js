@@ -136,12 +136,12 @@ module.exports = {
       options: {
         username: `amauryguichon`
       }
-    }
-    // {
-    //   resolve: 'gatsby-plugin-snipcart',
-    //   options: {
-    //     apiKey: 'Njg3ZGJmY2EtYTM1OC00Nzc4LTk4NmUtMDFhMjQxMmY4ZWQwNjM2ODg4MTc4Nzk4NzMxMzAy'
-    //   }
-    // }
+    },
+     {
+       resolve: 'gatsby-plugin-snipcart',
+       options: {
+         apiKey: 'NmI3ZTBmMmQtZWYxYi00ODg3LWFkZDctMTU5NTRmMDM5NjFhNjM2ODkwNTU3NTg1ODY4MzIz'
+       }
+     }
   ]
 };
