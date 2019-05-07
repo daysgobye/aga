@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
-import { Link } from "gatsby";
+import { Link, graphql } from "gatsby";
 import Img from "gatsby-image";
-import Layout from "../components/layout/layout"
-import Content from "../components/utility/Content/Content"
-
-class Deposit extends React.Component {
+import Content from "../components/utility/Content/Content";
+import Layout from "../components/layout/layout";
+class Enroll extends React.Component {
 constructor(props) {
 	super(props);
 	this.state = {
@@ -12,40 +11,22 @@ constructor(props) {
 	}
 
 }
-componentDidMount(){
-				console.log(window)
-				window.Snipcart.api.items.add({
-								"id":"1",
-								"name":"Deposit",
-								"url":"localhost:8000/Deposit",
-								"price":"1000.00",
-								"staclable":true,
-				})
-}
-render() {
-				const data = this.props.data.allWordpressPage.edges[0].node
-				console.log(data)
 
+render() {
+	const data = this.props.data.allWordpressPage.edges[0].node
+				console.log(data)
 		return (
-		<Layout>
-			<Content>
-						<button
-						id="buyButton"
-						data-item-url="localhost:8000/Deposit"
-						className="snipcart-checkout"
-    				data-item-id="1"
-    				data-item-name="Deposit"
-    				data-item-price="1000.00"
-						type="button">
-						Pay Deposit</button>
-			</Content>
+
+			<Layout>
+			
 			</Layout>
 		);
 	}
 }
+
 export const query = graphql`
 query{
- allWordpressPage(filter: {title: {regex: "/Deposit/"}}) {
+  allWordpressPage(filter: {title: {regex: "/Enrollv2/"}}) {
     edges {
       node {
         acf {
@@ -62,9 +43,21 @@ query{
               }
             }
           }
-          payment_card {
+          sign_up_form {
             headding
             description
+            first_month_avaible
+            first_avaible_start_date
+            first_avaible_end_date
+            second_month_avaible
+            second_avaible_start_date
+            second_avaible_end_date
+            Third_month_avaible
+            third_avaible_start_date
+            third_avaible_end_date
+            forth_month_avaible
+            forth_avaible_start_date
+            forth_avaible_end_date
           }
           enrollment_process {
             step_1_title
@@ -75,8 +68,10 @@ query{
             step_3_description
             step_4_title
             step_4_description
-            mid_page_headding
-            mid_page_decription
+            step_5_title
+            step_5_description
+            step_6_title
+            step_6_description
             image {
               localFile {
                 childImageSharp {
@@ -92,5 +87,5 @@ query{
     }
   }
 }
-`
-export default Deposit
+`;
+export default Enroll ;
