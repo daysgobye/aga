@@ -10,6 +10,7 @@ import "../components/styles/enroll.sass";
 import ButtonRound from "../components/buttonRound/buttonRound";
 import McSignUp from "../components/mc_sign_up/mc_sign_up";
 import Spacer from "../components/spacer/spacer";
+import Signup from "../components/page_bottom_signup/page_signup";
 
 class Enroll extends Component {
   constructor(props) {
@@ -49,7 +50,37 @@ class Enroll extends Component {
                     __html: data.acf.sign_up_form.description
                   }}
                 />
-                <McSignUp />
+                <div className="signup__buttons">
+                  <div className="signup__buttons__button">
+                    <button>October 2019</button>
+                    <div className="signup__buttons__button__info">
+                      <p>Oct 10 - Dec 20</p>
+                      <p>Seats Open: 2</p>
+                    </div>
+                  </div>
+                  <div className="signup__buttons__button">
+                    <button>January 2020</button>
+                    <div className="signup__buttons__button__info">
+                      <p>Jan 6 - May 22</p>
+                      <p>Seats Open: 6</p>
+                    </div>
+                  </div>
+                  <div className="signup__buttons__button">
+                    <button>March 2020</button>
+                    <div className="signup__buttons__button__info">
+                      <p>Mar 16 - May 22</p>
+                      <p>Seats Open: 11</p>
+                    </div>
+                  </div>
+                  <div className="signup__buttons__button">
+                    <button>May 2020</button>
+                    <div className="signup__buttons__button__info">
+                      <p>May 25 - Jul 31</p>
+                      <p>Seats Open: 14</p>
+                    </div>
+                  </div>
+                </div>
+                {/* <McSignUp /> */}
               </div>
               <div className="enroll">
                 <Spacer />
@@ -115,7 +146,9 @@ class Enroll extends Component {
                   </div>
                 </div>
               </div>
+
               <Spacer />
+              <Signup />
             </div>
           </Content>
         </div>
