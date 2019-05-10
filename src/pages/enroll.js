@@ -126,7 +126,7 @@ class Enroll extends Component {
 
 export const query = graphql`
   query {
-    allWordpressPage(filter: { title: { regex: "/Enrol/" } }) {
+    allWordpressPage(filter: { title: { regex: "/Enrollv1/" } }) {
       edges {
         node {
           title
