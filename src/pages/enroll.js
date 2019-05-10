@@ -6,6 +6,8 @@ import Image from "../components/image";
 import SEO from "../components/seo";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import {SlideDown} from 'react-slidedown'
+import 'react-slidedown/lib/slidedown.css'
 import Content from "../components/utility/Content/Content";
 import BackgroundBanner from "../components/background_banner/background_banner";
 import "../components/styles/enroll.sass";
@@ -31,14 +33,16 @@ class Enroll extends Component {
 										second: "",
 										third: "",
 										fourth: ""
-									}
+									},
+									formOpen: false,
+									resBack: false
 					};
 					this.pickKey=this.pickKey.bind(this)
 					this.handleChange = this.handleChange.bind(this);
   }
 
 				componentDidMount(){
-				fetch(`https://playground.purpleandbold.net/wp-json/wp/v2/pages/${this.props.data.allWordpressPage.edges[0].node.wordpress_id}`)
+					fetch(`https://playground.purpleandbold.net/wp-json/wp/v2/pages/${this.props.data.allWordpressPage.edges[0].node.wordpress_id}`)
   				.then(function(response) {
     			return response.json();
   				})
@@ -49,7 +53,7 @@ class Enroll extends Component {
 										third: res.acf.sign_up_form.third_spots_left,
 										fourth: res.acf.sign_up_form.forth_spots_left
 									}
-									this.setState({spots:spots})
+									this.setState({spots:spots,resBack:true})
 
   				});
 				}
@@ -61,9 +65,7 @@ class Enroll extends Component {
   			}
 				
 				pickKey(pick){
-					console.log(this)
-					this.setState({pickedKey : pick})
-					console.log(this.state)
+					this.setState({pickedKey : pick, formOpen: !this.state.formOpen})
 				}
   render() {
     // const courses = this.props.data.allWordpressWpCourseWeek.edges
@@ -100,31 +102,31 @@ class Enroll extends Component {
                 />
                 <div className="signup__buttons">
                   <div className="signup__buttons__button">
-                    <button onClick={()=>this.pickKey(this.state.apiKeys.first)}>October 2019</button>
+                    <button onClick={()=>this.pickKey(this.state.apiKeys.first)}>{data.acf.sign_up_form.first_month_avaible}</button>
                     <div className="signup__buttons__button__info">
-                      <p>Oct 10 - Dec 20</p>
-                      <p>Seats Open: 2</p>
+                      <p>{ data.acf.sign_up_form.first_avaible_start_date } - {data.acf.sign_up_form.first_avaible_end_date}</p>
+                      <p>Seats Open: {this.state.resBack ? this.state.spots.first : data.acf.sign_up_form.first_spots_left}</p>
                     </div>
                   </div>
                   <div className="signup__buttons__button">
-                    <button  onClick={()=>this.pickKey(this.state.apiKeys.second)}>January 2020</button>
+                    <button  onClick={()=>this.pickKey(this.state.apiKeys.second)}>{data.acf.sign_up_form.second_month_avaible  }</button>
                     <div className="signup__buttons__button__info">
-                      <p>Jan 6 - May 22</p>
-                      <p>Seats Open: 6</p>
+                      <p>{ data.acf.sign_up_form.second_avaible_start_date } - { data.acf.sign_up_form.second_avaible_end_date }</p>
+                      <p>Seats Open: {this.state.resBack ? this.state.spots.second : data.acf.sign_up_form.second_spots_left}</p>
                     </div>
                   </div>
                   <div className="signup__buttons__button">
-                    <button  onClick={()=>this.pickKey(this.state.apiKeys.third)}>March 2020</button>
+                    <button  onClick={()=>this.pickKey(this.state.apiKeys.third)}>{ data.acf.sign_up_form.Third_month_avaible }</button>
                     <div className="signup__buttons__button__info">
-                      <p>Mar 16 - May 22</p>
-                      <p>Seats Open: 11</p>
+                      <p>{ data.acf.sign_up_form.third_avaible_start_date } - { data.acf.sign_up_form.third_avaible_end_date }</p>
+                      <p>Seats Open: {this.state.resBack ? this.state.spots.third : data.acf.sign_up_form.third_spots_left}</p>
                     </div>
                   </div>
                   <div className="signup__buttons__button">
-                    <button  onClick={()=>this.pickKey(this.state.apiKeys.fourth)}>May 2020</button>
+                    <button  onClick={()=>this.pickKey(this.state.apiKeys.fourth)}>{ data.acf.sign_up_form.forth_month_avaible }</button>
                     <div className="signup__buttons__button__info">
-                      <p>May 25 - Jul 31</p>
-                      <p>Seats Open: 14</p>
+                      <p>{ data.acf.sign_up_form.forth_avaible_start_date } - { data.acf.sign_up_form.forth_avaible_end_date }</p>
+                      <p>Seats Open: {this.state.resBack ? this.state.spots.fourth : data.acf.sign_up_form.forth_spots_left}</p>
                     </div>
                   </div>
                 </div>
@@ -132,14 +134,16 @@ class Enroll extends Component {
 							
               </div>
 						<div className="signup__app">
-							<form method="POST" action={`https://formfor.site/send/${this.state.pickedKey}`}>
+						<SlideDown className={'my-dropdown-slidedown'}>
+						{this.state.formOpen ? (
+							<form method="POST" action={`https://usebasin.com/f/${this.state.pickedKey}`}>
 						<label>
 						First
-						<input type="text"/>
+						<input type="text" name="first name"/>
 						</label>
 						<label>
 						Last
-						<input type="text"/>
+						<input type="text" name="last name"/>
 						</label>
 						<label>
 						Date Of Birth
@@ -150,16 +154,16 @@ class Enroll extends Component {
 						</label>
 						<label>
 						Email
-						<input type="email"/>
+						<input type="email" name="email"/>
 						</label>
 						
 						<label>
 						Phone Number
-						<input type="text"/>
+						<input type="text" name="phone number"/>
 						</label>
 						<label>
 						Gender
-						 <select>
+						 <select name="Gender">
   							 <option value="male">Male</option>
   							 <option value="female">Female</option>
  								 <option value="other">Other</option>
@@ -167,11 +171,11 @@ class Enroll extends Component {
 						</label>
 						<label>
 						Country of Citizenship
-						<input type="text"/>
+						<input type="text" name="Country of Citizenship"/>
 						</label>
 						<label>
 						Where Do You Currently Live?
-						<input type="text"/>
+						<input type="text" name="where do you live"/>
 						</label>
 						<label>
 						Do you Understand English Well And Feel Comfottable Following The Course Material in English
@@ -179,7 +183,7 @@ class Enroll extends Component {
           <label>
             <input
               type="radio"
-              name="react-tips"
+              name="Understand English"
               value="yes"
               checked={true}
               className="form-check-input"
@@ -192,7 +196,7 @@ class Enroll extends Component {
           <label>
             <input
               type="radio"
-              name="react-tips"
+              name="Understand English"
               value="No"
               className="form-check-input"
             />
@@ -202,7 +206,7 @@ class Enroll extends Component {
 						</label>
 						<label>
 						Years of Experience
-						 <select>
+						 <select name="years of Experience">
   							 <option value="no_experience">No Experience</option>
   							 <option value="1-2_years">1-2 Years</option>
  								 <option value="3-5_years">3-5 Years</option>
@@ -211,7 +215,7 @@ class Enroll extends Component {
 						</label>
 						<label>
 						Education Level
-						 <select>
+						 <select name="Education Level">
   							 <option value="none">None</option>
   							 <option value="high_school">High School Diploma</option>
  								 <option value="associates">Associates Degree</option>
@@ -219,8 +223,10 @@ class Enroll extends Component {
 								 <option value="masters/doctorate">Masters/Doctorate Degree</option>
 							</select> 
 						</label>
- 								<button type="submit">Send</button>
-							</form>		
+ 								<input type="submit" ref={this.submitRef} value="submit" />
+							</form>	
+						) :null }
+						</SlideDown>
 						</div>
               <div className="enroll">
                 <Spacer />
@@ -333,6 +339,10 @@ export const query = graphql`
             first_month_avaible
             first_avaible_start_date
             first_avaible_end_date
+						first_spots_left
+						second_spots_left
+						third_spots_left
+						forth_spots_left
             second_month_avaible
             second_avaible_start_date
             second_avaible_end_date
