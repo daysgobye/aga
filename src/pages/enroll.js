@@ -57,6 +57,15 @@ class Enroll extends Component {
 
   				});
 				}
+				
+				checkSpots(num){
+								if(parseInt(num) === 0){
+												return false
+								}else{
+												return true
+								}
+
+				}
 
 				handleChange(date) {
     			this.setState({
@@ -64,12 +73,16 @@ class Enroll extends Component {
    				});
   			}
 				
-				pickKey(pick){
-					this.setState({pickedKey : pick, formOpen: !this.state.formOpen})
+				pickKey(pick, spot){
+								if(this.checkSpots(spot)){
+												
+									this.setState({pickedKey : pick, formOpen: !this.state.formOpen})
+								}else{
+												console.log("no spots left")
+								}
 				}
-  render() {
-    // const courses = this.props.data.allWordpressWpCourseWeek.edges
-
+ 
+	render() {
     const data = this.props.data.allWordpressPage.edges[0].node;
 
     return (
@@ -102,28 +115,44 @@ class Enroll extends Component {
                 />
                 <div className="signup__buttons">
                   <div className="signup__buttons__button">
-                    <button onClick={()=>this.pickKey(this.state.apiKeys.first)}>{data.acf.sign_up_form.first_month_avaible}</button>
+                    <button 
+										className={this.checkSpots(this.state.spots.first) ? " " : " class__full"}
+										onClick={()=>this.pickKey(this.state.apiKeys.first, this.state.spots.first)}>
+										{data.acf.sign_up_form.first_month_avaible}
+										</button>
                     <div className="signup__buttons__button__info">
                       <p>{ data.acf.sign_up_form.first_avaible_start_date } - {data.acf.sign_up_form.first_avaible_end_date}</p>
                       <p>Seats Open: {this.state.resBack ? this.state.spots.first : data.acf.sign_up_form.first_spots_left}</p>
                     </div>
                   </div>
                   <div className="signup__buttons__button">
-                    <button  onClick={()=>this.pickKey(this.state.apiKeys.second)}>{data.acf.sign_up_form.second_month_avaible  }</button>
+                    <button 
+										className={this.checkSpots(this.state.spots.second) ? " " : " class__full"}
+										onClick={()=>this.pickKey(this.state.apiKeys.second, this.state.spots.second)}>
+										{data.acf.sign_up_form.second_month_avaible  }
+										</button>
                     <div className="signup__buttons__button__info">
                       <p>{ data.acf.sign_up_form.second_avaible_start_date } - { data.acf.sign_up_form.second_avaible_end_date }</p>
                       <p>Seats Open: {this.state.resBack ? this.state.spots.second : data.acf.sign_up_form.second_spots_left}</p>
                     </div>
                   </div>
                   <div className="signup__buttons__button">
-                    <button  onClick={()=>this.pickKey(this.state.apiKeys.third)}>{ data.acf.sign_up_form.Third_month_avaible }</button>
+                    <button 
+										className={this.checkSpots(this.state.spots.third) ? " " : " class__full"}
+										onClick={()=>this.pickKey(this.state.apiKeys.third, this.state.spots.third)}>
+										{ data.acf.sign_up_form.Third_month_avaible }
+										</button>
                     <div className="signup__buttons__button__info">
                       <p>{ data.acf.sign_up_form.third_avaible_start_date } - { data.acf.sign_up_form.third_avaible_end_date }</p>
                       <p>Seats Open: {this.state.resBack ? this.state.spots.third : data.acf.sign_up_form.third_spots_left}</p>
                     </div>
                   </div>
                   <div className="signup__buttons__button">
-                    <button  onClick={()=>this.pickKey(this.state.apiKeys.fourth)}>{ data.acf.sign_up_form.forth_month_avaible }</button>
+                    <button 
+											className={this.checkSpots(this.state.spots.fourth) ? " " : " class__full"} 
+											onClick={()=>this.pickKey(this.state.apiKeys.fourth, this.state.spots.fourth)}>
+										{ data.acf.sign_up_form.forth_month_avaible }
+										</button>
                     <div className="signup__buttons__button__info">
                       <p>{ data.acf.sign_up_form.forth_avaible_start_date } - { data.acf.sign_up_form.forth_avaible_end_date }</p>
                       <p>Seats Open: {this.state.resBack ? this.state.spots.fourth : data.acf.sign_up_form.forth_spots_left}</p>
