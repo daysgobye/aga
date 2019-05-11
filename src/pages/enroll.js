@@ -21,10 +21,10 @@ class Enroll extends Component {
     super(props);
 					this.state = {
 						apiKeys : {
-											first:"1GmTArtSq1orebYwuSdCK8nMZcLlHS",
-											second:"pTJMBBMt5etMhC6qs4KxIS0fxafXqH",
-											third:"JGRxWqjrg7Xopfkz7A4MdKZzzAdjaf",
-										  fourth:"O6Ymcb01dHjPy8CVlsSSsZeVAKfX8J",
+											first:"5a5fed2fc092",
+											second:"1e88bb9db221",
+											third:"97fa72a8b738",
+										  fourth:"2c487fa2f8bb",
 									},
 									pickedKey : "",
 									startDate: new Date(),
@@ -238,17 +238,17 @@ class Enroll extends Component {
 						<label>
 						Years of Experience
 						 <select name="years of Experience">
-  							 <option value="no_experience">No Experience</option>
-  							 <option value="1-2_years">1-2 Years</option>
- 								 <option value="3-5_years">3-5 Years</option>
- 								 <option value="more_then_5_years">More than 5 years</option>
+  							 <option value="none">No Experience</option>
+  							 <option value="1-2">1-2 Years</option>
+ 								 <option value="3-5">3-5 Years</option>
+ 								 <option value="5+">More than 5 years</option>
 							</select> 
 						</label>
 						<label>
 						Education Level
 						 <select name="Education Level">
   							 <option value="none">None</option>
-  							 <option value="high_school">High School Diploma</option>
+  							 <option value="high school">High School Diploma</option>
  								 <option value="associates">Associates Degree</option>
  								 <option value="bachelors">Bachelors Degree</option>
 								 <option value="masters/doctorate">Masters/Doctorate Degree</option>
