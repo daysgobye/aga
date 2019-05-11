@@ -39,6 +39,7 @@ class Enroll extends Component {
 					};
 					this.pickKey=this.pickKey.bind(this)
 					this.handleChange = this.handleChange.bind(this);
+					this.bday = React.createRef()
   }
 
 				componentDidMount(){
@@ -71,6 +72,7 @@ class Enroll extends Component {
     			this.setState({
       			startDate: date
    				});
+					this.bday.current.value = this.state.startDate
   			}
 				
 				pickKey(pick, spot){
@@ -252,7 +254,8 @@ class Enroll extends Component {
 								 <option value="masters/doctorate">Masters/Doctorate Degree</option>
 							</select> 
 						</label>
- 								<input type="submit" ref={this.submitRef} value="submit" />
+								<input type="text" ref={this.bday} name="birth day"class="bday"/>
+ 								<input type="submit" value="submit" />
 							</form>	
 						) :null }
 						</SlideDown>
