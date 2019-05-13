@@ -8,6 +8,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { SlideDown } from "react-slidedown";
 import "react-slidedown/lib/slidedown.css";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Content from "../components/utility/Content/Content";
 import BackgroundBanner from "../components/background_banner/background_banner";
 import "../components/styles/enroll.sass";
@@ -27,7 +29,6 @@ class Enroll extends Component {
         fourth: "2c487fa2f8bb"
       },
       pickedKey: "",
-      startDate: new Date(),
       spots: {
         first: "",
         second: "",
@@ -56,7 +57,10 @@ class Enroll extends Component {
     this.pickKey = this.pickKey.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.bday = React.createRef();
-    this.fillDates = this.fillDates.bind(this);
+		this.monthRef=React.createRef();
+		this.dayRef=React.createRef();
+		this.yearRef=React.createRef();
+		this.fillDates = this.fillDates.bind(this);
     this.fillMonths = this.fillMonths.bind(this);
   }
 
@@ -79,6 +83,14 @@ class Enroll extends Component {
         this.setState({ spots: spots, resBack: true });
       });
     this.fillDates();
+					if(window.location.hash){
+									 toast.success("Thank you! We have recived your submition and are reviewing it.", {
+				autoClose: 45000,
+        position: toast.POSITION.TOP_CENTER
+      });
+					}
+			console.log(window.location.hash
+			)
   }
   fillDates() {
     console.log("filling dates");
@@ -131,19 +143,19 @@ class Enroll extends Component {
     }
   }
 
-  handleChange(date) {
-    this.setState({
-      startDate: date
-    });
-    this.bday.current.value = this.state.startDate;
+  handleChange() {
+    const birthday=`${this.monthRef.current.value}-${this.dayRef.current.value}-${this.yearRef.current.value}` 
+    this.bday.current.value = birthday;
   }
 
   pickKey(pick, spot) {
     if (this.checkSpots(spot)) {
       this.setState({ pickedKey: pick, formOpen: !this.state.formOpen });
     } else {
-      console.log("no spots left");
-    }
+    toast.error("No spots left on that semester, please chose another semester	", {
+        position: toast.POSITION.TOP_CENTER
+      })
+		}
   }
 
   render() {
@@ -321,17 +333,20 @@ class Enroll extends Component {
                         <label>
                           Date Of Birth
                           <div className="date-pickers">
-                            <select name="Month" className="month">
+                            <select name="Month" className="month" onChange={()=> this.handleChange()} ref={this.monthRef}>
+															<option value="default" selected disabled hidden>Month</option>
                               {this.state.months.map(m => (
                                 <option value={`${m}`}>{`${m}`}</option>
                               ))}
                             </select>
-                            <select name="Day" className="day">
+                            <select name="Day" className="day" onChange={()=> this.handleChange()} ref={this.dayRef}>
+															<option value="default" selected disabled hidden>Day</option>
                               {this.state.days.map(d => (
                                 <option value={`${d}`}>{`${d}`}</option>
                               ))}
                             </select>
-                            <select name="Year" className="year">
+                            <select name="Year" className="year" onChange={()=> this.handleChange()} ref={this.yearRef}>
+															<option value="default" selected disabled hidden>Year</option>
                               {this.state.years.map(y => (
                                 <option value={`${y}`}>{`${y}`}</option>
                               ))}
@@ -429,7 +444,8 @@ class Enroll extends Component {
                           type="text"
                           ref={this.bday}
                           name="birth day"
-                          class="bday"
+													aria-hidden="true"
+                          class="bday visuallyhidden"
                         />
                         <div className="submit-button">
                           <input type="submit" value="Apply Now" />
@@ -519,6 +535,7 @@ class Enroll extends Component {
             </div>
           </Content>
         </div>
+						<ToastContainer />
       </Layout>
     );
   }
