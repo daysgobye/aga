@@ -21,8 +21,8 @@ class Deposit extends React.Component {
     window.Snipcart.api.items.add({
       id: "1",
       name: "Deposit",
-      url: "localhost:8000/Deposit",
-      price: "1000.00",
+      url: "/Deposit",
+      price: "1575",
       staclable: true
     });
   }
@@ -147,6 +147,12 @@ class Deposit extends React.Component {
             Pay Deposit
           </button> */}
         </Content>
+					<button className="snipcart-add-item visuallyhidden"
+   					data-item-name="Deposit"
+    				data-item-id="1"
+    				data-item-url="/Deposit"
+    				data-item-price="1575">
+  				</button>
       </Layout>
     );
   }
