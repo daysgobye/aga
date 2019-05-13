@@ -35,11 +35,29 @@ class Enroll extends Component {
         fourth: ""
       },
       formOpen: false,
-      resBack: false
+      resBack: false,
+      months: [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ],
+      days: [],
+      years: []
     };
     this.pickKey = this.pickKey.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.bday = React.createRef();
+    this.fillDates = this.fillDates.bind(this);
+    this.fillMonths = this.fillMonths.bind(this);
   }
 
   componentDidMount() {
@@ -60,8 +78,51 @@ class Enroll extends Component {
         };
         this.setState({ spots: spots, resBack: true });
       });
+    this.fillDates();
   }
-
+  fillDates() {
+    console.log("filling dates");
+    // this.fillMonths(1, 12);
+    this.fillDays(1, 31);
+    this.fillYears(1900, 2019);
+  }
+  fillMonths(low, high) {
+    // console.log("filling months");
+    const monthArray = [];
+    let x = low;
+    while (x <= high) {
+      monthArray.push(x);
+      x++;
+    }
+    // console.log("month array in function: " + monthArray);
+    this.setState({
+      months: monthArray
+    });
+    // console.log("month state: " + this.state.months);
+  }
+  fillDays(low, high) {
+    const dayArray = [];
+    let x = low;
+    while (x <= high) {
+      dayArray.push(x);
+      x++;
+    }
+    this.setState({
+      days: dayArray
+    });
+  }
+  fillYears(low, high) {
+    const yearArray = [];
+    let x = low;
+    while (x <= high) {
+      yearArray.push(x);
+      x++;
+    }
+    yearArray.reverse();
+    this.setState({
+      years: yearArray
+    });
+  }
   checkSpots(num) {
     if (parseInt(num) === 0) {
       return false;
@@ -259,11 +320,28 @@ class Enroll extends Component {
                         </label>
                         <label>
                           Date Of Birth
-                          <DatePicker
+                          <div className="date-pickers">
+                            <select name="Month" className="month">
+                              {this.state.months.map(m => (
+                                <option value={`${m}`}>{`${m}`}</option>
+                              ))}
+                            </select>
+                            <select name="Day" className="day">
+                              {this.state.days.map(d => (
+                                <option value={`${d}`}>{`${d}`}</option>
+                              ))}
+                            </select>
+                            <select name="Year" className="year">
+                              {this.state.years.map(y => (
+                                <option value={`${y}`}>{`${y}`}</option>
+                              ))}
+                            </select>
+                          </div>
+                          {/* <DatePicker
                             selected={this.state.startDate}
                             onChange={this.handleChange}
                             placeholderText="Click to select a date"
-                          />
+                          /> */}
                         </label>
                         <label>
                           Email
