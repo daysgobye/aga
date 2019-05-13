@@ -21,7 +21,7 @@ class Deposit extends React.Component {
     window.Snipcart.api.items.add({
       id: "1",
       name: "Deposit",
-      url: "/Deposit",
+      url: "http://thepastryacademy.purpleandbold.net/deposit",
       price: "1575",
       staclable: true
     });
@@ -150,7 +150,7 @@ class Deposit extends React.Component {
 					<button className="snipcart-add-item visuallyhidden"
    					data-item-name="Deposit"
     				data-item-id="1"
-    				data-item-url="/Deposit"
+    				data-item-url="http://thepastryacademy.purpleandbold.net/deposit"
     				data-item-price="1575">
   				</button>
       </Layout>
