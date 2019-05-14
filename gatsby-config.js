@@ -77,7 +77,7 @@ module.exports = {
          * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
          * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
          */
-        baseUrl: "playground.purpleandbold.net",
+        baseUrl: "pa.purpleandbold.net",
         // The protocol. This can be http or https.
         protocol: "https",
         // Indicates whether the site is hosted on wordpress.com.
@@ -137,11 +137,12 @@ module.exports = {
         username: `amauryguichon`
       }
     },
-     {
-       resolve: 'gatsby-plugin-snipcart',
-       options: {
-         apiKey: 'NmI3ZTBmMmQtZWYxYi00ODg3LWFkZDctMTU5NTRmMDM5NjFhNjM2ODkwNTU3NTg1ODY4MzIz'
-       }
-     }
+    {
+      resolve: "gatsby-plugin-snipcart",
+      options: {
+        apiKey:
+          "NmI3ZTBmMmQtZWYxYi00ODg3LWFkZDctMTU5NTRmMDM5NjFhNjM2ODkwNTU3NTg1ODY4MzIz"
+      }
+    }
   ]
 };

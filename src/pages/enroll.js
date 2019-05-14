@@ -8,8 +8,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { SlideDown } from "react-slidedown";
 import "react-slidedown/lib/slidedown.css";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Content from "../components/utility/Content/Content";
 import BackgroundBanner from "../components/background_banner/background_banner";
 import "../components/styles/enroll.sass";
@@ -52,21 +52,26 @@ class Enroll extends Component {
         "December"
       ],
       days: [],
-      years: []
+      years: [],
+      buttonOne: false,
+      buttonTwo: false,
+      buttonThree: false,
+      buttonFour: false
     };
     this.pickKey = this.pickKey.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.bday = React.createRef();
-		this.monthRef=React.createRef();
-		this.dayRef=React.createRef();
-		this.yearRef=React.createRef();
-		this.fillDates = this.fillDates.bind(this);
+    this.monthRef = React.createRef();
+    this.dayRef = React.createRef();
+    this.yearRef = React.createRef();
+    this.fillDates = this.fillDates.bind(this);
     this.fillMonths = this.fillMonths.bind(this);
+    // this.selectButton = this.selectButton.bind(this);
   }
 
   componentDidMount() {
     fetch(
-      `https://playground.purpleandbold.net/wp-json/wp/v2/pages/${
+      `https://pa.purpleandbold.net/wp-json/wp/v2/pages/${
         this.props.data.allWordpressPage.edges[0].node.wordpress_id
       }`
     )
@@ -83,14 +88,16 @@ class Enroll extends Component {
         this.setState({ spots: spots, resBack: true });
       });
     this.fillDates();
-					if(window.location.hash){
-									 toast.success("Thank you! We have recived your submition and are reviewing it.", {
-				autoClose: 45000,
-        position: toast.POSITION.TOP_CENTER
-      });
-					}
-			console.log(window.location.hash
-			)
+    if (window.location.hash) {
+      toast.success(
+        "Thank you for your application! We have received your submission and will review it shortly.",
+        {
+          autoClose: 45000,
+          position: toast.POSITION.TOP_CENTER
+        }
+      );
+    }
+    console.log(window.location.hash);
   }
   fillDates() {
     console.log("filling dates");
@@ -142,9 +149,48 @@ class Enroll extends Component {
       return true;
     }
   }
-
+  // selectButton(num) {
+  //   if (num === 1) {
+  //     this.setState({
+  //       buttonOne: true,
+  //       buttonTwo: false,
+  //       buttonThree: false,
+  //       buttonFour: false
+  //     });
+  //   } else if (num === 2) {
+  //     this.setState({
+  //       buttonOne: false,
+  //       buttonTwo: true,
+  //       buttonThree: false,
+  //       buttonFour: false
+  //     });
+  //   } else if (num === 3) {
+  //     this.setState({
+  //       buttonOne: false,
+  //       buttonTwo: false,
+  //       buttonThree: true,
+  //       buttonFour: false
+  //     });
+  //   } else if (num === 4) {
+  //     this.setState({
+  //       buttonOne: false,
+  //       buttonTwo: false,
+  //       buttonThree: false,
+  //       buttonFour: true
+  //     });
+  //   } else {
+  //     this.setState({
+  //       buttonOne: false,
+  //       buttonTwo: false,
+  //       buttonThree: false,
+  //       buttonFour: false
+  //     });
+  //   }
+  // }
   handleChange() {
-    const birthday=`${this.monthRef.current.value}-${this.dayRef.current.value}-${this.yearRef.current.value}` 
+    const birthday = `${this.monthRef.current.value}-${
+      this.dayRef.current.value
+    }-${this.yearRef.current.value}`;
     this.bday.current.value = birthday;
   }
 
@@ -152,10 +198,13 @@ class Enroll extends Component {
     if (this.checkSpots(spot)) {
       this.setState({ pickedKey: pick, formOpen: !this.state.formOpen });
     } else {
-    toast.error("No spots left on that semester, please chose another semester	", {
-        position: toast.POSITION.TOP_CENTER
-      })
-		}
+      toast.error(
+        "Oops! Looks like there are no seats available for that semester. Please select another.",
+        {
+          position: toast.POSITION.TOP_CENTER
+        }
+      );
+    }
   }
 
   render() {
@@ -333,20 +382,41 @@ class Enroll extends Component {
                         <label>
                           Date Of Birth
                           <div className="date-pickers">
-                            <select name="Month" className="month" onChange={()=> this.handleChange()} ref={this.monthRef}>
-															<option value="default" selected disabled hidden>Month</option>
+                            <select
+                              name="Month"
+                              className="month"
+                              onChange={() => this.handleChange()}
+                              ref={this.monthRef}
+                            >
+                              <option value="default" selected disabled hidden>
+                                Month
+                              </option>
                               {this.state.months.map(m => (
                                 <option value={`${m}`}>{`${m}`}</option>
                               ))}
                             </select>
-                            <select name="Day" className="day" onChange={()=> this.handleChange()} ref={this.dayRef}>
-															<option value="default" selected disabled hidden>Day</option>
+                            <select
+                              name="Day"
+                              className="day"
+                              onChange={() => this.handleChange()}
+                              ref={this.dayRef}
+                            >
+                              <option value="default" selected disabled hidden>
+                                Day
+                              </option>
                               {this.state.days.map(d => (
                                 <option value={`${d}`}>{`${d}`}</option>
                               ))}
                             </select>
-                            <select name="Year" className="year" onChange={()=> this.handleChange()} ref={this.yearRef}>
-															<option value="default" selected disabled hidden>Year</option>
+                            <select
+                              name="Year"
+                              className="year"
+                              onChange={() => this.handleChange()}
+                              ref={this.yearRef}
+                            >
+                              <option value="default" selected disabled hidden>
+                                Year
+                              </option>
                               {this.state.years.map(y => (
                                 <option value={`${y}`}>{`${y}`}</option>
                               ))}
@@ -444,7 +514,7 @@ class Enroll extends Component {
                           type="text"
                           ref={this.bday}
                           name="birth day"
-													aria-hidden="true"
+                          aria-hidden="true"
                           class="bday visuallyhidden"
                         />
                         <div className="submit-button">
@@ -535,7 +605,7 @@ class Enroll extends Component {
             </div>
           </Content>
         </div>
-						<ToastContainer />
+        <ToastContainer />
       </Layout>
     );
   }
