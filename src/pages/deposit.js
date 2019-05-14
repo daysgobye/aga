@@ -14,22 +14,57 @@ import "../components/styles/deposit.sass";
 class Deposit extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+		this.state = {
+			cleanUp: false,
+			item: {
+      	id: "1",
+      	name: "Deposit",
+      	url: "http://thepastryacademy.purpleandbold.net/deposit",
+      	price: "1575",
+      	stackable: false
+  		}
+		};
   }
   componentDidMount() {
-    console.log(window);
-    window.Snipcart.api.items.add({
-      id: "1",
-      name: "Deposit",
-      url: "http://thepastryacademy.purpleandbold.net/deposit",
-      price: "1575",
-      staclable: true
-    });
+		const items = window.Snipcart.api.items.all();
+		console.log(items)
+					//see if there is already an item in the cart 
+					//if not add the deposit 
+		if(items.length == 0){
+    	window.Snipcart.api.items.add(this.state.item);
+			this.setState({cleanUp: true})
+		}else{
+			//checks if any of the items in the cart are the deposit and if not then it will add one 
+			let depositIsIn 
+			items.forEach(item=>{
+			if(item.id === "1"){
+				depositIsIn = true
+			}
+			})
+			// runs a for each on the cart to remove all of the old deposits in the cart then adds just one
+			if(depositIsIn){
+							console.log("somthingd in")
+				items.forEach(item=>{
+					window.Snipcart.api.items.remove('1')
+				})
+    	window.Snipcart.api.items.add(this.state.item);
+
+			}
+			this.setState({cleanUp: true})
+		}
+			
+					//in a time out addes checks to see if the clean up just above is donethen lessens for the deposit item to be removed from the cart and adds it if it is removed 
+		setTimeout(()=>{
+		if(this.state.cleanUp){
+		window.Snipcart.subscribe('item.removed', (item)=> {
+						if(item.id=== "1"){
+    					window.Snipcart.api.items.add(this.state.item);
+						}
+			});
+		}},1000)	
   }
   render() {
     const data = this.props.data.allWordpressPage.edges[0].node;
-    console.log(data);
-
     return (
       <Layout>
         <SEO page="Pay Tuition Deposit" />
@@ -148,10 +183,10 @@ class Deposit extends React.Component {
           </button> */}
         </Content>
 					<button className="snipcart-add-item visuallyhidden"
-   					data-item-name="Deposit"
-    				data-item-id="1"
-    				data-item-url="http://thepastryacademy.purpleandbold.net/deposit"
-    				data-item-price="1575">
+   					data-item-name={this.state.item.name}
+    				data-item-id={this.state.item.id}
+    				data-item-url={this.state.item.url}
+    				data-item-price={this.state.item.price}>
   				</button>
       </Layout>
     );

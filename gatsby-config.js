@@ -18,8 +18,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: ` Pastry Academy by Amaury Guichon`,
+        short_name: `Academy`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
@@ -141,7 +141,7 @@ module.exports = {
       resolve: "gatsby-plugin-snipcart",
       options: {
         apiKey:
-          "NmI3ZTBmMmQtZWYxYi00ODg3LWFkZDctMTU5NTRmMDM5NjFhNjM2ODkwNTU3NTg1ODY4MzIz"
+          "NWQzOGY4MTYtNjQxMS00Njk2LWJkMjEtY2EwZjgyMmUxNWY0NjM2ODkwNTU3NTg1ODY4MzIz"
       }
     }
   ]
