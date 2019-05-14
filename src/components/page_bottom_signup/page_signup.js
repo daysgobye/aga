@@ -10,10 +10,10 @@ class Signup extends Component {
     return (
       <div className="page__sign">
         <hr />
-        <h3>Join the Waiting List</h3>
+        <h3>Join Our Newsletter</h3>
         <p>
-          Sign up below to be the first to know when enrollment opens. Classes
-          begin October 2019.
+          Sign up below to receive updates from The Pastry Academy by Amaury
+          Guichon.
         </p>
         <McSignUp />
       </div>
