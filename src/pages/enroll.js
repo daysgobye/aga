@@ -57,8 +57,8 @@ class Enroll extends Component {
       buttonTwo: false,
       buttonThree: false,
       buttonFour: false,
-			mobile: false,
-			pickedSmester: ""
+      mobile: false,
+      pickedSmester: ""
     };
     this.pickKey = this.pickKey.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -68,7 +68,7 @@ class Enroll extends Component {
     this.yearRef = React.createRef();
     this.fillDates = this.fillDates.bind(this);
     this.fillMonths = this.fillMonths.bind(this);
-		this.scrollRef = React.createRef();
+    this.scrollRef = React.createRef();
     // this.selectButton = this.selectButton.bind(this);
   }
 
@@ -152,44 +152,44 @@ class Enroll extends Component {
       return true;
     }
   }
-   selectButton(num) {
-     if (num === 1) {
-       this.setState({
-         buttonOne: true,
-         buttonTwo: false,
- 	       buttonThree: false,
-         buttonFour: false
-       });
-     } else if (num === 2) {
-       this.setState({
-         buttonOne: false,
-         buttonTwo: true,
-         buttonThree: false,
-         buttonFour: false
-       });
-     } else if (num === 3) {
-       this.setState({
-         buttonOne: false,
-         buttonTwo: false,
-         buttonThree: true,
-         buttonFour: false
-       });
-     } else if (num === 4) {
-       this.setState({
-         buttonOne: false,
-         buttonTwo: false,
-         buttonThree: false,
-         buttonFour: true
-       });
-     } else {
-       this.setState({
-         buttonOne: false,
- 		     buttonTwo: false,
-         buttonThree: false,
-         buttonFour: false
-       });
-     }
-   }
+  selectButton(num) {
+    if (num === 1) {
+      this.setState({
+        buttonOne: true,
+        buttonTwo: false,
+        buttonThree: false,
+        buttonFour: false
+      });
+    } else if (num === 2) {
+      this.setState({
+        buttonOne: false,
+        buttonTwo: true,
+        buttonThree: false,
+        buttonFour: false
+      });
+    } else if (num === 3) {
+      this.setState({
+        buttonOne: false,
+        buttonTwo: false,
+        buttonThree: true,
+        buttonFour: false
+      });
+    } else if (num === 4) {
+      this.setState({
+        buttonOne: false,
+        buttonTwo: false,
+        buttonThree: false,
+        buttonFour: true
+      });
+    } else {
+      this.setState({
+        buttonOne: false,
+        buttonTwo: false,
+        buttonThree: false,
+        buttonFour: false
+      });
+    }
+  }
   handleChange() {
     const birthday = `${this.monthRef.current.value}-${
       this.dayRef.current.value
@@ -199,7 +199,11 @@ class Enroll extends Component {
 
   pickKey(pick, spot, num, pickedSemester) {
     if (this.checkSpots(spot)) {
-      this.setState({ pickedKey: pick, formOpen: !this.state.formOpen, pickedSemester });
+      this.setState({
+        pickedKey: pick,
+        formOpen: !this.state.formOpen,
+        pickedSemester
+      });
     } else {
       toast.error(
         "Oops! Looks like there are no seats available for that semester. Please select another.",
@@ -208,19 +212,19 @@ class Enroll extends Component {
         }
       );
     }
-		if(!this.state.formOpen){
-		this.scrollRef.current.scrollIntoView({
-  		behavior: 'smooth'
-		})	
-  	}
-		setTimeout(()=>{
-			if(this.state.formOpen){
-			this.selectButton(num)
-			}else{
-			this.selectButton()
-			}
-		}, 100)
-	}
+    if (!this.state.formOpen) {
+      this.scrollRef.current.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+    setTimeout(() => {
+      if (this.state.formOpen) {
+        this.selectButton(num);
+      } else {
+        this.selectButton();
+      }
+    }, 100);
+  }
 
   render() {
     const data = this.props.data.allWordpressPage.edges[0].node;
@@ -260,16 +264,14 @@ class Enroll extends Component {
                         this.checkSpots(this.state.spots.first)
                           ? " "
                           : " class__full"
-											}${
-													this.state.buttonOne ? "picked__btn" : "" 
-											}`}
-											onClick={() =>{
+                      }${this.state.buttonOne ? "picked__btn" : ""}`}
+                      onClick={() => {
                         this.pickKey(
                           this.state.apiKeys.first,
                           this.state.spots.first,
-													1,
-													data.acf.sign_up_form.first_month_avaible
-                        )
+                          1,
+                          data.acf.sign_up_form.first_month_avaible
+                        );
                       }}
                     >
                       {data.acf.sign_up_form.first_month_avaible}
@@ -293,15 +295,13 @@ class Enroll extends Component {
                         this.checkSpots(this.state.spots.second)
                           ? " "
                           : " class__full"
-											}${
-													this.state.buttonTwo ? "picked__btn" : "" 
-											}`}
+                      }${this.state.buttonTwo ? "picked__btn" : ""}`}
                       onClick={() =>
                         this.pickKey(
                           this.state.apiKeys.second,
                           this.state.spots.second,
-													2,
-													data.acf.sign_up_form.second_month_avaible
+                          2,
+                          data.acf.sign_up_form.second_month_avaible
                         )
                       }
                     >
@@ -326,16 +326,13 @@ class Enroll extends Component {
                         this.checkSpots(this.state.spots.third)
                           ? " "
                           : " class__full"
-											}${
-															
-													this.state.buttonThree ? "picked__btn" : "" 
-											}`}
+                      }${this.state.buttonThree ? "picked__btn" : ""}`}
                       onClick={() =>
                         this.pickKey(
                           this.state.apiKeys.third,
                           this.state.spots.third,
-													3,
-													data.acf.sign_up_form.Third_month_avaible
+                          3,
+                          data.acf.sign_up_form.Third_month_avaible
                         )
                       }
                     >
@@ -360,16 +357,13 @@ class Enroll extends Component {
                         this.checkSpots(this.state.spots.fourth)
                           ? " "
                           : " class__full"
-											}${
-															
-													this.state.buttonFour ? "picked__btn" : "" 
-											}`}
+                      }${this.state.buttonFour ? "picked__btn" : ""}`}
                       onClick={() =>
                         this.pickKey(
                           this.state.apiKeys.fourth,
                           this.state.spots.fourth,
-													4,
-													data.acf.sign_up_form.forth_month_avaible
+                          4,
+                          data.acf.sign_up_form.forth_month_avaible
                         )
                       }
                     >
@@ -389,8 +383,8 @@ class Enroll extends Component {
                     </div>
                   </div>
                 </div>
-								<div ref={this.scrollRef} className="scrollto"/>
-									
+                <div ref={this.scrollRef} className="scrollto" />
+
                 {/* <McSignUp /> */}
               </div>
               <div className="signup__app">
@@ -659,8 +653,9 @@ export const query = graphql`
               image {
                 localFile {
                   childImageSharp {
-                    fluid {
+                    fluid(maxWidth: 5000) {
                       src
+                      ...GatsbyImageSharpFluid_noBase64
                     }
                   }
                 }
