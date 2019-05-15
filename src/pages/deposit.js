@@ -19,7 +19,7 @@ class Deposit extends React.Component {
 			item: {
       	id: "1",
       	name: "Deposit",
-      	url: "http://thepastryacademy.purpleandbold.net/deposit",
+      	url: "http://thepastryacademy.com/deposit",
       	price: "1575",
       	stackable: false
   		}
