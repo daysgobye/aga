@@ -54,7 +54,7 @@ class Program extends Component {
                     </div>
                     <div className="overview__card__info__data mobile-small">
                       <h4>Course Length</h4>
-                      <p>{courses.length} Weeks</p>
+                      <p>{courses.length} Weeks, 400 Hours</p>
                     </div>
                     <div className="overview__card__info__data mobile-small">
                       <h4>Class Size</h4>
