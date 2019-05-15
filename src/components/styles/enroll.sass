@@ -73,6 +73,13 @@
                 text-decoration: none
                 box-shadow: 0px 0px 15px -4px rgba(219,219,219,0.9)
                 transform: scale(1.03)
+            .picked__btn
+              transform: scale(1.065)
+              border: 1px solid white
+              color: white
+              background: 
+                color: $accent
+
             &__info 
               width: 100%
               display: flex 
@@ -246,7 +253,7 @@
                     width: 98%
                 &__gats
                     width: 100%
-.enroll
+//.enroll
   .background__banner
     background-repeat: no-repeat
     background-size: cover
@@ -258,5 +265,16 @@
       background-repeat: no-repeat !important
       background-position: 80% 0% !important
       // background-size: auto 10% !important
+.enroll
+  .background__banner
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: bottom right
+    @include tablet 
+      background-position: 78% 0% !important
+    @include tablet-phone 
+      background-size: 1500px !important 
+      background-repeat: no-repeat !important
+      background-position: 80% 0% !important
 .Toastify__toast--success
   background: #6fd878 !important

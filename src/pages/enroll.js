@@ -56,7 +56,9 @@ class Enroll extends Component {
       buttonOne: false,
       buttonTwo: false,
       buttonThree: false,
-      buttonFour: false
+      buttonFour: false,
+			mobile: false,
+			pickedSmester: ""
     };
     this.pickKey = this.pickKey.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -66,6 +68,7 @@ class Enroll extends Component {
     this.yearRef = React.createRef();
     this.fillDates = this.fillDates.bind(this);
     this.fillMonths = this.fillMonths.bind(this);
+		this.scrollRef = React.createRef();
     // this.selectButton = this.selectButton.bind(this);
   }
 
@@ -149,44 +152,44 @@ class Enroll extends Component {
       return true;
     }
   }
-  // selectButton(num) {
-  //   if (num === 1) {
-  //     this.setState({
-  //       buttonOne: true,
-  //       buttonTwo: false,
-  //       buttonThree: false,
-  //       buttonFour: false
-  //     });
-  //   } else if (num === 2) {
-  //     this.setState({
-  //       buttonOne: false,
-  //       buttonTwo: true,
-  //       buttonThree: false,
-  //       buttonFour: false
-  //     });
-  //   } else if (num === 3) {
-  //     this.setState({
-  //       buttonOne: false,
-  //       buttonTwo: false,
-  //       buttonThree: true,
-  //       buttonFour: false
-  //     });
-  //   } else if (num === 4) {
-  //     this.setState({
-  //       buttonOne: false,
-  //       buttonTwo: false,
-  //       buttonThree: false,
-  //       buttonFour: true
-  //     });
-  //   } else {
-  //     this.setState({
-  //       buttonOne: false,
-  //       buttonTwo: false,
-  //       buttonThree: false,
-  //       buttonFour: false
-  //     });
-  //   }
-  // }
+   selectButton(num) {
+     if (num === 1) {
+       this.setState({
+         buttonOne: true,
+         buttonTwo: false,
+ 	       buttonThree: false,
+         buttonFour: false
+       });
+     } else if (num === 2) {
+       this.setState({
+         buttonOne: false,
+         buttonTwo: true,
+         buttonThree: false,
+         buttonFour: false
+       });
+     } else if (num === 3) {
+       this.setState({
+         buttonOne: false,
+         buttonTwo: false,
+         buttonThree: true,
+         buttonFour: false
+       });
+     } else if (num === 4) {
+       this.setState({
+         buttonOne: false,
+         buttonTwo: false,
+         buttonThree: false,
+         buttonFour: true
+       });
+     } else {
+       this.setState({
+         buttonOne: false,
+ 		     buttonTwo: false,
+         buttonThree: false,
+         buttonFour: false
+       });
+     }
+   }
   handleChange() {
     const birthday = `${this.monthRef.current.value}-${
       this.dayRef.current.value
@@ -194,9 +197,9 @@ class Enroll extends Component {
     this.bday.current.value = birthday;
   }
 
-  pickKey(pick, spot) {
+  pickKey(pick, spot, num, pickedSemester) {
     if (this.checkSpots(spot)) {
-      this.setState({ pickedKey: pick, formOpen: !this.state.formOpen });
+      this.setState({ pickedKey: pick, formOpen: !this.state.formOpen, pickedSemester });
     } else {
       toast.error(
         "Oops! Looks like there are no seats available for that semester. Please select another.",
@@ -205,7 +208,19 @@ class Enroll extends Component {
         }
       );
     }
-  }
+		if(!this.state.formOpen){
+		this.scrollRef.current.scrollIntoView({
+  		behavior: 'smooth'
+		})	
+  	}
+		setTimeout(()=>{
+			if(this.state.formOpen){
+			this.selectButton(num)
+			}else{
+			this.selectButton()
+			}
+		}, 100)
+	}
 
   render() {
     const data = this.props.data.allWordpressPage.edges[0].node;
@@ -241,17 +256,21 @@ class Enroll extends Component {
                 <div className="signup__buttons">
                   <div className="signup__buttons__button">
                     <button
-                      className={
+                      className={`${
                         this.checkSpots(this.state.spots.first)
                           ? " "
                           : " class__full"
-                      }
-                      onClick={() =>
+											}${
+													this.state.buttonOne ? "picked__btn" : "" 
+											}`}
+											onClick={() =>{
                         this.pickKey(
                           this.state.apiKeys.first,
-                          this.state.spots.first
+                          this.state.spots.first,
+													1,
+													data.acf.sign_up_form.first_month_avaible
                         )
-                      }
+                      }}
                     >
                       {data.acf.sign_up_form.first_month_avaible}
                     </button>
@@ -270,15 +289,19 @@ class Enroll extends Component {
                   </div>
                   <div className="signup__buttons__button">
                     <button
-                      className={
+                      className={`${
                         this.checkSpots(this.state.spots.second)
                           ? " "
                           : " class__full"
-                      }
+											}${
+													this.state.buttonTwo ? "picked__btn" : "" 
+											}`}
                       onClick={() =>
                         this.pickKey(
                           this.state.apiKeys.second,
-                          this.state.spots.second
+                          this.state.spots.second,
+													2,
+													data.acf.sign_up_form.second_month_avaible
                         )
                       }
                     >
@@ -299,15 +322,20 @@ class Enroll extends Component {
                   </div>
                   <div className="signup__buttons__button">
                     <button
-                      className={
+                      className={`${
                         this.checkSpots(this.state.spots.third)
                           ? " "
                           : " class__full"
-                      }
+											}${
+															
+													this.state.buttonThree ? "picked__btn" : "" 
+											}`}
                       onClick={() =>
                         this.pickKey(
                           this.state.apiKeys.third,
-                          this.state.spots.third
+                          this.state.spots.third,
+													3,
+													data.acf.sign_up_form.Third_month_avaible
                         )
                       }
                     >
@@ -328,15 +356,20 @@ class Enroll extends Component {
                   </div>
                   <div className="signup__buttons__button">
                     <button
-                      className={
+                      className={`${
                         this.checkSpots(this.state.spots.fourth)
                           ? " "
                           : " class__full"
-                      }
+											}${
+															
+													this.state.buttonFour ? "picked__btn" : "" 
+											}`}
                       onClick={() =>
                         this.pickKey(
                           this.state.apiKeys.fourth,
-                          this.state.spots.fourth
+                          this.state.spots.fourth,
+													4,
+													data.acf.sign_up_form.forth_month_avaible
                         )
                       }
                     >
@@ -356,13 +389,15 @@ class Enroll extends Component {
                     </div>
                   </div>
                 </div>
+								<div ref={this.scrollRef} className="scrollto"/>
+									
                 {/* <McSignUp /> */}
               </div>
               <div className="signup__app">
                 <SlideDown className={"my-dropdown-slidedown"}>
                   {this.state.formOpen ? (
                     <div>
-                      <h3>Application Form</h3>
+                      <h3>{this.state.pickedSemester} Application Form</h3>
                       <h4>The Pastry Academy by Amaury Guichon</h4>
                       <form
                         className="signup__app__form"
@@ -515,7 +550,7 @@ class Enroll extends Component {
                           ref={this.bday}
                           name="birth day"
                           aria-hidden="true"
-                          class="bday visuallyhidden"
+                          className="bday visuallyhidden"
                         />
                         <div className="submit-button">
                           <input type="submit" value="Apply Now" />
