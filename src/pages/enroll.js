@@ -204,6 +204,11 @@ class Enroll extends Component {
         formOpen: !this.state.formOpen,
         pickedSemester
       });
+			if (!this.state.formOpen) {
+      	this.scrollRef.current.scrollIntoView({
+        behavior: "smooth"
+      });
+    }
     } else {
       toast.error(
         "Oops! Looks like there are no seats available for that semester. Please select another.",
@@ -212,11 +217,7 @@ class Enroll extends Component {
         }
       );
     }
-    if (!this.state.formOpen) {
-      this.scrollRef.current.scrollIntoView({
-        behavior: "smooth"
-      });
-    }
+    
     setTimeout(() => {
       if (this.state.formOpen) {
         this.selectButton(num);
