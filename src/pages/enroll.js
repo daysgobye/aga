@@ -27,8 +27,8 @@ class Enroll extends Component {
         second: "1e88bb9db221",
         third: "97fa72a8b738",
         fourth: "2c487fa2f8bb",
-				fifth: "fifth key",
-				sixth: "sixth key"
+				fifth: "7e3e6b08f263",
+				sixth: "461bbe350877"
       },
       pickedKey: "",
       spots: {
