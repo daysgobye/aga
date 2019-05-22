@@ -27,8 +27,8 @@ class Enroll extends Component {
         second: "1e88bb9db221",
         third: "97fa72a8b738",
         fourth: "2c487fa2f8bb",
-				fifth: "7e3e6b08f263",
-				sixth: "461bbe350877"
+        fifth: "7e3e6b08f263",
+        sixth: "461bbe350877"
       },
       pickedKey: "",
       spots: {
@@ -36,8 +36,8 @@ class Enroll extends Component {
         second: "",
         third: "",
         fourth: "",
-				fifth: "",
-				sixth: ""
+        fifth: "",
+        sixth: ""
       },
       formOpen: false,
       resBack: false,
@@ -61,8 +61,8 @@ class Enroll extends Component {
       buttonTwo: false,
       buttonThree: false,
       buttonFour: false,
-			buttonFive: false,
-			buttonSix: false,
+      buttonFive: false,
+      buttonSix: false,
       mobile: false,
       pickedSmester: ""
     };
@@ -167,8 +167,8 @@ class Enroll extends Component {
         buttonTwo: false,
         buttonThree: false,
         buttonFour: false,
-				buttonFive: false,
-				buttonSix: false
+        buttonFive: false,
+        buttonSix: false
       });
     } else if (num === 2) {
       this.setState({
@@ -176,8 +176,8 @@ class Enroll extends Component {
         buttonTwo: true,
         buttonThree: false,
         buttonFour: false,
-				buttonFive: false,
-				buttonSix: false
+        buttonFive: false,
+        buttonSix: false
       });
     } else if (num === 3) {
       this.setState({
@@ -185,8 +185,8 @@ class Enroll extends Component {
         buttonTwo: false,
         buttonThree: true,
         buttonFour: false,
-				buttonFive: false,
-				buttonSix: false
+        buttonFive: false,
+        buttonSix: false
       });
     } else if (num === 5) {
       this.setState({
@@ -194,27 +194,26 @@ class Enroll extends Component {
         buttonTwo: false,
         buttonThree: false,
         buttonFour: false,
-				buttonFive: true,
-				buttonSix: false
+        buttonFive: true,
+        buttonSix: false
       });
-    }
-     else if (num === 6) {
+    } else if (num === 6) {
       this.setState({
         buttonOne: false,
         buttonTwo: false,
         buttonThree: false,
         buttonFour: false,
-				buttonFive: false,
-				buttonSix: true
+        buttonFive: false,
+        buttonSix: true
       });
-    }else {
+    } else {
       this.setState({
         buttonOne: false,
         buttonTwo: false,
         buttonThree: false,
         buttonFour: false,
-				buttonFive: false,
-				buttonSix: false
+        buttonFive: false,
+        buttonSix: false
       });
     }
   }
@@ -232,11 +231,11 @@ class Enroll extends Component {
         formOpen: !this.state.formOpen,
         pickedSemester
       });
-			if (!this.state.formOpen) {
-      	this.scrollRef.current.scrollIntoView({
-        behavior: "smooth"
-      });
-    }
+      if (!this.state.formOpen) {
+        this.scrollRef.current.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
     } else {
       toast.error(
         "Oops! Looks like there are no seats available for that semester. Please select another.",
@@ -245,7 +244,7 @@ class Enroll extends Component {
         }
       );
     }
-    
+
     setTimeout(() => {
       if (this.state.formOpen) {
         this.selectButton(num);
@@ -313,8 +312,12 @@ class Enroll extends Component {
                       <p>
                         Seats Open:{" "}
                         {this.state.resBack
-                          ? this.state.spots.first === "0" ? "full": this.state.spots.first
-                          : data.acf.sign_up_form.first_spots_left  === "0" ? "full": this.state.spots.first}
+                          ? this.state.spots.first === "0"
+                            ? "full"
+                            : this.state.spots.first
+                          : data.acf.sign_up_form.first_spots_left === "0"
+                          ? "full"
+                          : this.state.spots.first}
                       </p>
                     </div>
                   </div>
@@ -344,8 +347,12 @@ class Enroll extends Component {
                       <p>
                         Seats Open:{" "}
                         {this.state.resBack
-                          ? this.state.spots.second === "0" ? "full": this.state.spots.second
-                          : data.acf.sign_up_form.second_spots_left === "0" ? "full": this.state.spot.second}
+                          ? this.state.spots.second === "0"
+                            ? "full"
+                            : this.state.spots.second
+                          : data.acf.sign_up_form.second_spots_left === "0"
+                          ? "full"
+                          : this.state.spot.second}
                       </p>
                     </div>
                   </div>
@@ -375,8 +382,12 @@ class Enroll extends Component {
                       <p>
                         Seats Open:{" "}
                         {this.state.resBack
-                          ? this.state.spots.third === "0" ? "full": this.state.spots.third
-                          : data.acf.sign_up_form.third_spots_left === "0" ? "full": this.state.spots.third}
+                          ? this.state.spots.third === "0"
+                            ? "full"
+                            : this.state.spots.third
+                          : data.acf.sign_up_form.third_spots_left === "0"
+                          ? "full"
+                          : this.state.spots.third}
                       </p>
                     </div>
                   </div>
@@ -406,11 +417,15 @@ class Enroll extends Component {
                       <p>
                         Seats Open:{" "}
                         {this.state.resBack
-                          ? this.state.spots.fourth === "0" ? "full": this.state.spots.fourth
-                          : data.acf.sign_up_form.forth_spots_left === "0" ? "full": this.state.spots.fourth}
+                          ? this.state.spots.fourth === "0"
+                            ? "full"
+                            : this.state.spots.fourth
+                          : data.acf.sign_up_form.forth_spots_left === "0"
+                          ? "full"
+                          : this.state.spots.fourth}
                       </p>
                     </div>
-                  </div>						
+                  </div>
                   <div className="signup__buttons__button">
                     <button
                       className={`${
@@ -437,8 +452,12 @@ class Enroll extends Component {
                       <p>
                         Seats Open:{" "}
                         {this.state.resBack
-                          ? this.state.spots.fifth === "0" ? "full": this.state.spots.fifth
-                          : data.acf.sign_up_form.fifth_spots_left === "0" ? "full": this.state.spots.fifth}
+                          ? this.state.spots.fifth === "0"
+                            ? "full"
+                            : this.state.spots.fifth
+                          : data.acf.sign_up_form.fifth_spots_left === "0"
+                          ? "full"
+                          : this.state.spots.fifth}
                       </p>
                     </div>
                   </div>
@@ -468,8 +487,12 @@ class Enroll extends Component {
                       <p>
                         Seats Open:{" "}
                         {this.state.resBack
-                          ? this.state.spots.sixth === "0" ? "full": this.state.spots.sixth
-                          : data.acf.sign_up_form.sixth_spots_left === "0" ? "full": this.state.spots.sixth}
+                          ? this.state.spots.sixth === "0"
+                            ? "full"
+                            : this.state.spots.sixth
+                          : data.acf.sign_up_form.sixth_spots_left === "0"
+                          ? "full"
+                          : this.state.spots.sixth}
                       </p>
                     </div>
                   </div>
@@ -771,14 +794,14 @@ export const query = graphql`
               forth_month_avaible
               forth_avaible_start_date
               forth_avaible_end_date
-							fifth_month_avaible
-        			fifth_avaible_start_date
-        			fifth_avaible_end_date
-        			fifth_spots_left
-        			sixth_month_avaible
-        			sixth_spots_left
-        			sixth_avaible_end_date
-        			sixth_avaible_start_date
+              fifth_month_avaible
+              fifth_avaible_start_date
+              fifth_avaible_end_date
+              fifth_spots_left
+              sixth_month_avaible
+              sixth_spots_left
+              sixth_avaible_end_date
+              sixth_avaible_start_date
             }
             enrollment_process {
               step_1_title
