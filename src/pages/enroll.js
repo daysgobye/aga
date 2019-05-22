@@ -108,7 +108,6 @@ class Enroll extends Component {
         }
       );
     }
-    console.log(window.location.hash);
   }
   fillDates() {
     console.log("filling dates");
@@ -218,9 +217,9 @@ class Enroll extends Component {
     }
   }
   handleChange() {
-    const birthday = `${this.monthRef.current.value}-${
+    const birthday = `${this.monthRef.current.value} ${
       this.dayRef.current.value
-    }-${this.yearRef.current.value}`;
+    } ${this.yearRef.current.value}`;
     this.bday.current.value = birthday;
   }
 
@@ -631,9 +630,9 @@ class Enroll extends Component {
                           Years of Experience
                           <select name="years of Experience">
                             <option value="none">No Experience</option>
-                            <option value="1-2">1-2 Years</option>
-                            <option value="3-5">3-5 Years</option>
-                            <option value="5+">More than 5 years</option>
+                            <option value="1 to  2">1-2 Years</option>
+                            <option value="3 to  5">3-5 Years</option>
+                            <option value="5 or more ">More than 5 years</option>
                           </select>
                         </label>
                         <label>
