@@ -646,7 +646,7 @@ class Enroll extends Component {
                               Associates Degree
                             </option>
                             <option value="bachelors">Bachelors Degree</option>
-                            <option value="masters/doctorate">
+                            <option value="masters or doctorate">
                               Masters/Doctorate Degree
                             </option>
                           </select>
