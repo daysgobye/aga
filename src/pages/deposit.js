@@ -30,6 +30,8 @@ class Deposit extends React.Component {
 		console.log(items)
 					//see if there is already an item in the cart 
 					//if not add the deposit 
+					setTimeout(()=>{
+									console.log(items)
 		if(items.length == 0){
     	window.Snipcart.api.items.add(this.state.item);
 			this.setState({cleanUp: true})
@@ -45,13 +47,19 @@ class Deposit extends React.Component {
 			if(depositIsIn){
 							console.log("somthingd in")
 				items.forEach(item=>{
-					window.Snipcart.api.items.remove('1')
+								console.log("removed one")
+					window.Snipcart.api.items.remove("1")
 				})
+				setTimeout(()=>{
+											
+								console.log("in here")
     	window.Snipcart.api.items.add(this.state.item);
+			},100)
 
 			}
 			this.setState({cleanUp: true})
 		}
+							},3000)
 			
 					//in a time out addes checks to see if the clean up just above is donethen lessens for the deposit item to be removed from the cart and adds it if it is removed 
 		setTimeout(()=>{
@@ -61,7 +69,7 @@ class Deposit extends React.Component {
     					window.Snipcart.api.items.add(this.state.item);
 						}
 			});
-		}},2000)	
+		}},6000)	
   }
   render() {
     const data = this.props.data.allWordpressPage.edges[0].node;
