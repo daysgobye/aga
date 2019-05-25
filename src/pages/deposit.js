@@ -61,7 +61,7 @@ class Deposit extends React.Component {
     					window.Snipcart.api.items.add(this.state.item);
 						}
 			});
-		}},1000)	
+		}},2000)	
   }
   render() {
     const data = this.props.data.allWordpressPage.edges[0].node;
