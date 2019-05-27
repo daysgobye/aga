@@ -309,7 +309,7 @@ class Enroll extends Component {
                         {data.acf.sign_up_form.first_avaible_end_date}
                       </p>
                       <p>
-                        Seats Open:{" "}
+                        {/*Seats Open:{" "}
                         {this.state.resBack
                           ? this.state.spots.first === "0"
                             ? "full"
@@ -317,6 +317,7 @@ class Enroll extends Component {
                           : data.acf.sign_up_form.first_spots_left === "0"
                           ? "full"
                           : this.state.spots.first}
+													*/}
                       </p>
                     </div>
                   </div>
@@ -344,7 +345,7 @@ class Enroll extends Component {
                         {data.acf.sign_up_form.second_avaible_end_date}
                       </p>
                       <p>
-                        Seats Open:{" "}
+                        {/*Seats Open:{" "}
                         {this.state.resBack
                           ? this.state.spots.second === "0"
                             ? "full"
@@ -352,6 +353,7 @@ class Enroll extends Component {
                           : data.acf.sign_up_form.second_spots_left === "0"
                           ? "full"
                           : this.state.spot.second}
+													*/}
                       </p>
                     </div>
                   </div>
@@ -379,7 +381,7 @@ class Enroll extends Component {
                         {data.acf.sign_up_form.third_avaible_end_date}
                       </p>
                       <p>
-                        Seats Open:{" "}
+                        {/*Seats Open:{" "}
                         {this.state.resBack
                           ? this.state.spots.third === "0"
                             ? "full"
@@ -387,6 +389,7 @@ class Enroll extends Component {
                           : data.acf.sign_up_form.third_spots_left === "0"
                           ? "full"
                           : this.state.spots.third}
+													*/}
                       </p>
                     </div>
                   </div>
@@ -414,7 +417,7 @@ class Enroll extends Component {
                         {data.acf.sign_up_form.forth_avaible_end_date}
                       </p>
                       <p>
-                        Seats Open:{" "}
+                        {/*Seats Open:{" "}
                         {this.state.resBack
                           ? this.state.spots.fourth === "0"
                             ? "full"
@@ -422,6 +425,7 @@ class Enroll extends Component {
                           : data.acf.sign_up_form.forth_spots_left === "0"
                           ? "full"
                           : this.state.spots.fourth}
+													*/}
                       </p>
                     </div>
                   </div>
@@ -449,7 +453,7 @@ class Enroll extends Component {
                         {data.acf.sign_up_form.fifth_avaible_end_date}
                       </p>
                       <p>
-                        Seats Open:{" "}
+                        {/*Seats Open:{" "}
                         {this.state.resBack
                           ? this.state.spots.fifth === "0"
                             ? "full"
@@ -457,6 +461,7 @@ class Enroll extends Component {
                           : data.acf.sign_up_form.fifth_spots_left === "0"
                           ? "full"
                           : this.state.spots.fifth}
+													*/}
                       </p>
                     </div>
                   </div>
@@ -484,7 +489,7 @@ class Enroll extends Component {
                         {data.acf.sign_up_form.sixth_avaible_end_date}
                       </p>
                       <p>
-                        Seats Open:{" "}
+                        {/*Seats Open:{" "}
                         {this.state.resBack
                           ? this.state.spots.sixth === "0"
                             ? "full"
@@ -492,6 +497,7 @@ class Enroll extends Component {
                           : data.acf.sign_up_form.sixth_spots_left === "0"
                           ? "full"
                           : this.state.spots.sixth}
+													*/}
                       </p>
                     </div>
                   </div>
@@ -651,7 +657,10 @@ class Enroll extends Component {
                             </option>
                           </select>
                         </label>
-
+											<label className="will__pay">
+											I Understand that after getting accepted I will have 3 days to make a deposit in total of $1575 
+													<input type="checkbox" name="will pay" value="I will pay" required/>
+											</label>
                         <input
                           type="text"
                           ref={this.bday}
