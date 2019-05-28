@@ -658,7 +658,7 @@ class Enroll extends Component {
                           </select>
                         </label>
 											<label className="will__pay">
-											I Understand that after getting accepted I will have 3 days to make a deposit in total of $1575 
+											I Understand if I am accepted to attend The Pastry Academy I must make a 10% ($1,575 USD) tuition deposit payment within 3 days of receiving my acceptance email in order to reserve my seat.
 													<input type="checkbox" name="will pay" value="I will pay" required/>
 											</label>
                         <input
