@@ -22,7 +22,7 @@ class Team extends Component {
       <Layout>
         <SEO
           page="Team"
-          description="Meet the team at Pastry Acaemy by Amaury Guichon."
+          description="Meet the team at The Pastry Academy by Amaury Guichon."
         />
         <Banner
           btnText="Contact Us"
