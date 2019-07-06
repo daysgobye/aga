@@ -25,7 +25,7 @@ class Contact extends Component {
       <Layout>
         <SEO
           page="Contact"
-          description="Contact the team at Pastry Academy by Amaury Guichon, we are happy to answer any questions you may have."
+          description="Contact the team at The Pastry Academy by Amaury Guichon, we are happy to answer any questions you may have."
         />
         <div className="right__banner">
           <Banner
