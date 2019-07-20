@@ -35,6 +35,10 @@ class Headder extends Component {
           link: "enroll"
         },
         {
+          title: "Masterclasses",
+          link: "masterclasses"
+        },
+        {
           title: "Contribute",
           link: "contribute"
         },
