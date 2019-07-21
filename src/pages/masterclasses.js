@@ -15,14 +15,58 @@ import "../components/styles/masterclasses.sass";
 class Masterclasses extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      window: null,
+      oneIsOpen: false,
+      openIndex: null,
+      classes: []
+    };
+    this.checkOutRef = React.createRef();
   }
   componentDidMount() {
-    // console.log(this.props.data.allWordpressAcfMasterClass.edges);
+    const tempClass = this.props.data.allWordpressAcfMasterClass.edges.map(
+      c => {
+        return { ...c, isOpen: false };
+      }
+    );
+    this.setState({ window: window, classes: tempClass });
   }
+  addToCart = mc => {
+    console.log("runnig");
+
+    const item = {
+      id: mc.node.wordpress_id,
+      name: mc.node.acf.card.class_name,
+      url: "http://thepastryacademy.com/masterclasses",
+      price: mc.node.acf.dropdown.price,
+      stackable: false
+    };
+    this.state.window.Snipcart.api.items.add(item);
+    setTimeout(() => {
+      this.checkOutRef.current.click();
+    }, 700);
+  };
+  openDropDown = index => {
+    console.log("opening");
+    const tempClasses = [...this.state.classes];
+    if (this.state.openIndex != null) {
+      tempClasses[this.state.openIndex].isOpen = false;
+    }
+    const tempClass = { ...this.state.classes[index] };
+    tempClass.isOpen = !tempClass.isOpen;
+    if (index == this.state.openIndex) {
+      tempClass.isOpen = false;
+    }
+    tempClasses[index] = tempClass;
+    this.setState({
+      isOpen: tempClass.isOpen,
+      openIndex: index,
+      classes: tempClasses
+    });
+  };
   render() {
     const data = this.props.data.allWordpressPage.edges[0].node;
-    const masterclass = this.props.data.allWordpressAcfMasterClass.edges;
+    const masterclass = this.state.classes;
     return (
       <Layout>
         <SEO page="Masterclasses at The Pastry Academy" />
@@ -41,6 +85,7 @@ class Masterclasses extends Component {
             <div className="masterclass__container">
               {masterclass.map((m, index) => (
                 <ClassCard
+                  m={m}
                   title={m.node.acf.card.class_name}
                   startDate={m.node.acf.card.class_start_date}
                   endDate={m.node.acf.card.class_end_date}
@@ -63,10 +108,28 @@ class Masterclasses extends Component {
                   aboutClass={m.node.acf.dropdown.about_the_class}
                   price={m.node.acf.dropdown.price}
                   className={index}
+                  index={index}
+                  isOpen={m.isOpen}
+                  toggleOpen={this.openDropDown}
+                  addToCart={this.addToCart}
                 />
               ))}
             </div>
           </div>
+          {masterclass.map((m, index) => (
+            <button
+              key={index}
+              className="snipcart-add-item visuallyhidden"
+              data-item-name={m.node.acf.card.class_name}
+              data-item-id={m.node.wordpress_id}
+              data-item-url={"http://thepastryacademy.com/masterclasses"}
+              data-item-price={m.node.acf.dropdown.price}
+            />
+          ))}
+          <button
+            className="snipcart-checkout visuallyhidden"
+            ref={this.checkOutRef}
+          />
         </Content>
       </Layout>
     );
@@ -99,11 +162,15 @@ export const query = graphql`
         }
       }
     }
-    allWordpressAcfMasterClass {
+    allWordpressAcfMasterClass(
+      sort: { fields: [acf___card___date], order: ASC }
+    ) {
       edges {
         node {
+          wordpress_id
           acf {
             card {
+              date
               class_length
               class_start_date
               class_end_date
