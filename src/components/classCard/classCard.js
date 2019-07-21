@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
-
+import { SlideDown } from "react-slidedown";
+import "react-slidedown/lib/slidedown.css";
 // import ClassCard from "../components/classCard/classCard";
 
 //styles
 import "./classCard.sass";
+import Enroll from "../../pages/enroll";
 
 class ClassCard extends Component {
   constructor(props) {
@@ -16,6 +18,7 @@ class ClassCard extends Component {
     return (
       <div>
         <div
+          onClick={() => this.props.toggleOpen(this.props.index)}
           className={`masterclass__container__class c${this.props.className}`}
         >
           <div className="masterclass__container__class__card">
@@ -45,23 +48,36 @@ class ClassCard extends Component {
             </div>
           </div>
         </div>
-        <div className="masterclass__container__class__dropdown">
-          <div className="masterclass__container__class__dropdown__item">
-            <h5>About The Chef</h5>
-            <p>{this.props.aboutChef}</p>
-          </div>
-          <div className="masterclass__container__class__dropdown__item">
-            <h5>About The Class</h5>
-            <p>{this.props.aboutClass}</p>
-          </div>
-          <div className="masterclass__container__class__dropdown__item price">
-            <h5>Price:</h5>
-            <p>{`$ ${parseInt(this.props.price).toLocaleString()}`}</p>
-          </div>
-        </div>
+        <SlideDown>
+          {this.props.isOpen ? (
+            <div className="masterclass__container__class__dropdown">
+              <div className="masterclass__container__class__dropdown__item">
+                <h5>About The Chef</h5>
+                <p>{this.props.aboutChef}</p>
+              </div>
+              <div className="masterclass__container__class__dropdown__item">
+                <h5>About The Class</h5>
+                <p>{this.props.aboutClass}</p>
+              </div>
+              <div className="masterclass__container__class__dropdown__item price">
+                <h5>Price:</h5>
+                <p>{`$ ${parseInt(this.props.price).toLocaleString()}`}</p>
+                <button onClick={() => this.props.addToCart(this.props.m)}>
+                  Enroll
+                </button>
+              </div>
+            </div>
+          ) : null}
+        </SlideDown>
       </div>
     );
   }
 }
-
+{
+  /* <SlideDown>
+{this.state.open ? (
+  <p dangerouslySetInnerHTML={{ __html: this.props.desc }} />
+) : null}
+</SlideDown> */
+}
 export default ClassCard;
