@@ -78,13 +78,16 @@
         position: absolute
         z-index: 1
       .centerDivOne
+        // background-image: linear-gradient(to left, #ffffff , rgba(#ffffff, 0))
         background-image: linear-gradient(to left, white , rgba(255,255,255, 0))
         // background: none
         margin-left: calc((var(--width) * .5) * -1)
         // margin-left: -5%
       .centerDivTwo
+        // background-image: linear-gradient(to right, #ffffff , rgba(#ffffff, 0))
         background-image: linear-gradient(to right, white , rgba(255,255,255, 0))
-        margin-left: calc((var(--width) * .5))
+        margin-left: calc((var(--width) * .5)*1.001)
+
       &__center 
         display: flex
         align-items: center
@@ -108,7 +111,7 @@
           position: relative
           max-width: 100%
           width: 100%
-          background: yellow
+          // background: yellow
           height: calc(100% - (var(--MobilePicHeight)))
           order: 3
           margin-left: 0em

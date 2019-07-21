@@ -37,7 +37,7 @@ class Masterclasses extends Component {
     const item = {
       id: mc.node.wordpress_id,
       name: mc.node.acf.card.class_name,
-      url: "http://thepastryacademy.com/masterclasses",
+      url: "https://thepastryacademy.purpleandbold.net/masterclasses",
       price: mc.node.acf.dropdown.price,
       stackable: false
     };
@@ -123,7 +123,9 @@ class Masterclasses extends Component {
               className="snipcart-add-item visuallyhidden"
               data-item-name={m.node.acf.card.class_name}
               data-item-id={m.node.wordpress_id}
-              data-item-url={"http://thepastryacademy.com/masterclasses"}
+              data-item-url={
+                "https://thepastryacademy.purpleandbold.net/masterclasses"
+              }
               data-item-price={m.node.acf.dropdown.price}
             />
           ))}
