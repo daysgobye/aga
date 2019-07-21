@@ -19,60 +19,184 @@
       height: 300px
       transition: all .5s ease-in-out
       cursor: pointer
+      --MobilePicHeight: 50%
       &:hover 
         transform: scale(1.01)
         box-shadow: 0px 0px 7px 3px rgba(219,219,219,0.7)
-      &__left, &__right
-        height: 100%
+      @include edgesnap 
+        height: 21vw
+      @media(max-width: 700px)
+        flex-wrap: wrap
+        // flex-direction: column
         width: 100%
+        height: 400px
+      &__left, &__right
+        width: 100%
+        height: 100%
+        @media(max-width: 700px) 
+          width: 50%
+          // height: 50%
+          background: red
+          height: var(--MobilePicHeight)
+          position: relative
         &__image 
           height: 100% 
           width: auto
+          @media(max-width: 700px) 
+            // height: 100%
+            // width: auto
+            // background: orange
           .gatsby-image-wrapper, img 
             object-fit: contain !important
             height: 100%
             width: 100%
-            @include tablet-phone
-              object-position: center !important
+            @media(max-width: 700px) 
+              object-position: top !important
+              object-fit: cover !important
           img 
             height: 100%
             max-height: 100%
       &__left
+        @media(max-width: 700px) 
+          order: 1
         &__image
           .gatsby-image-wrapper, img 
             object-position: left !important
       &__right
+        @media(max-width: 700px) 
+          order: 2
         &__image
           .gatsby-image-wrapper, img 
             object-position: right !important
+      .centerDivOne, .centerDivTwo
+        --width: 15%
+        display: flex
+        width: var(--width)
+        height: var(--MobilePicHeight)
+        // background: rgba(155,12,164, 0.5)
+        // background: red
+        position: absolute
+        z-index: 1
+      .centerDivOne
+        background-image: linear-gradient(to left, white , rgba(255,255,255, 0))
+        // background: none
+        margin-left: calc((var(--width) * .5) * -1)
+        // margin-left: -5%
+      .centerDivTwo
+        background-image: linear-gradient(to right, white , rgba(255,255,255, 0))
+        margin-left: calc((var(--width) * .5))
       &__center 
         display: flex
+        align-items: center
         position: absolute
         max-width: 35%
+        // background: red 
+        height: 100%
         //vertically centers the info text
         align-self: center
         //brings text on top of photos
         z-index: 1
         margin-left: -7em
+        @media(max-width: 1000px)
+          margin-left: -5em
+        @media(max-width: 850px)
+          margin-left: -4em
+        @media(max-width: 750px)
+          margin-left: -3em
+        @media(max-width: 700px)
+          justify-content: center 
+          position: relative
+          max-width: 100%
+          width: 100%
+          background: yellow
+          height: calc(100% - (var(--MobilePicHeight)))
+          order: 3
+          margin-left: 0em
+          align-self: none
+        span 
+          position: absolute
+          bottom: 0
+          right: 0 
+          margin-bottom: .5em
+          @media(max-width: 700px)
+            // position: absolute
+            right: none
+            // margin: auto
+            width: 100% 
+            // background: red
+
         &__info 
+          text-align: right
+          @media(max-width: 700px)
+            text-align: center
           h3 
             font-size: 2em
+            @media(max-width: 1000px)
+              font-size: 1.6em
+            @media(max-width: 850px)
+              font-size: 1.4em
+            @media(max-width: 750px)
+              font-size: 1.25em
+            @media(max-width: 700px)
+              font-size: 1.75em
           h4 
             font-size: 1.35em
             margin-top: .55em
+            @media(max-width: 1000px)
+              font-size: 1.25em
+              margin-top: .35em
+            @media(max-width: 850px)
+              font-size: 1.1em 
+              margin-top: .285em
+            @media(max-width: 750px)
+              font-size: 1em 
+              margin-top: .25em
+            @media(max-width: 700px)
+              font-size: 1.3em 
+              margin-top: .5em
+              m
+          p 
+            @media(max-width: 1000px)
+              font-size: .875em
     &__dropdown
       display: flex 
       flex-direction: column
-      margin-top: 1em
+      margin-top: 1.45em
+      margin-bottom: 4em
       // background: lightskyblue
-      &__item 
-        padding: .5em 0em
-        h5 
+      &__item, .price 
+        h4 
+          font-size: 1em
           font-weight: 600
-          margin-bottom: .35em
+          margin-bottom: .45em
+          font-weight: 500
+        p 
+          font-size: .9em
+          margin-bottom: .75em
+      &__item 
+        padding: .5em 0em 
       .price 
         display: flex 
-        h5 
-          padding-right: 1em
+        h4 
+          padding-right: .6em
+      button
+        // background: $accent
+        align-self: center
+        border: 1px solid $accent
+        color: $accent
+        border-radius: 100px
+        padding: 4.5px 40px
+        margin-bottom: 1em
+        margin-top: .5em
+        transition: all .5s ease-in-out
+        @include tablet 
+          font-size: .95em
+          padding: 4px 19px
+        @media(max-width: 760px)
+          font-size: 1.05em
+        &:hover
+          // text-decoration: none
+          box-shadow: 0px 0px 15px -4px rgba(219,219,219,0.9)
+          transform: scale(1.03)
 .c0
   margin-top: 0 !important

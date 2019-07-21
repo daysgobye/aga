@@ -8,11 +8,30 @@ import "react-slidedown/lib/slidedown.css";
 //styles
 import "./classCard.sass";
 import Enroll from "../../pages/enroll";
+import { pt } from "date-fns/esm/locale";
 
 class ClassCard extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      centerDiv: false
+    };
+    this.measureWindow = this.measureWindow.bind(this);
+  }
+  componentDidMount() {
+    window.addEventListener("resize", this.measureWindow);
+  }
+  measureWindow() {
+    if (window.matchMedia("(max-width: 700px)")) {
+      this.setState({
+        centerDiv: true
+      });
+      console.log("window is under 700px");
+    } else {
+      this.setState({
+        centerDiv: false
+      });
+    }
   }
   render() {
     return (
@@ -36,8 +55,13 @@ class ClassCard extends Component {
                 <h4>{`${this.props.startDate} - ${this.props.endDate} ${
                   this.props.year
                 }`}</h4>
+                <span>
+                  <p>Click For More Information</p>
+                </span>
               </div>
             </div>
+            {this.state.centerDiv ? <div className="centerDivOne" /> : ""}
+            {this.state.centerDiv ? <div className="centerDivTwo" /> : ""}
             <div className="masterclass__container__class__card__right">
               <div className="masterclass__container__class__card__right__image">
                 <Img
@@ -52,20 +76,20 @@ class ClassCard extends Component {
           {this.props.isOpen ? (
             <div className="masterclass__container__class__dropdown">
               <div className="masterclass__container__class__dropdown__item">
-                <h5>About The Chef</h5>
+                <h4>About The Chef</h4>
                 <p>{this.props.aboutChef}</p>
               </div>
               <div className="masterclass__container__class__dropdown__item">
-                <h5>About The Class</h5>
+                <h4>About The Class</h4>
                 <p>{this.props.aboutClass}</p>
               </div>
               <div className="masterclass__container__class__dropdown__item price">
-                <h5>Price:</h5>
+                <h4>Price:</h4>
                 <p>{`$ ${parseInt(this.props.price).toLocaleString()}`}</p>
-                <button onClick={() => this.props.addToCart(this.props.m)}>
-                  Enroll
-                </button>
               </div>
+              <button onClick={() => this.props.addToCart(this.props.m)}>
+                Register Now
+              </button>
             </div>
           ) : null}
         </SlideDown>

@@ -131,6 +131,7 @@ class Masterclasses extends Component {
             ref={this.checkOutRef}
           />
         </Content>
+        <Spacer />
       </Layout>
     );
   }
