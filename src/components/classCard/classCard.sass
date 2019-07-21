@@ -5,27 +5,66 @@
   &__class
     display: flex
     width: 100%
-    box-shadow: 0px 0px 5px 1px rgba(219,219,219,0.5)
-    margin-top: 4em 
+    margin-top: 4em
+    position: relative
     &__card
       display: flex
+      justify-content: space-between
+      box-shadow: 0px 0px 5px 1px rgba(219,219,219,0.5)
+      //below centers the info text
+      justify-content: center
+      border-radius: 5px
+      overflow: hidden
       width: 100%
       height: 300px
+      transition: all .5s ease-in-out
+      cursor: pointer
+      &:hover 
+        transform: scale(1.01)
+        box-shadow: 0px 0px 7px 3px rgba(219,219,219,0.7)
       &__left, &__right
-        width: 200px
+        height: 100%
+        width: 100%
+        &__image 
+          height: 100% 
+          width: auto
+          .gatsby-image-wrapper, img 
+            object-fit: contain !important
+            height: 100%
+            width: 100%
+            @include tablet-phone
+              object-position: center !important
+          img 
+            height: 100%
+            max-height: 100%
       &__left
         &__image
+          .gatsby-image-wrapper, img 
+            object-position: left !important
       &__right
         &__image
+          .gatsby-image-wrapper, img 
+            object-position: right !important
       &__center 
+        display: flex
+        position: absolute
+        max-width: 35%
+        //vertically centers the info text
+        align-self: center
+        //brings text on top of photos
+        z-index: 1
+        margin-left: -7em
         &__info 
           h3 
-            color: red
+            font-size: 2em
+          h4 
+            font-size: 1.35em
+            margin-top: .55em
     &__dropdown
       display: flex 
       flex-direction: column
       margin-top: 1em
-      background: lightskyblue
+      // background: lightskyblue
       &__item 
         padding: .5em 0em
         h5 
