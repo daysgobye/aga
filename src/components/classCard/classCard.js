@@ -16,23 +16,22 @@ class ClassCard extends Component {
     this.state = {
       centerDiv: false
     };
-    this.measureWindow = this.measureWindow.bind(this);
   }
   componentDidMount() {
-    window.addEventListener("resize", this.measureWindow);
+    const wmm = window.matchMedia("(max-width: 700px)");
+    window.addEventListener("resize", () => {
+      if (wmm.matches) {
+        this.setState({
+          centerDiv: true
+        });
+      } else {
+        this.setState({
+          centerDiv: false
+        });
+      }
+    });
   }
-  measureWindow() {
-    if (window.matchMedia("(max-width: 700px)")) {
-      this.setState({
-        centerDiv: true
-      });
-      console.log("window is under 700px");
-    } else {
-      this.setState({
-        centerDiv: false
-      });
-    }
-  }
+
   render() {
     return (
       <div>

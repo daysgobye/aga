@@ -56,6 +56,7 @@ class Masterclasses extends Component {
     tempClass.isOpen = !tempClass.isOpen;
     if (index == this.state.openIndex) {
       tempClass.isOpen = false;
+      index = null;
     }
     tempClasses[index] = tempClass;
     this.setState({
