@@ -23,7 +23,7 @@ class ClassCard extends Component {
         >
           <div className="masterclass__container__class__card">
             <div className="masterclass__container__class__card__left">
-              <div className="masterclass__contaner__class__card__left__image">
+              <div className="masterclass__container__class__card__left__image">
                 <Img
                   fluid={this.props.leftImage}
                   alt={this.props.leftAltText}
@@ -39,7 +39,7 @@ class ClassCard extends Component {
               </div>
             </div>
             <div className="masterclass__container__class__card__right">
-              <div className="masterclass__contaner__class__card__right__image">
+              <div className="masterclass__container__class__card__right__image">
                 <Img
                   fluid={this.props.rightImage}
                   alt={this.props.rightAltText}
