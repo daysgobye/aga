@@ -106,7 +106,7 @@ class Masterclasses extends Component {
                 {data.acf.banner.banner_header}
               </h2>
               <div
-                className={`page__text
+                className={`page__text masterclass__text
               ${this.state.subHeaderLoaded ? " loaded" : ""}`}
                 dangerouslySetInnerHTML={{
                   __html: data.acf.banner.banner_subheader
