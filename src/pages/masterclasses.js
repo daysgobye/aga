@@ -44,6 +44,19 @@ class Masterclasses extends Component {
     setTimeout(() => {
       this.loadCards();
     }, 1600);
+    process.nextTick(() => {
+      this.state.window.Snipcart.subscribe("item.adding", (ev, item, items) => {
+        // this.checkOutRef.current.click();
+        setTimeout(() => {
+          this.checkOutRef.current.click();
+        }, 1000);
+        ev.preventDefault();
+      });
+    });
+    // this.state.window.Snipcart.subscribe("item.adding", (ev, item, items) => {
+    //   this.checkOutRef.current.click();
+    //   // ev.preventDefault();
+    // });
   }
   addToCart = mc => {
     console.log("runnig");
@@ -56,9 +69,15 @@ class Masterclasses extends Component {
       stackable: false
     };
     this.state.window.Snipcart.api.items.add(item);
-    setTimeout(() => {
-      this.checkOutRef.current.click();
-    }, 1000);
+    // process.nextTick(() => {
+    //   setTimeout(() => {
+    //     this.checkOutRef.current.click();
+    //   }, 1000);
+    // });
+    // this.state.window.Snipcart.subscribe("item.adding", (ev, item, items) => {
+    //   this.checkOutRef.current.click();
+    //   // ev.preventDefault();
+    // });
   };
   loadMainHeader = () => {
     this.setState({
