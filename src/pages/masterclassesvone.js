@@ -12,16 +12,14 @@ import ClassCard from "../components/classCard/classCard";
 //styles
 import "../components/styles/masterclasses.sass";
 
-class Masterclasses extends Component {
+class Masterclassesvone extends Component {
   constructor(props) {
     super(props);
     this.state = {
       window: null,
       oneIsOpen: false,
       openIndex: null,
-      classes: [],
-      mainHeaderLoaded: false,
-      subHeaderLoaded: false
+      classes: []
     };
     this.checkOutRef = React.createRef();
   }
@@ -32,12 +30,6 @@ class Masterclasses extends Component {
       }
     );
     this.setState({ window: window, classes: tempClass });
-    setTimeout(() => {
-      this.loadMainHeader();
-    }, 400);
-    setTimeout(() => {
-      this.loadSubHeader();
-    }, 1400);
   }
   addToCart = mc => {
     console.log("runnig");
@@ -53,16 +45,6 @@ class Masterclasses extends Component {
     setTimeout(() => {
       this.checkOutRef.current.click();
     }, 700);
-  };
-  loadMainHeader = () => {
-    this.setState({
-      mainHeaderLoaded: true
-    });
-  };
-  loadSubHeader = () => {
-    this.setState({
-      subHeaderLoaded: true
-    });
   };
   openDropDown = index => {
     console.log("opening");
@@ -89,22 +71,15 @@ class Masterclasses extends Component {
     return (
       <Layout>
         <SEO page="Masterclasses at The Pastry Academy" />
-        <div className="pageinfo">
-          <h2 className={`${this.state.mainHeaderLoaded ? " loaded" : ""}`}>
-            {data.acf.banner.banner_header}
-          </h2>
-          <div
-            className={`gallery__text
-              ${this.state.subHeaderLoaded ? " loaded" : ""}`}
-            dangerouslySetInnerHTML={{
-              __html: data.acf.banner.banner_subheader
-            }}
-          />
-          <hr
-            className={`photo__hr
-              ${this.state.subHeaderLoaded ? " loaded" : ""}`}
-          />
-        </div>
+        <Banner
+          btnText="Contact Us"
+          linkPage="contact"
+          title={data.acf.banner.banner_header}
+          cta={data.acf.banner.banner_subheader}
+          sides={false}
+          img={data.acf.banner.banner_image.localFile.childImageSharp.fluid}
+          heroimgalt={data.acf.banner.banner_image.alt_text}
+        />
         <Spacer />
         <Content>
           <div className="masterclass">
@@ -152,19 +127,7 @@ class Masterclasses extends Component {
                 "http://thepastryacademy.purpleandbold.net/masterclasses"
               }
               data-item-price={m.node.acf.dropdown.price}
-            >
-              <a
-                href="#"
-                data-item-name={m.node.acf.card.class_name}
-                data-item-id={m.node.wordpress_id}
-                data-item-url={
-                  "http://thepastryacademy.purpleandbold.net/masterclasses"
-                }
-                data-item-price={m.node.acf.dropdown.price}
-              >
-                {m.node.acf.card.class_name}
-              </a>
-            </button>
+            />
           ))}
           <button
             className="snipcart-checkout visuallyhidden"
@@ -257,4 +220,4 @@ export const query = graphql`
   }
 `;
 
-export default Masterclasses;
+export default Masterclassesvone;

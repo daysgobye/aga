@@ -8,3 +8,36 @@
     width: 100%
     &:first-child
       // display: none
+.pageinfo
+    text-align: center
+    display: flex
+    flex-direction: column
+    align-items: center
+    h2
+        margin-bottom: .8em
+        margin-top: 1.5em
+        opacity: 0
+        transform: translateY(20%)
+        transition: all 1s ease-in-out
+        &.loaded 
+          opacity: 1
+          transform: translateY(0%)
+    .gallery__text
+      display: flex
+      text-align: center
+      justify-content: center
+      margin-bottom: 50px
+      opacity: 0
+      transition: all 1s ease-in-out
+      max-width: 1100px
+      &.loaded 
+        opacity: 1
+    hr.photo__hr
+        margin: auto
+        width: 0%
+        background: #cdccca
+        border: 0
+        height: 1px
+        transition: all .5s ease-in-out
+        &.loaded
+          width: 20%
