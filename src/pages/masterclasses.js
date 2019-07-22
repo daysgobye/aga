@@ -21,7 +21,8 @@ class Masterclasses extends Component {
       openIndex: null,
       classes: [],
       mainHeaderLoaded: false,
-      subHeaderLoaded: false
+      subHeaderLoaded: false,
+      cardsLoaded: false
     };
     this.checkOutRef = React.createRef();
   }
@@ -38,6 +39,9 @@ class Masterclasses extends Component {
     setTimeout(() => {
       this.loadSubHeader();
     }, 1400);
+    setTimeout(() => {
+      this.loadCards();
+    }, 1600);
   }
   addToCart = mc => {
     console.log("runnig");
@@ -52,7 +56,7 @@ class Masterclasses extends Component {
     this.state.window.Snipcart.api.items.add(item);
     setTimeout(() => {
       this.checkOutRef.current.click();
-    }, 700);
+    }, 900);
   };
   loadMainHeader = () => {
     this.setState({
@@ -62,6 +66,11 @@ class Masterclasses extends Component {
   loadSubHeader = () => {
     this.setState({
       subHeaderLoaded: true
+    });
+  };
+  loadCards = () => {
+    this.setState({
+      cardsLoaded: true
     });
   };
   openDropDown = index => {
@@ -97,19 +106,23 @@ class Masterclasses extends Component {
                 {data.acf.banner.banner_header}
               </h2>
               <div
-                className={`gallery__text
+                className={`page__text
               ${this.state.subHeaderLoaded ? " loaded" : ""}`}
                 dangerouslySetInnerHTML={{
                   __html: data.acf.banner.banner_subheader
                 }}
               />
               <hr
-                className={`photo__hr
+                className={`page__hr
               ${this.state.subHeaderLoaded ? " loaded" : ""}`}
               />
             </div>
             <Spacer />
-            <div className="masterclass__container">
+            <div
+              className={`masterclass__container ${
+                this.state.cardsLoaded ? " loaded" : ""
+              }`}
+            >
               {masterclass.map((m, index) => (
                 <ClassCard
                   m={m}
