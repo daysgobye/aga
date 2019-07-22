@@ -89,25 +89,26 @@ class Masterclasses extends Component {
     return (
       <Layout>
         <SEO page="Masterclasses at The Pastry Academy" />
-        <div className="pageinfo">
-          <h2 className={`${this.state.mainHeaderLoaded ? " loaded" : ""}`}>
-            {data.acf.banner.banner_header}
-          </h2>
-          <div
-            className={`gallery__text
-              ${this.state.subHeaderLoaded ? " loaded" : ""}`}
-            dangerouslySetInnerHTML={{
-              __html: data.acf.banner.banner_subheader
-            }}
-          />
-          <hr
-            className={`photo__hr
-              ${this.state.subHeaderLoaded ? " loaded" : ""}`}
-          />
-        </div>
-        <Spacer />
+
         <Content>
           <div className="masterclass">
+            <div className="pageinfo">
+              <h2 className={`${this.state.mainHeaderLoaded ? " loaded" : ""}`}>
+                {data.acf.banner.banner_header}
+              </h2>
+              <div
+                className={`gallery__text
+              ${this.state.subHeaderLoaded ? " loaded" : ""}`}
+                dangerouslySetInnerHTML={{
+                  __html: data.acf.banner.banner_subheader
+                }}
+              />
+              <hr
+                className={`photo__hr
+              ${this.state.subHeaderLoaded ? " loaded" : ""}`}
+              />
+            </div>
+            <Spacer />
             <div className="masterclass__container">
               {masterclass.map((m, index) => (
                 <ClassCard
@@ -145,7 +146,7 @@ class Masterclasses extends Component {
           {masterclass.map((m, index) => (
             <button
               key={index}
-              className="snipcart-add-item visuallyhidden"
+              className="snipcart-add-item visuallyhidde"
               data-item-name={m.node.acf.card.class_name}
               data-item-id={m.node.wordpress_id}
               data-item-url={
