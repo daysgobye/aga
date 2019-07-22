@@ -76,7 +76,20 @@ class ClassCard extends Component {
             <div className="masterclass__container__class__dropdown">
               <div className="masterclass__container__class__dropdown__item">
                 <h4>About The Chef</h4>
-                <p>{this.props.aboutChef}</p>
+                <p>
+                  {this.props.aboutChef}{" "}
+                  <a target="_blank" href={this.props.instagramLink}>
+                    <div className="masterclass__container__class__dropdown__item__icon">
+                      {" "}
+                      <img
+                        src={this.props.icon.source_url}
+                        // fluid={this.props.icon.localFile.childImageSharp.fluid}
+                        alt={this.props.icon.alt_text}
+                      />{" "}
+                    </div>
+                    View {this.props.chefName} on Instagram
+                  </a>
+                </p>
               </div>
               <div className="masterclass__container__class__dropdown__item">
                 <h4>About The Class</h4>

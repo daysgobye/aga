@@ -27,6 +27,8 @@ class Masterclasses extends Component {
     this.checkOutRef = React.createRef();
   }
   componentDidMount() {
+    console.log(this.props.data);
+
     const tempClass = this.props.data.allWordpressAcfMasterClass.edges.map(
       c => {
         return { ...c, isOpen: false };
@@ -152,6 +154,10 @@ class Masterclasses extends Component {
                   isOpen={m.isOpen}
                   toggleOpen={this.openDropDown}
                   addToCart={this.addToCart}
+                  icon={
+                    this.props.data.siteSettings.edges[0].node.acf.footer
+                      .instagram_icon
+                  }
                 />
               ))}
             </div>
@@ -263,6 +269,30 @@ export const query = graphql`
               about_the_chef
               about_the_class
               price
+            }
+          }
+        }
+      }
+    }
+    siteSettings: allWordpressPage(
+      filter: { title: { regex: "/Whole Site Settings/" } }
+    ) {
+      edges {
+        node {
+          acf {
+            footer {
+              instagram_icon {
+                alt_text
+                source_url
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 100) {
+                      src
+                      ...GatsbyImageSharpFluid_noBase64
+                    }
+                  }
+                }
+              }
             }
           }
         }

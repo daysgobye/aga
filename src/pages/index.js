@@ -63,8 +63,8 @@ class IndexPage extends Component {
         <SEO page="Home" />
         <div className="index">
           <BackgroundBanner
-            btnText="View FAQ"
-            linkPage="faq"
+            btnText="Enroll Now"
+            linkPage="enroll"
             title={data.acf.banner.hero_text}
             cta={data.acf.banner.cta}
             sides={true}
@@ -193,24 +193,29 @@ class IndexPage extends Component {
                   />
                 </div>
 
-                {sponsors.sort((a, b) => parseInt(a.node.acf.order) - parseInt(b.node.acf.order)).map(el => (
-                  <div className="sponsers__single" key={el.node.id}>
-                    <div className="sponsers__single__image">
-                      <a
-                        aria-label={`link to ${el.node.acf.logo.alt_text}`}
-                        href={el.node.acf.link}
-                        target="_blank"
-                      >
-                        <Img
-                          fluid={
-                            el.node.acf.logo.localFile.childImageSharp.fluid
-                          }
-                          alt={el.node.acf.logo.alt_text}
-                        />
-                      </a>
+                {sponsors
+                  .sort(
+                    (a, b) =>
+                      parseInt(a.node.acf.order) - parseInt(b.node.acf.order)
+                  )
+                  .map(el => (
+                    <div className="sponsers__single" key={el.node.id}>
+                      <div className="sponsers__single__image">
+                        <a
+                          aria-label={`link to ${el.node.acf.logo.alt_text}`}
+                          href={el.node.acf.link}
+                          target="_blank"
+                        >
+                          <Img
+                            fluid={
+                              el.node.acf.logo.localFile.childImageSharp.fluid
+                            }
+                            alt={el.node.acf.logo.alt_text}
+                          />
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
               <Spacer />
               <Signup />
@@ -302,12 +307,12 @@ export const query = graphql`
         }
       }
     }
-    allWordpressAcfSponsor(sort: {fields: [acf___order], order: ASC}) {
+    allWordpressAcfSponsor(sort: { fields: [acf___order], order: ASC }) {
       edges {
         node {
           id
           acf {
-	  order
+            order
             link
             logo {
               alt_text
