@@ -58,7 +58,7 @@ class Masterclasses extends Component {
     this.state.window.Snipcart.api.items.add(item);
     setTimeout(() => {
       this.checkOutRef.current.click();
-    }, 900);
+    }, 1000);
   };
   loadMainHeader = () => {
     this.setState({
