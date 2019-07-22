@@ -178,6 +178,18 @@
       margin-top: 1.45em
       margin-bottom: 4em
       // background: lightskyblue
+      a, a:visited 
+        color: $accent
+      a.instagram_link 
+        display: flex 
+        align-items: center
+        img 
+          height: 20px 
+          width: 20px
+          margin-right: .5em
+          @include phone-large 
+            height: 16px 
+            width: 16px
       &__item, .price 
         h4 
           font-size: 1em
