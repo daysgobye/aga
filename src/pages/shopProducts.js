@@ -15,18 +15,14 @@ class ShopProducts extends Component {
             className="snipcart-add-item visuallyhidde"
             data-item-name={m.node.acf.card.class_name}
             data-item-id={m.node.wordpress_id}
-            data-item-url={
-              "http://thepastryacademy.purpleandbold.net/shopProducts/"
-            }
+            data-item-url={"http://thepastryacademy.com/shopProducts/"}
             data-item-price={m.node.acf.dropdown.price}
           >
             <a
               href="#"
               data-item-name={m.node.acf.card.class_name}
               data-item-id={m.node.wordpress_id}
-              data-item-url={
-                "http://thepastryacademy.purpleandbold.net/shopProducts/"
-              }
+              data-item-url={"http://thepastryacademy.com/shopProducts/"}
               data-item-price={m.node.acf.dropdown.price}
             >
               {m.node.acf.card.class_name}
