@@ -146,7 +146,7 @@ class Masterclasses extends Component {
           {masterclass.map((m, index) => (
             <button
               key={index}
-              className="snipcart-add-item visuallyhidde"
+              className="snipcart-add-item visuallyhidden"
               data-item-name={m.node.acf.card.class_name}
               data-item-id={m.node.wordpress_id}
               data-item-url={
