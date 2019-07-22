@@ -63,7 +63,8 @@ class Masterclasses extends Component {
 
     const item = {
       id: mc.node.wordpress_id,
-      name: mc.node.acf.card.class_name,
+      name:
+        mc.node.acf.card.class_name + " " + mc.node.acf.card.class_start_date,
       url: "http://thepastryacademy.com/shopProducts/",
       price: mc.node.acf.dropdown.price,
       stackable: false
