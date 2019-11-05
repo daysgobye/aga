@@ -80,9 +80,7 @@ class Enroll extends Component {
 
   componentDidMount() {
     fetch(
-      `https://pa.purpleandbold.net/wp-json/wp/v2/pages/${
-        this.props.data.allWordpressPage.edges[0].node.wordpress_id
-      }`
+      `https://pa.purpleandbold.net/wp-json/wp/v2/pages/${this.props.data.allWordpressPage.edges[0].node.wordpress_id}`
     )
       .then(function(response) {
         return response.json();
@@ -217,40 +215,52 @@ class Enroll extends Component {
     }
   }
   handleChange() {
-    const birthday = `${this.monthRef.current.value} ${
-      this.dayRef.current.value
-    } ${this.yearRef.current.value}`;
+    const birthday = `${this.monthRef.current.value} ${this.dayRef.current.value} ${this.yearRef.current.value}`;
     this.bday.current.value = birthday;
   }
-
+  checkDates = pickedDate => {
+    const splitDate = pickedDate.split(" ");
+    const jsTime = Date.parse(splitDate[0] + " 1 " + splitDate[1]);
+    return Date.now() < jsTime;
+  };
   pickKey(pick, spot, num, pickedSemester) {
-    if (this.checkSpots(spot)) {
-      this.setState({
-        pickedKey: pick,
-        formOpen: !this.state.formOpen,
-        pickedSemester
-      });
-      if (!this.state.formOpen) {
-        this.scrollRef.current.scrollIntoView({
-          behavior: "smooth"
+    this.checkDates(pickedSemester);
+    if (this.checkDates(pickedSemester)) {
+      if (this.checkSpots(spot)) {
+        this.setState({
+          pickedKey: pick,
+          formOpen: !this.state.formOpen,
+          pickedSemester
         });
+        if (!this.state.formOpen) {
+          this.scrollRef.current.scrollIntoView({
+            behavior: "smooth"
+          });
+        }
+      } else {
+        toast.error(
+          "Oops! Looks like there are no seats available for that semester. Please select another.",
+          {
+            position: toast.POSITION.TOP_CENTER
+          }
+        );
       }
+
+      setTimeout(() => {
+        if (this.state.formOpen) {
+          this.selectButton(num);
+        } else {
+          this.selectButton();
+        }
+      }, 100);
     } else {
       toast.error(
-        "Oops! Looks like there are no seats available for that semester. Please select another.",
+        "Oops! Looks like that semester has alredy started. Please select another.",
         {
           position: toast.POSITION.TOP_CENTER
         }
       );
     }
-
-    setTimeout(() => {
-      if (this.state.formOpen) {
-        this.selectButton(num);
-      } else {
-        this.selectButton();
-      }
-    }, 100);
   }
 
   render() {
@@ -291,6 +301,12 @@ class Enroll extends Component {
                         this.checkSpots(this.state.spots.first)
                           ? " "
                           : " class__full"
+                      }${
+                        this.checkDates(
+                          data.acf.sign_up_form.first_month_avaible
+                        )
+                          ? " "
+                          : " class__full"
                       }${this.state.buttonOne ? "picked__btn" : ""}`}
                       onClick={() => {
                         this.pickKey(
@@ -325,6 +341,12 @@ class Enroll extends Component {
                     <button
                       className={`${
                         this.checkSpots(this.state.spots.second)
+                          ? " "
+                          : " class__full"
+                      }${
+                        this.checkDates(
+                          data.acf.sign_up_form.second_month_avaible
+                        )
                           ? " "
                           : " class__full"
                       }${this.state.buttonTwo ? "picked__btn" : ""}`}
@@ -363,6 +385,12 @@ class Enroll extends Component {
                         this.checkSpots(this.state.spots.third)
                           ? " "
                           : " class__full"
+                      }${
+                        this.checkDates(
+                          data.acf.sign_up_form.Third_month_avaible
+                        )
+                          ? " "
+                          : " class__full"
                       }${this.state.buttonThree ? "picked__btn" : ""}`}
                       onClick={() =>
                         this.pickKey(
@@ -397,6 +425,12 @@ class Enroll extends Component {
                     <button
                       className={`${
                         this.checkSpots(this.state.spots.fourth)
+                          ? " "
+                          : " class__full"
+                      }${
+                        this.checkDates(
+                          data.acf.sign_up_form.forth_month_avaible
+                        )
                           ? " "
                           : " class__full"
                       }${this.state.buttonFour ? "picked__btn" : ""}`}
@@ -435,6 +469,12 @@ class Enroll extends Component {
                         this.checkSpots(this.state.spots.fifth)
                           ? " "
                           : " class__full"
+                      }${
+                        this.checkDates(
+                          data.acf.sign_up_form.fifth_month_avaible
+                        )
+                          ? " "
+                          : " class__full"
                       }${this.state.buttonFive ? "picked__btn" : ""}`}
                       onClick={() =>
                         this.pickKey(
@@ -469,6 +509,12 @@ class Enroll extends Component {
                     <button
                       className={`${
                         this.checkSpots(this.state.spots.sixth)
+                          ? " "
+                          : " class__full"
+                      }${
+                        this.checkDates(
+                          data.acf.sign_up_form.sixth_month_avaible
+                        )
                           ? " "
                           : " class__full"
                       }${this.state.buttonSix ? "picked__btn" : ""}`}
@@ -515,9 +561,7 @@ class Enroll extends Component {
                       <form
                         className="signup__app__form"
                         method="POST"
-                        action={`https://usebasin.com/f/${
-                          this.state.pickedKey
-                        }`}
+                        action={`https://usebasin.com/f/${this.state.pickedKey}`}
                       >
                         <label>
                           First Name
@@ -638,7 +682,9 @@ class Enroll extends Component {
                             <option value="none">No Experience</option>
                             <option value="1 to  2">1-2 Years</option>
                             <option value="3 to  5">3-5 Years</option>
-                            <option value="5 or more ">More than 5 years</option>
+                            <option value="5 or more ">
+                              More than 5 years
+                            </option>
                           </select>
                         </label>
                         <label>
@@ -657,13 +703,20 @@ class Enroll extends Component {
                             </option>
                           </select>
                         </label>
-											<label className="will__pay">
-											I Understand if I am accepted to attend The Pastry Academy I must make a 10% ($1,575 USD) tuition deposit payment within 3 days of receiving my acceptance email in order to reserve my seat.
-													<div className="will__pay__checkbox">
-														
-													<input type="checkbox" name="will pay" value="I will pay" required/>
-													</div>
-											</label>
+                        <label className="will__pay">
+                          I Understand if I am accepted to attend The Pastry
+                          Academy I must make a 10% ($1,575 USD) tuition deposit
+                          payment within 3 days of receiving my acceptance email
+                          in order to reserve my seat.
+                          <div className="will__pay__checkbox">
+                            <input
+                              type="checkbox"
+                              name="will pay"
+                              value="I will pay"
+                              required
+                            />
+                          </div>
+                        </label>
                         <input
                           type="text"
                           ref={this.bday}
