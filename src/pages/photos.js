@@ -49,7 +49,7 @@ class Photos extends Component {
     });
   }
   render() {
-    const photos = this.props.data.allWordpressAcfPhoto.edges;
+    const photos = this.props.data.allWordpressWpPhoto.edges;
     const data = this.props.data.allWordpressPage.edges[0].node;
     const { selectedImage, showLightbox } = this.state;
     console.log(photos);
@@ -145,7 +145,7 @@ export const query = graphql`
         }
       }
     }
-    allWordpressAcfPhoto {
+    allWordpressWpPhoto(sort: { order: ASC, fields: menu_order }) {
       edges {
         node {
           acf {
