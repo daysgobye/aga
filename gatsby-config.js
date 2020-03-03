@@ -121,7 +121,8 @@ module.exports = {
           "**/pages",
           "**/media",
           "**/faq",
-          "**/course_week"
+          "**/course_week",
+          "**/photo"
         ],
         // Blacklisted routes using glob patterns
         excludedRoutes: [],
