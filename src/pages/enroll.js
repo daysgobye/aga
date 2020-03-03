@@ -221,6 +221,7 @@ class Enroll extends Component {
   checkDates = pickedDate => {
     const splitDate = pickedDate.split(" ");
     const jsTime = Date.parse(splitDate[0] + " 1 " + splitDate[1]);
+    return true;
     return Date.now() < jsTime;
   };
   pickKey(pick, spot, num, pickedSemester) {
