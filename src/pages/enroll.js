@@ -23,12 +23,12 @@ class Enroll extends Component {
     super(props);
     this.state = {
       apiKeys: {
-        first: "5a5fed2fc092",
-        second: "1e88bb9db221",
+        first: "7e3e6b08f263",
+        second: "461bbe350877",
         third: "97fa72a8b738",
         fourth: "2c487fa2f8bb",
-        fifth: "7e3e6b08f263",
-        sixth: "461bbe350877"
+        fifth: "5a5fed2fc092",
+        sixth: "1e88bb9db221",
       },
       pickedKey: "",
       spots: {
@@ -37,7 +37,7 @@ class Enroll extends Component {
         third: "",
         fourth: "",
         fifth: "",
-        sixth: ""
+        sixth: "",
       },
       formOpen: false,
       resBack: false,
@@ -53,7 +53,7 @@ class Enroll extends Component {
         "September",
         "October",
         "November",
-        "December"
+        "December",
       ],
       days: [],
       years: [],
@@ -64,7 +64,7 @@ class Enroll extends Component {
       buttonFive: false,
       buttonSix: false,
       mobile: false,
-      pickedSmester: ""
+      pickedSmester: "",
     };
     this.pickKey = this.pickKey.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -82,17 +82,17 @@ class Enroll extends Component {
     fetch(
       `https://pa.purpleandbold.net/wp-json/wp/v2/pages/${this.props.data.allWordpressPage.edges[0].node.wordpress_id}`
     )
-      .then(function(response) {
+      .then(function (response) {
         return response.json();
       })
-      .then(res => {
+      .then((res) => {
         const spots = {
           first: res.acf.sign_up_form.first_spots_left,
           second: res.acf.sign_up_form.second_spots_left,
           third: res.acf.sign_up_form.third_spots_left,
           fourth: res.acf.sign_up_form.forth_spots_left,
           fifth: res.acf.sign_up_form.fifth_spots_left,
-          sixth: res.acf.sign_up_form.sixth_spots_left
+          sixth: res.acf.sign_up_form.sixth_spots_left,
         };
         this.setState({ spots: spots, resBack: true });
       });
@@ -102,7 +102,7 @@ class Enroll extends Component {
         "Thank you for your application! We have received your submission and will review it shortly.",
         {
           autoClose: 45000,
-          position: toast.POSITION.TOP_CENTER
+          position: toast.POSITION.TOP_CENTER,
         }
       );
     }
@@ -123,7 +123,7 @@ class Enroll extends Component {
     }
     // console.log("month array in function: " + monthArray);
     this.setState({
-      months: monthArray
+      months: monthArray,
     });
     // console.log("month state: " + this.state.months);
   }
@@ -135,7 +135,7 @@ class Enroll extends Component {
       x++;
     }
     this.setState({
-      days: dayArray
+      days: dayArray,
     });
   }
   fillYears(low, high) {
@@ -147,7 +147,7 @@ class Enroll extends Component {
     }
     yearArray.reverse();
     this.setState({
-      years: yearArray
+      years: yearArray,
     });
   }
   checkSpots(num) {
@@ -165,7 +165,7 @@ class Enroll extends Component {
         buttonThree: false,
         buttonFour: false,
         buttonFive: false,
-        buttonSix: false
+        buttonSix: false,
       });
     } else if (num === 2) {
       this.setState({
@@ -174,7 +174,7 @@ class Enroll extends Component {
         buttonThree: false,
         buttonFour: false,
         buttonFive: false,
-        buttonSix: false
+        buttonSix: false,
       });
     } else if (num === 3) {
       this.setState({
@@ -183,7 +183,7 @@ class Enroll extends Component {
         buttonThree: true,
         buttonFour: false,
         buttonFive: false,
-        buttonSix: false
+        buttonSix: false,
       });
     } else if (num === 5) {
       this.setState({
@@ -192,7 +192,7 @@ class Enroll extends Component {
         buttonThree: false,
         buttonFour: false,
         buttonFive: true,
-        buttonSix: false
+        buttonSix: false,
       });
     } else if (num === 6) {
       this.setState({
@@ -201,7 +201,7 @@ class Enroll extends Component {
         buttonThree: false,
         buttonFour: false,
         buttonFive: false,
-        buttonSix: true
+        buttonSix: true,
       });
     } else {
       this.setState({
@@ -210,7 +210,7 @@ class Enroll extends Component {
         buttonThree: false,
         buttonFour: false,
         buttonFive: false,
-        buttonSix: false
+        buttonSix: false,
       });
     }
   }
@@ -218,7 +218,7 @@ class Enroll extends Component {
     const birthday = `${this.monthRef.current.value} ${this.dayRef.current.value} ${this.yearRef.current.value}`;
     this.bday.current.value = birthday;
   }
-  checkDates = pickedDate => {
+  checkDates = (pickedDate) => {
     const splitDate = pickedDate.split(" ");
     const jsTime = Date.parse(splitDate[0] + " 1 " + splitDate[1]);
     return true;
@@ -231,18 +231,18 @@ class Enroll extends Component {
         this.setState({
           pickedKey: pick,
           formOpen: !this.state.formOpen,
-          pickedSemester
+          pickedSemester,
         });
         if (!this.state.formOpen) {
           this.scrollRef.current.scrollIntoView({
-            behavior: "smooth"
+            behavior: "smooth",
           });
         }
       } else {
         toast.error(
           "Oops! Looks like there are no seats available for that semester. Please select another.",
           {
-            position: toast.POSITION.TOP_CENTER
+            position: toast.POSITION.TOP_CENTER,
           }
         );
       }
@@ -258,7 +258,7 @@ class Enroll extends Component {
       toast.error(
         "Oops! Looks like that semester has alredy started. Please select another.",
         {
-          position: toast.POSITION.TOP_CENTER
+          position: toast.POSITION.TOP_CENTER,
         }
       );
     }
@@ -292,7 +292,7 @@ class Enroll extends Component {
                 <h3> {data.acf.sign_up_form.headding} </h3>
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: data.acf.sign_up_form.description
+                    __html: data.acf.sign_up_form.description,
                   }}
                 />
                 <div className="signup__buttons">
@@ -584,7 +584,7 @@ class Enroll extends Component {
                               <option value="default" selected disabled hidden>
                                 Month
                               </option>
-                              {this.state.months.map(m => (
+                              {this.state.months.map((m) => (
                                 <option value={`${m}`}>{`${m}`}</option>
                               ))}
                             </select>
@@ -597,7 +597,7 @@ class Enroll extends Component {
                               <option value="default" selected disabled hidden>
                                 Day
                               </option>
-                              {this.state.days.map(d => (
+                              {this.state.days.map((d) => (
                                 <option value={`${d}`}>{`${d}`}</option>
                               ))}
                             </select>
@@ -610,7 +610,7 @@ class Enroll extends Component {
                               <option value="default" selected disabled hidden>
                                 Year
                               </option>
-                              {this.state.years.map(y => (
+                              {this.state.years.map((y) => (
                                 <option value={`${y}`}>{`${y}`}</option>
                               ))}
                             </select>
@@ -742,7 +742,8 @@ class Enroll extends Component {
                       <h4>1. {data.acf.enrollment_process.step_1_title}</h4>
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: data.acf.enrollment_process.step_1_description
+                          __html:
+                            data.acf.enrollment_process.step_1_description,
                         }}
                       />
                       <hr />
@@ -751,7 +752,8 @@ class Enroll extends Component {
                       <h4>2. {data.acf.enrollment_process.step_2_title}</h4>
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: data.acf.enrollment_process.step_2_description
+                          __html:
+                            data.acf.enrollment_process.step_2_description,
                         }}
                       />
                       <hr />
@@ -760,7 +762,8 @@ class Enroll extends Component {
                       <h4>3. {data.acf.enrollment_process.step_3_title}</h4>
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: data.acf.enrollment_process.step_3_description
+                          __html:
+                            data.acf.enrollment_process.step_3_description,
                         }}
                       />
                       <hr />
@@ -769,7 +772,8 @@ class Enroll extends Component {
                       <h4>4. {data.acf.enrollment_process.step_4_title}</h4>
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: data.acf.enrollment_process.step_4_description
+                          __html:
+                            data.acf.enrollment_process.step_4_description,
                         }}
                       />
                       <hr />
@@ -778,7 +782,8 @@ class Enroll extends Component {
                       <h4>5. {data.acf.enrollment_process.step_5_title}</h4>
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: data.acf.enrollment_process.step_5_description
+                          __html:
+                            data.acf.enrollment_process.step_5_description,
                         }}
                       />
                       <hr />
@@ -788,7 +793,8 @@ class Enroll extends Component {
                       <h4>6. {data.acf.enrollment_process.step_6_title}</h4>
                       <div
                         dangerouslySetInnerHTML={{
-                          __html: data.acf.enrollment_process.step_6_description
+                          __html:
+                            data.acf.enrollment_process.step_6_description,
                         }}
                       />
                       <hr />
