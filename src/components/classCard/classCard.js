@@ -14,7 +14,7 @@ class ClassCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      centerDiv: false
+      centerDiv: false,
     };
   }
   componentDidMount() {
@@ -22,11 +22,11 @@ class ClassCard extends Component {
     window.addEventListener("resize", () => {
       if (wmm.matches) {
         this.setState({
-          centerDiv: true
+          centerDiv: true,
         });
       } else {
         this.setState({
-          centerDiv: false
+          centerDiv: false,
         });
       }
     });
@@ -51,9 +51,7 @@ class ClassCard extends Component {
             <div className="masterclass__container__class__card__center">
               <div className="masterclass__container__class__card__center__info">
                 <h3>{this.props.title}</h3>
-                <h4>{`${this.props.startDate} - ${this.props.endDate} ${
-                  this.props.year
-                }`}</h4>
+                <h4>{`${this.props.startDate} - ${this.props.endDate} ${this.props.year}`}</h4>
                 <span>
                   <p>Click For More Information</p>
                 </span>
@@ -75,8 +73,8 @@ class ClassCard extends Component {
           {this.props.isOpen ? (
             <div className="masterclass__container__class__dropdown">
               <div className="masterclass__container__class__dropdown__item">
-                <h4>About The Chef</h4>
-                <p>{this.props.aboutChef} </p>
+                {/* <h4>About The Chef</h4>
+                <p>{this.props.aboutChef} </p> */}
                 <a
                   className="instagram_link"
                   target="_blank"
