@@ -1,0 +1,45 @@
+@import '../vars.sass'
+.notification
+    display: flex
+    padding: 1em
+    transition: all .75s ease-in-out
+    transform: translateY(-100%)
+    &__text
+        width: 100%
+        display: flex
+        justify-content: center
+    &__close
+        width: 0%
+        position: relative
+        button
+            position: absolute
+            right: 1em
+.filler
+    transition: all .75s ease-in-out
+    height: 0em
+
+
+.notifi-enter
+.notifi-enter-active
+    .filler
+        height: 2em
+
+.notifi-enter-done
+    .notification
+        transform: translateY(0%)
+    .filler
+        height: 0em
+
+.notifi-exit
+    .notification
+        transform: translateY(-100%)
+
+.notifi-exit-active
+    .filler
+        height: 2em
+.notifi-exit-done
+    .filler
+        height: 0em 
+
+
+    

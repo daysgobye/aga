@@ -1,14 +1,17 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { StaticQuery, graphql } from "gatsby"
-import Footer from "./footer"
-import Header from "./header"
-import "../base.sass"
+import React from "react";
+import PropTypes from "prop-types";
+import { StaticQuery, graphql } from "gatsby";
+import Footer from "./footer";
+import Header from "./header";
+import Notification from "./notification";
+import "../base.sass";
 const Layout = ({ children }) => (
   <StaticQuery
     query={graphql`
       query {
-        allWordpressPage(filter: {title: {regex: "/Whole Site Settings/"}}) {
+        allWordpressPage(
+          filter: { title: { regex: "/Whole Site Settings/" } }
+        ) {
           edges {
             node {
               acf {
@@ -21,9 +24,9 @@ const Layout = ({ children }) => (
                   instagram_icon {
                     alt_text
                     localFile {
-                      childImageSharp  {
+                      childImageSharp {
                         fluid(maxWidth: 100) {
-                           ...GatsbyImageSharpFluid_noBase64
+                          ...GatsbyImageSharpFluid_noBase64
                         }
                       }
                     }
@@ -32,8 +35,8 @@ const Layout = ({ children }) => (
                     alt_text
                     localFile {
                       childImageSharp {
-                        fluid(maxWidth: 100)  {
-                           ...GatsbyImageSharpFluid_noBase64
+                        fluid(maxWidth: 100) {
+                          ...GatsbyImageSharpFluid_noBase64
                         }
                       }
                     }
@@ -42,8 +45,8 @@ const Layout = ({ children }) => (
                     alt_text
                     localFile {
                       childImageSharp {
-                        fluid(maxWidth: 100)  {
-                           ...GatsbyImageSharpFluid_noBase64
+                        fluid(maxWidth: 100) {
+                          ...GatsbyImageSharpFluid_noBase64
                         }
                       }
                     }
@@ -64,9 +67,9 @@ const Layout = ({ children }) => (
                 main_logo {
                   alt_text
                   localFile {
-                    childImageSharp  {
+                    childImageSharp {
                       fluid(maxWidth: 600) {
-                         ...GatsbyImageSharpFluid_noBase64
+                        ...GatsbyImageSharpFluid_noBase64
                       }
                     }
                   }
@@ -77,36 +80,75 @@ const Layout = ({ children }) => (
         }
       }
     `}
-    render={data => (
+    render={(data) => (
       <>
-        <Header siteTitle={data.allWordpressPage.edges[0].node.acf.site_title} subTitle={data.allWordpressPage.edges[0].node.acf.site_sub_title} mainalt={data.allWordpressPage.edges[0].node.acf.main_logo.alt_text} logo={data.allWordpressPage.edges[0].node.acf.main_logo.localFile.childImageSharp.fluid}
-          textLogo={data.allWordpressPage.edges[0].node.acf.main_text_logo.localFile.childImageSharp.fluid} textalt={data.allWordpressPage.edges[0].node.acf.main_text_logo.alt_text} />
+        <Notification />
+        <Header
+          siteTitle={data.allWordpressPage.edges[0].node.acf.site_title}
+          subTitle={data.allWordpressPage.edges[0].node.acf.site_sub_title}
+          mainalt={data.allWordpressPage.edges[0].node.acf.main_logo.alt_text}
+          logo={
+            data.allWordpressPage.edges[0].node.acf.main_logo.localFile
+              .childImageSharp.fluid
+          }
+          textLogo={
+            data.allWordpressPage.edges[0].node.acf.main_text_logo.localFile
+              .childImageSharp.fluid
+          }
+          textalt={
+            data.allWordpressPage.edges[0].node.acf.main_text_logo.alt_text
+          }
+        />
         <div>
           <main>{children}</main>
-          <Footer siteTitle={data.allWordpressPage.edges[0].node.acf.site_title} subTitle={data.allWordpressPage.edges[0].node.acf.site_sub_title} logo={data.allWordpressPage.edges[0].node.acf.main_logo.localFile.childImageSharp.fluid}
-            logoalt={data.allWordpressPage.edges[0].node.acf.main_logo.alt_text} email={data.allWordpressPage.edges[0].node.acf.footer.email} phone={data.allWordpressPage.edges[0].node.acf.footer.phone_number}
-            textLogo={data.allWordpressPage.edges[0].node.acf.main_text_logo.localFile.childImageSharp.fluid} textalt={data.allWordpressPage.edges[0].node.acf.main_text_logo.alt_text}
-            links={[{
-              name: data.allWordpressPage.edges[0].node.acf.footer.instagram_link,
-              alt: data.allWordpressPage.edges[0].node.acf.footer.instagram_icon.alt_text,
-              icon: data.allWordpressPage.edges[0].node.acf.footer.instagram_icon.localFile.childImageSharp.fluid
-            }, {
-              name: data.allWordpressPage.edges[0].node.acf.footer.facebook_link,
-              alt: data.allWordpressPage.edges[0].node.acf.footer.facebook_icon.alt_text,
-              icon: data.allWordpressPage.edges[0].node.acf.footer.facebook_icon.localFile.childImageSharp.fluid
-            },]} />
+          <Footer
+            siteTitle={data.allWordpressPage.edges[0].node.acf.site_title}
+            subTitle={data.allWordpressPage.edges[0].node.acf.site_sub_title}
+            logo={
+              data.allWordpressPage.edges[0].node.acf.main_logo.localFile
+                .childImageSharp.fluid
+            }
+            logoalt={data.allWordpressPage.edges[0].node.acf.main_logo.alt_text}
+            email={data.allWordpressPage.edges[0].node.acf.footer.email}
+            phone={data.allWordpressPage.edges[0].node.acf.footer.phone_number}
+            textLogo={
+              data.allWordpressPage.edges[0].node.acf.main_text_logo.localFile
+                .childImageSharp.fluid
+            }
+            textalt={
+              data.allWordpressPage.edges[0].node.acf.main_text_logo.alt_text
+            }
+            links={[
+              {
+                name:
+                  data.allWordpressPage.edges[0].node.acf.footer.instagram_link,
+                alt:
+                  data.allWordpressPage.edges[0].node.acf.footer.instagram_icon
+                    .alt_text,
+                icon:
+                  data.allWordpressPage.edges[0].node.acf.footer.instagram_icon
+                    .localFile.childImageSharp.fluid,
+              },
+              {
+                name:
+                  data.allWordpressPage.edges[0].node.acf.footer.facebook_link,
+                alt:
+                  data.allWordpressPage.edges[0].node.acf.footer.facebook_icon
+                    .alt_text,
+                icon:
+                  data.allWordpressPage.edges[0].node.acf.footer.facebook_icon
+                    .localFile.childImageSharp.fluid,
+              },
+            ]}
+          />
         </div>
       </>
     )}
   />
-
-
-
-)
-
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;

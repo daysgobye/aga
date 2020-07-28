@@ -33,6 +33,7 @@
     "react-helmet": "^5.2.0",
     "react-slidedown": "^2.0.9",
     "react-toastify": "^5.1.0",
+    "react-transition-group": "^4.4.1",
     "sass-loader": "^7.1.0",
     "typeface-montserrat": "0.0.54"
   },
