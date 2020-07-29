@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { CSSTransition } from "react-transition-group";
 import "./notification.sass";
+import xClose from "../../images/x-close-icon.svg";
 class Notification extends Component {
   constructor(props) {
     super(props);
@@ -36,11 +37,11 @@ class Notification extends Component {
               <p>{this.state.notificationText}</p>
             </div>
 
-            <div className="notification__close">
+            {/* <div className="notification__close">
               <button onClick={() => this.setState({ shouldShow: false })}>
-                x
+                <img src={xClose} alt="close icon" />
               </button>
-            </div>
+            </div> */}
           </div>
           <div className="filler"></div>
         </div>

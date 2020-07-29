@@ -1,19 +1,39 @@
 @import '../vars.sass'
 .notification
     display: flex
-    padding: 1em
+    justify-content: center
     transition: all .75s ease-in-out
     transform: translateY(-100%)
+    background: $accent
+    color: white
     &__text
         width: 100%
         display: flex
         justify-content: center
-    &__close
-        width: 0%
-        position: relative
-        button
-            position: absolute
-            right: 1em
+        padding: .9em 0
+        font-size: .92em
+        line-height: 1.15em
+        max-width: 950px
+        text-align: center
+        @include edgesnap 
+          max-width: 85%
+        // @include ipad 
+          // width: 90%
+        @include phone-large
+          line-height: 1.25em
+    // &__close
+    //     display: flex
+    //     position: relative
+    //     background: red
+    //     padding: 1.5em 0em
+    //     width: 20px
+    //     img 
+    //       background: red
+    //       height: 100%
+    //       display: none
+    //     button
+    //         position: absolute
+    //         right: 1em
 .filler
     transition: all .75s ease-in-out
     height: 0em
