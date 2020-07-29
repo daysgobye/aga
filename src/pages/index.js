@@ -8,6 +8,7 @@ import Content from "../components/utility/Content/Content";
 import BackgroundBanner from "../components/background_banner/background_banner";
 import "../components/styles/homepage.sass";
 import ButtonRound from "../components/buttonRound/buttonRound";
+import Notification from "../components/layout/notification";
 import Signup from "../components/page_bottom_signup/page_signup";
 import Spacer from "../components/spacer/spacer";
 import ReactGA from "react-ga";
@@ -17,7 +18,7 @@ class IndexPage extends Component {
     super(props);
     this.state = {
       page: "Home",
-      bioNameLoaded: false
+      bioNameLoaded: false,
     };
   }
   componentDidMount() {
@@ -29,7 +30,7 @@ class IndexPage extends Component {
   }
   loadBioName() {
     this.setState({
-      bioNameLoaded: true
+      bioNameLoaded: true,
     });
   }
   getScrollPercent() {
@@ -47,7 +48,7 @@ class IndexPage extends Component {
   logButtonEvent(clickThrough) {
     ReactGA.event({
       category: `Button Click`,
-      action: `User on ${this.state.page} clicked ${clickThrough} Button`
+      action: `User on ${this.state.page} clicked ${clickThrough} Button`,
     });
     console.log(this.state.page, clickThrough);
   }
@@ -101,7 +102,7 @@ class IndexPage extends Component {
                       this.state.bioNameLoaded ? " loaded" : ""
                     }`}
                     dangerouslySetInnerHTML={{
-                      __html: data.acf.bio_section.bio
+                      __html: data.acf.bio_section.bio,
                     }}
                   />
                   <div
@@ -150,7 +151,7 @@ class IndexPage extends Component {
               <div
                 className="mobile-centered"
                 dangerouslySetInnerHTML={{
-                  __html: program.acf.curriculum_overview
+                  __html: program.acf.curriculum_overview,
                 }}
               />
               <div className="program__overview__card__button">
@@ -189,7 +190,9 @@ class IndexPage extends Component {
                 <h3>Sponsors</h3>
                 <div className="sponsers__description">
                   <div
-                    dangerouslySetInnerHTML={{ __html: data.acf.sponsor_info }}
+                    dangerouslySetInnerHTML={{
+                      __html: data.acf.sponsor_info,
+                    }}
                   />
                 </div>
 
@@ -198,7 +201,7 @@ class IndexPage extends Component {
                     (a, b) =>
                       parseInt(a.node.acf.order) - parseInt(b.node.acf.order)
                   )
-                  .map(el => (
+                  .map((el) => (
                     <div className="sponsers__single" key={el.node.id}>
                       <div className="sponsers__single__image">
                         <a
