@@ -9,28 +9,62 @@ class Notification extends Component {
   }
 
   componentDidMount() {
-    fetch(`https://pa.purpleandbold.net/wp-json/wp/v2/pages/219`)
-      .then(function (response) {
-        return response.json();
-      })
-      .then((res) => {
-        const notification = res.acf.notification;
-        if (notification.show && notification.notification_text !== "") {
+    const prevNotification = localStorage.getItem("notificationPa");
+    let shouldFetch = false;
+    if (!prevNotification) {
+      shouldFetch = true;
+    } else {
+      try {
+        const parsedNotification = JSON.parse(prevNotification);
+        if (parsedNotification.time < Date.now() - 18000000) {
+          shouldFetch = true;
+        } else {
           this.setState({
-            shouldShow: true,
-            notificationText: notification.notification_text,
+            shouldShow: parsedNotification.show,
+            notificationText: parsedNotification.notification_text,
           });
         }
-      });
+      } catch (error) {
+        console.log("error parsing prev state", error);
+      }
+    }
+    if (shouldFetch) {
+      fetch(`https://pa.purpleandbold.net/wp-json/wp/v2/pages/219`)
+        .then(function (response) {
+          return response.json();
+        })
+        .then((res) => {
+          const notification = res.acf.notification;
+          if (notification.notification_text !== "") {
+            this.setState({
+              shouldShow: notification.show,
+              notificationText: notification.notification_text,
+            });
+            try {
+              localStorage.setItem(
+                "notificationPa",
+                JSON.stringify({
+                  time: Date.now(),
+                  notification_text: notification.notification_text,
+                  show: notification.show,
+                })
+              );
+            } catch (error) {
+              console.log("error setting local state", error);
+            }
+          }
+        });
+    }
   }
   render() {
-    return (
-      <CSSTransition
-        in={this.state.shouldShow}
-        timeout={300}
-        classNames="notifi"
-        unmountOnExit
-      >
+    if (this.state.shouldShow) {
+      return (
+        // <CSSTransition
+        //   in={this.state.shouldShow}
+        //   timeout={300}
+        //   classNames="notifi"
+        //   unmountOnExit
+        // >
         <div>
           <div className="notification">
             <div className="notification__text">
@@ -45,8 +79,11 @@ class Notification extends Component {
           </div>
           <div className="filler"></div>
         </div>
-      </CSSTransition>
-    );
+        // </CSSTransition>
+      );
+    } else {
+      return "";
+    }
   }
 }
 
