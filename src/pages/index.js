@@ -195,30 +195,31 @@ class IndexPage extends Component {
                     }}
                   />
                 </div>
-
-                {sponsors
-                  .sort(
-                    (a, b) =>
-                      parseInt(a.node.acf.order) - parseInt(b.node.acf.order)
-                  )
-                  .map((el) => (
-                    <div className="sponsers__single" key={el.node.id}>
-                      <div className="sponsers__single__image">
-                        <a
-                          aria-label={`link to ${el.node.acf.logo.alt_text}`}
-                          href={el.node.acf.link}
-                          target="_blank"
-                        >
-                          <Img
-                            fluid={
-                              el.node.acf.logo.localFile.childImageSharp.fluid
-                            }
-                            alt={el.node.acf.logo.alt_text}
-                          />
-                        </a>
+                <div className="sponsers__list">
+                  {sponsors
+                    .sort(
+                      (a, b) =>
+                        parseInt(a.node.acf.order) - parseInt(b.node.acf.order)
+                    )
+                    .map((el) => (
+                      <div className="sponsers__list__single" key={el.node.id}>
+                        <div className="sponsers__list__single__image">
+                          <a
+                            aria-label={`link to ${el.node.acf.logo.alt_text}`}
+                            href={el.node.acf.link}
+                            target="_blank"
+                          >
+                            <Img
+                              fluid={
+                                el.node.acf.logo.localFile.childImageSharp.fluid
+                              }
+                              alt={el.node.acf.logo.alt_text}
+                            />
+                          </a>
+                        </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                </div>
               </div>
               <Spacer />
               <Signup />
