@@ -12,42 +12,42 @@ class Headder extends Component {
       navlinks: [
         {
           title: "Home",
-          link: "/"
+          link: "/",
         },
         {
           title: "Team",
-          link: "team"
+          link: "team",
         },
         {
           title: "Program",
-          link: "program"
+          link: "program",
         },
         {
           title: "Photos",
-          link: "photos"
+          link: "photos",
         },
         {
           title: "FAQs",
-          link: "faq"
+          link: "faq",
         },
         {
           title: "Enroll",
-          link: "enroll"
+          link: "enroll",
         },
         {
           title: "Masterclasses",
-          link: "masterclasses"
+          link: "masterclasses",
         },
         {
           title: "Contribute",
-          link: "contribute"
+          link: "contribute",
         },
         {
           title: "Contact",
-          link: "contact"
-        }
+          link: "contact",
+        },
       ],
-      navOpen: false
+      navOpen: false,
     };
     this.logMobileNavEvent = this.logMobileNavEvent.bind(this);
     this.toggleNav = this.toggleNav.bind(this);
@@ -60,7 +60,7 @@ class Headder extends Component {
   logNavEvent() {
     ReactGA.event({
       category: `Navigation Click`,
-      action: `User click on Navigation Link`
+      action: `User click on Navigation Link`,
     });
   }
 
@@ -68,7 +68,7 @@ class Headder extends Component {
     this.toggleNav();
     ReactGA.event({
       category: `Mobile Navigation Click`,
-      action: `User click on Navigation Link`
+      action: `User click on Navigation Link`,
     });
   }
 
@@ -95,7 +95,12 @@ class Headder extends Component {
               </Link>
             </div>
             <div className="header__logo">
-              <Img fluid={this.props.logo} alt={this.props.mainalt} />
+              <Link
+                to={"/"}
+                aria-label={`${this.props.siteTitle}  ${this.props.subTitle}`}
+              >
+                <Img fluid={this.props.logo} alt={this.props.mainalt} />
+              </Link>
             </div>
             {/* desktop nav */}
             <div className="desktop">
