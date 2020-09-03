@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+/*import React, { Component } from "react";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 import Layout from "../components/layout/layout";
@@ -220,4 +220,11 @@ export const query = graphql`
   }
 `;
 
+export default Masterclassesvone;
+*/
+class Masterclassesvone extends Component {
+  render() {
+    return "";
+  }
+}
 export default Masterclassesvone;
