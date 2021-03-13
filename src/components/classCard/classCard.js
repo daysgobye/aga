@@ -34,18 +34,22 @@ class ClassCard extends Component {
 
   render() {
     return (
-      <div>
+ <div>
         <div
           onClick={() => this.props.toggleOpen(this.props.index)}
           className={`masterclass__container__class c${this.props.className}`}
         >
-          <div className="masterclass__container__class__card">
+          <div className='masterclass__container__class__card'>
             <div className="masterclass__container__class__card__left">
               <div className="masterclass__container__class__card__left__image">
+                <div className={`masterclass__container__class__card__left__image__container ${this.props.isActive ? '' : 'inactive'}`}>
                 <Img
                   fluid={this.props.leftImage}
                   alt={this.props.leftAltText}
+                  className={this.props.isActive ? '' : 'inactive'}
                 />
+                </div>
+                
               </div>
             </div>
             <div className="masterclass__container__class__card__center">
@@ -64,6 +68,7 @@ class ClassCard extends Component {
                 <Img
                   fluid={this.props.rightImage}
                   alt={this.props.rightAltText}
+                  className={this.props.isActive ? '' : 'inactive'}
                 />
               </div>
             </div>
@@ -99,9 +104,14 @@ class ClassCard extends Component {
                 <h4>Price:</h4>
                 <p>{`$ ${parseInt(this.props.price).toLocaleString()}`}</p>
               </div>
+              {this.props.isActive ? 
               <button onClick={() => this.props.addToCart(this.props.m)}>
-                Register Now
-              </button>
+              Register Now
+            </button>
+            : 
+            ''  
+            }
+            
             </div>
           ) : null}
         </SlideDown>

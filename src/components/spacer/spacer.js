@@ -6,7 +6,7 @@ class Spacer extends Component {
         this.state = {}
     }
     render() {
-        return (<div className="spacer"></div>);
+        return (<div className={this.props.small ? 'spacer small' : 'spacer'}></div>);
     }
 }
 
