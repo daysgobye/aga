@@ -59,10 +59,11 @@ class Masterclasses extends Component {
     // });
   }
   renderMasterclasses = (masterclass) => {
+    console.log(masterclass)
     const activeMasterclasses = []
     const inactiveMasterclasses = []
     masterclass.map((m, index) => {
-      if(m.isActive) {
+      if(m.node.acf.active) {
         activeMasterclasses.push(m)
       } else {
         inactiveMasterclasses.push(m)
@@ -82,7 +83,7 @@ class Masterclasses extends Component {
             endDate={m.node.acf.card.class_end_date}
             year={m.node.acf.card.calendar_year}
             //this is the toggle to add in the backend, WP Title = Active options = Yes/No, default is Yes change below too
-            isActive={true}
+            isActive={m.node.acf.active}
             chefName={m.node.acf.card.chef_name}
             instagramLink={m.node.acf.card.instagram_link}
             leftImage={
@@ -126,7 +127,7 @@ class Masterclasses extends Component {
             endDate={m.node.acf.card.class_end_date}
             year={m.node.acf.card.calendar_year}
             //this is the toggle to add in the backend, WP Title = Active options = Yes/No, default is Yes change above too
-            isActive={true}
+            isActive={m.node.acf.active}
             chefName={m.node.acf.card.chef_name}
             instagramLink={m.node.acf.card.instagram_link}
             leftImage={
@@ -322,6 +323,7 @@ export const query = graphql`
         node {
           wordpress_id
           acf {
+            active
             card {
               date
               class_length
