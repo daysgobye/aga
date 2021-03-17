@@ -229,7 +229,7 @@ class Enroll extends Component {
     if (this.checkDates(pickedSemester)) {
       if (this.checkSpots(spot)) {
         this.setState({
-          pickedKey: pick,
+          pickedKey: pick.trim(),
           formOpen: !this.state.formOpen,
           pickedSemester,
         });
@@ -311,7 +311,7 @@ class Enroll extends Component {
                       }${this.state.buttonOne ? "picked__btn" : ""}`}
                       onClick={() => {
                         this.pickKey(
-                          this.state.apiKeys.first,
+                          data.acf.sign_up_form.first_api_key,
                           this.state.spots.first,
                           1,
                           data.acf.sign_up_form.first_month_avaible
@@ -353,8 +353,7 @@ class Enroll extends Component {
                       }${this.state.buttonTwo ? "picked__btn" : ""}`}
                       onClick={() =>
                         this.pickKey(
-                          this.state.apiKeys.second,
-                          this.state.spots.second,
+data.acf.sign_up_form.second_api_key,                          this.state.spots.second,
                           2,
                           data.acf.sign_up_form.second_month_avaible
                         )
@@ -395,7 +394,7 @@ class Enroll extends Component {
                       }${this.state.buttonThree ? "picked__btn" : ""}`}
                       onClick={() =>
                         this.pickKey(
-                          this.state.apiKeys.third,
+                          data.acf.sign_up_form.third_api_key,
                           this.state.spots.third,
                           3,
                           data.acf.sign_up_form.Third_month_avaible
@@ -437,7 +436,7 @@ class Enroll extends Component {
                       }${this.state.buttonFour ? "picked__btn" : ""}`}
                       onClick={() =>
                         this.pickKey(
-                          this.state.apiKeys.fourth,
+                          data.acf.sign_up_form.fourth_api_key,
                           this.state.spots.fourth,
                           4,
                           data.acf.sign_up_form.forth_month_avaible
@@ -479,7 +478,7 @@ class Enroll extends Component {
                       }${this.state.buttonFive ? "picked__btn" : ""}`}
                       onClick={() =>
                         this.pickKey(
-                          this.state.apiKeys.fifth,
+                          data.acf.sign_up_form.fifth_api_key,
                           this.state.spots.fifth,
                           5,
                           data.acf.sign_up_form.fifth_month_avaible
@@ -521,7 +520,7 @@ class Enroll extends Component {
                       }${this.state.buttonSix ? "picked__btn" : ""}`}
                       onClick={() =>
                         this.pickKey(
-                          this.state.apiKeys.sixth,
+                          data.acf.sign_up_form.sixth_api_key,
                           this.state.spots.sixth,
                           6,
                           data.acf.sign_up_form.sixth_month_avaible
@@ -706,9 +705,9 @@ class Enroll extends Component {
                         </label>
                         <label className="will__pay">
                           I Understand if I am accepted to attend The Pastry
-                          Academy I must make a 10% ($1,575 USD) tuition deposit
+                          Academy I must make a 10% ({this.state.pickedKey==="7e3e6b08f263"?"$1,675":"$1,575"} USD) tuition deposit
                           payment within 3 days of receiving my acceptance email
-                          in order to reserve my seat.
+                          in order to reserve my seat.(Note that deposits are non refundable not transferable)
                           <div className="will__pay__checkbox">
                             <input
                               type="checkbox"
@@ -873,6 +872,12 @@ export const query = graphql`
               sixth_spots_left
               sixth_avaible_end_date
               sixth_avaible_start_date
+              first_api_key
+              second_api_key
+              third_api_key
+              fourth_api_key
+              fifth_api_key
+              sixth_api_key
             }
             enrollment_process {
               step_1_title
