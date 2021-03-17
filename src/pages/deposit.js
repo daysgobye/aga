@@ -30,20 +30,23 @@ class Deposit extends React.Component {
         price: "1675",
         stackable: false,
       },
+      newPrice:false
     };
   }
   componentDidMount() {
-    console.log(window.location);
+    
     setTimeout(() => {
       window.Snipcart.api.items.clear();
       //see if there is already an item in the cart
       //if not add the deposit
       if (window.location.hash.includes("2021")) {
         window.Snipcart.api.items.add(this.state.newItem);
+        this.setState({newPrice:true})
       } else {
         window.Snipcart.api.items.add(this.state.item);
       }
     }, 3000);
+    
     // setTimeout(() => {
     //   console.log("items", items);
     //   if (items.length == 0) {
@@ -85,7 +88,7 @@ class Deposit extends React.Component {
     // }, 6000);
   }
   renderUpdatedDescription=(data)=>{
-  if(window.location.hash.includes("2021")){
+  if(this.state.newPrice){
     return data.acf.payment_card.description.replace("15,75","16,75").replace("1,575","1,675")
   }else{
     return data.acf.payment_card.description
