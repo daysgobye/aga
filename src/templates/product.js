@@ -39,15 +39,7 @@ query($slug: Int){
               }
             }
           }
-          more_images {
-            localFile {
-              childImageSharp {
-                fluid {
-                  src
-                }
-              }
-            }
-          }
+
           product_description
           in_stock
           show_in_store

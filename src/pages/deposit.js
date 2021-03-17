@@ -38,7 +38,7 @@ class Deposit extends React.Component {
       window.Snipcart.api.items.clear();
       //see if there is already an item in the cart
       //if not add the deposit
-      if (window.location.hash.includes("2022")) {
+      if (window.location.hash.includes("2021")) {
         window.Snipcart.api.items.add(this.state.newItem);
       } else {
         window.Snipcart.api.items.add(this.state.item);
@@ -84,6 +84,13 @@ class Deposit extends React.Component {
     //   }
     // }, 6000);
   }
+  renderUpdatedDescription=(data)=>{
+  if(window.location.hash.includes("2021")){
+    return data.acf.payment_card.description.replace("15,75","16,75").replace("1,575","1,675")
+  }else{
+    return data.acf.payment_card.description
+  }
+  }
   render() {
     const data = this.props.data.allWordpressPage.edges[0].node;
     return (
@@ -108,7 +115,7 @@ class Deposit extends React.Component {
                   <h3>{data.acf.payment_card.headding}</h3>
                   <div
                     dangerouslySetInnerHTML={{
-                      __html: data.acf.payment_card.description,
+                      __html: this.renderUpdatedDescription(data),
                     }}
                   />
                   <button
