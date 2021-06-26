@@ -353,7 +353,8 @@ class Enroll extends Component {
                       }${this.state.buttonTwo ? "picked__btn" : ""}`}
                       onClick={() =>
                         this.pickKey(
-data.acf.sign_up_form.second_api_key,                          this.state.spots.second,
+                          data.acf.sign_up_form.second_api_key,
+                          this.state.spots.second,
                           2,
                           data.acf.sign_up_form.second_month_avaible
                         )
@@ -705,9 +706,14 @@ data.acf.sign_up_form.second_api_key,                          this.state.spots.
                         </label>
                         <label className="will__pay">
                           I Understand if I am accepted to attend The Pastry
-                          Academy I must make a 10% ({this.state.pickedKey==="7e3e6b08f263"?"$1,675":"$1,575"} USD) tuition deposit
-                          payment within 3 days of receiving my acceptance email
-                          in order to reserve my seat.(Note that deposits are non refundable not transferable)
+                          Academy I must make a 10% (
+                          {this.state.pickedKey !== "1e88bb9db221"
+                            ? "$1,675"
+                            : "$1,575"}
+                          USD) tuition deposit payment within 3 days of
+                          receiving my acceptance email in order to reserve my
+                          seat.(Note that deposits are non refundable not
+                          transferable)
                           <div className="will__pay__checkbox">
                             <input
                               type="checkbox"
