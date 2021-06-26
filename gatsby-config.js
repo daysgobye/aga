@@ -2,7 +2,7 @@ module.exports = {
   siteMetadata: {
     title: `Pastry Academy by Amaury Guichon`,
     description: `Start your new sweet career. Enroll now and join the next class at Pastry Academy by Amaury Guichon.`,
-    author: `Pastry Academy by Amaury Guichon`
+    author: `Pastry Academy by Amaury Guichon`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -10,8 +10,8 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`
-      }
+        path: `${__dirname}/src/images`,
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -24,16 +24,16 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/favicon.png` // This path is relative to the root of the site.
-      }
+        icon: `src/favicon.png`, // This path is relative to the root of the site.
+      },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         // replace "UA-XXXXXXXXX-X" with your own Tracking ID
         trackingId: "UA-138054696-1",
-        head: false
-      }
+        head: false,
+      },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
@@ -66,9 +66,9 @@ module.exports = {
           favicons: true,
           firefox: true,
           yandex: false,
-          windows: false
-        }
-      }
+          windows: false,
+        },
+      },
     },
     {
       resolve: "gatsby-source-wordpress",
@@ -122,28 +122,28 @@ module.exports = {
           "**/media",
           "**/faq",
           "**/course_week",
-          "**/photo"
+          "**/photo",
         ],
         // Blacklisted routes using glob patterns
         excludedRoutes: [],
         // use a custom normalizer which is applied after the built-in ones.
-        normalizer: function({ entities }) {
+        normalizer: function ({ entities }) {
           return entities;
-        }
-      }
+        },
+      },
     },
     {
       resolve: `gatsby-source-instagram`,
       options: {
-        username: `amauryguichon`
-      }
+        username: `amauryguichon`,
+      },
     },
     {
       resolve: "gatsby-plugin-snipcart",
       options: {
         apiKey:
-          "NWQzOGY4MTYtNjQxMS00Njk2LWJkMjEtY2EwZjgyMmUxNWY0NjM2ODkwNTU3NTg1ODY4MzIz"
-      }
-    }
-  ]
+          "NWQzOGY4MTYtNjQxMS00Njk2LWJkMjEtY2EwZjgyMmUxNWY0NjM2ODkwNTU3NTg1ODY4MzIz",
+      },
+    },
+  ],
 };

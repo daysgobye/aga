@@ -19,7 +19,7 @@
     "gatsby-plugin-snipcart": "^1.0.6",
     "gatsby-source-filesystem": "^2.0.27",
     "gatsby-source-instagram": "^0.4.0",
-    "gatsby-source-wordpress": "^3.0.48",
+    "gatsby-source-wordpress": "^3.1.44",
     "gatsby-transformer-sharp": "^2.1.13",
     "google-map-react": "^1.1.2",
     "lightbox-react": "^0.3.7",
