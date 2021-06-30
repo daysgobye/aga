@@ -34,22 +34,25 @@ class ClassCard extends Component {
 
   render() {
     return (
- <div>
+      <div>
         <div
-          onClick={() => this.props.toggleOpen(this.props.index)}
+          onClick={() => this.props.toggleOpen(this.props.m.node.wordpress_id)}
           className={`masterclass__container__class c${this.props.className}`}
         >
-          <div className='masterclass__container__class__card'>
+          <div className="masterclass__container__class__card">
             <div className="masterclass__container__class__card__left">
               <div className="masterclass__container__class__card__left__image">
-                <div className={`masterclass__container__class__card__left__image__container ${this.props.isActive ? '' : 'inactive'}`}>
-                <Img
-                  fluid={this.props.leftImage}
-                  alt={this.props.leftAltText}
-                  className={this.props.isActive ? '' : 'inactive'}
-                />
+                <div
+                  className={`masterclass__container__class__card__left__image__container ${
+                    this.props.isActive ? "" : "inactive"
+                  }`}
+                >
+                  <Img
+                    fluid={this.props.leftImage}
+                    alt={this.props.leftAltText}
+                    className={this.props.isActive ? "" : "inactive"}
+                  />
                 </div>
-                
               </div>
             </div>
             <div className="masterclass__container__class__card__center">
@@ -68,7 +71,7 @@ class ClassCard extends Component {
                 <Img
                   fluid={this.props.rightImage}
                   alt={this.props.rightAltText}
-                  className={this.props.isActive ? '' : 'inactive'}
+                  className={this.props.isActive ? "" : "inactive"}
                 />
               </div>
             </div>
@@ -100,18 +103,21 @@ class ClassCard extends Component {
                 <h4>About The Class</h4>
                 <p>{this.props.aboutClass}</p>
               </div>
-              <div className="masterclass__container__class__dropdown__item price">
-                <h4>Price:</h4>
-                <p>{`$ ${parseInt(this.props.price).toLocaleString()}`}</p>
-              </div>
-              {this.props.isActive ? 
-              <button onClick={() => this.props.addToCart(this.props.m)}>
-              Register Now
-            </button>
-            : 
-            ''  
-            }
-            
+              {this.props.price == 0 ? (
+                ""
+              ) : (
+                <div className="masterclass__container__class__dropdown__item price">
+                  <h4>Price:</h4>
+                  <p>{`$ ${parseInt(this.props.price).toLocaleString()}`}</p>
+                </div>
+              )}
+              {this.props.isActive ? (
+                <button onClick={() => this.props.addToCart(this.props.m)}>
+                  Register Now
+                </button>
+              ) : (
+                ""
+              )}
             </div>
           ) : null}
         </SlideDown>
