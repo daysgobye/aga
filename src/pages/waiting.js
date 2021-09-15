@@ -18,15 +18,15 @@ class Deposit extends React.Component {
       cleanUp: false,
       item: {
         id: "1",
-        name: "Deposit",
-        url: "http://thepastryacademy.com/deposit",
-        price: "1575",
+        name: "Waiting List",
+        url: "http://thepastryacademy.com/witing",
+        price: "2000",
         stackable: false,
       },
       newItem: {
         id: "2",
-        name: "Deposit",
-        url: "http://thepastryacademy.com/deposit",
+        name: "Waiting List",
+        url: "http://thepastryacademy.com/witing",
         price: "1675",
         stackable: false,
       },
@@ -45,46 +45,6 @@ class Deposit extends React.Component {
         window.Snipcart.api.items.add(this.state.item);
       }
     }, 3000);
-
-    // setTimeout(() => {
-    //   console.log("items", items);
-    //   if (items.length == 0) {
-    //     window.Snipcart.api.items.add(cloneOfItem);
-    //     this.setState({ cleanUp: true });
-    //   } else {
-    //     //checks if any of the items in the cart are the deposit and if not then it will add one
-    //     let depositIsIn;
-    //     items.forEach((item) => {
-    //       if (item.id === "1") {
-    //         depositIsIn = true;
-    //       }
-    //     });
-    //     // runs a for each on the cart to remove all of the old deposits in the cart then adds just one
-    //     if (depositIsIn) {
-    //       console.log("somthingd in");
-    //       items.forEach((item) => {
-    //         console.log("removed one");
-    //         window.Snipcart.api.items.remove("1");
-    //       });
-    //       setTimeout(() => {
-    //         console.log("in here");
-    //         window.Snipcart.api.items.add(cloneOfItem);
-    //       }, 100);
-    //     }
-    //     this.setState({ cleanUp: true });
-    //   }
-    // }, 3000);
-
-    // //in a time out addes checks to see if the clean up just above is donethen lessens for the deposit item to be removed from the cart and adds it if it is removed
-    // setTimeout(() => {
-    //   if (this.state.cleanUp) {
-    //     window.Snipcart.subscribe("item.removed", (item) => {
-    //       if (item.id === "1") {
-    //         window.Snipcart.api.items.add(cloneOfItem);
-    //       }
-    //     });
-    //   }
-    // }, 6000);
   }
   renderUpdatedDescription = (data) => {
     if (this.state.newPrice) {
@@ -124,7 +84,7 @@ class Deposit extends React.Component {
                   />
                   <button
                     id="buyButton"
-                    data-item-url="https://thepastryacademy.com/deposit"
+                    data-item-url="https://thepastryacademy.com/waiting"
                     className="snipcart-checkout"
                     // data-item-id="1"
                     // data-item-name="Deposit"
@@ -238,7 +198,7 @@ class Deposit extends React.Component {
 }
 export const query = graphql`
   query {
-    allWordpressPage(filter: { title: { regex: "/Deposit/" } }) {
+    allWordpressPage(filter: { title: { regex: "/Waiting_List/" } }) {
       edges {
         node {
           acf {
