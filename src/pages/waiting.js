@@ -59,7 +59,7 @@ class Deposit extends React.Component {
     const data = this.props.data.allWordpressPage.edges[0].node;
     return (
       <Layout>
-        <SEO page="Pay Tuition Deposit" />
+        <SEO page="Pay Waiting List Deposit" />
         <div className="deposit">
           <Banner
             btnText="Contact Us"
@@ -91,7 +91,7 @@ class Deposit extends React.Component {
                     // data-item-price="1000.00"
                     type="button"
                   >
-                    Pay Tuition Deposit
+                    Pay Waiting List Deposit
                   </button>
                 </div>
               </div>
