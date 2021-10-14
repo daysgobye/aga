@@ -706,11 +706,7 @@ class Enroll extends Component {
                         </label>
                         <label className="will__pay">
                           I Understand if I am accepted to attend The Pastry
-                          Academy I must make a 10% (
-                          {this.state.pickedKey !== "1e88bb9db221"
-                            ? "$1,675"
-                            : "$1,575"}
-                          USD) tuition deposit payment within 3 days of
+                          Academy I must make a $2000 USD tuition deposit payment within 3 days of
                           receiving my acceptance email in order to reserve my
                           seat.(Note that deposits are non refundable not
                           transferable)
