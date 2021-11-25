@@ -39,8 +39,8 @@ class Headder extends Component {
           link: "masterclasses",
         },
         {
-          title: "Contribute",
-          link: "contribute",
+          title: "Store",
+          link: "https://www.amauryguichon.com/",
         },
         {
           title: "Contact",
@@ -70,6 +70,32 @@ class Headder extends Component {
       category: `Mobile Navigation Click`,
       action: `User click on Navigation Link`,
     });
+  }
+  renderLinks = (link, mobile) => {
+    if (link.link.startsWith("https")) {
+      return (
+        <a
+          href={link.link}
+          activeClassName="nav__link__active"
+          onClick={mobile ? this.logMobileNavEvent.bind(this) : this.logNavEvent.bind(this)}
+          target="_blank"
+        >
+          {link.title}
+        </a>
+      )
+    } else {
+      return (
+        <>
+          <Link
+            to={link.link}
+            activeClassName="nav__link__active"
+            onClick={mobile ? this.logMobileNavEvent.bind(this) : this.logNavEvent.bind(this)}
+          >
+            {link.title}
+          </Link>
+        </>
+      )
+    }
   }
 
   render() {
@@ -109,22 +135,15 @@ class Headder extends Component {
                 <a className="snipcart-checkout">cart</a> */}
                 {this.state.navlinks.map((link, index) => (
                   <div className="nav__link" key={index}>
-                    <Link
-                      activeClassName="nav__link__active"
-                      to={link.link}
-                      onClick={this.logNavEvent.bind(this)}
-                    >
-                      {link.title}
-                    </Link>
+                    {this.renderLinks(link)}
                   </div>
                 ))}
               </nav>
             </div>
             {/* mobile nav */}
             <div
-              className={`mobile ${
-                this.state.navOpen ? "nav__open" : "nav__closed"
-              }`}
+              className={`mobile ${this.state.navOpen ? "nav__open" : "nav__closed"
+                }`}
             >
               <button
                 className="dot"
@@ -138,13 +157,7 @@ class Headder extends Component {
               <nav className={`nav`}>
                 {this.state.navlinks.map((link, index) => (
                   <div key={index} className="nav__link">
-                    <Link
-                      to={link.link}
-                      activeClassName="nav__link__active"
-                      onClick={this.logMobileNavEvent.bind(this)}
-                    >
-                      {link.title}
-                    </Link>
+                    {this.renderLinks(link, true)}
                   </div>
                 ))}
               </nav>
