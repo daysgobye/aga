@@ -39,7 +39,7 @@ class Headder extends Component {
           link: "masterclasses",
         },
         {
-          title: "Store",
+          title: "Sweet Shop",
           link: "https://www.amauryguichon.com/",
         },
         {
