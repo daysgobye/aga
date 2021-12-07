@@ -62,10 +62,10 @@ class Contribute extends Component {
     return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
   }
   render() {
-    const data = this.props.data.allWordpressPage.edges[0].node;
+    // const data = this.props.data.allWordpressPage.edges[0].node;
     return (
       <Layout>
-        <SEO page="Contribute" />
+        {/* <SEO page="Contribute" />
 
         <div className="contribute">
           <Banner
@@ -173,55 +173,55 @@ class Contribute extends Component {
           </div>
           <Spacer />
           <Signup />
-        </div>
+        </div> */}
       </Layout>
     );
   }
 }
 
-export const query = graphql`
-  query {
-    allWordpressPage(filter: { title: { regex: "/Donations/" } }) {
-      edges {
-        node {
-          acf {
-            banner {
-              hero_text
-              cta
-              image {
-                alt_text
-                localFile {
-                  childImageSharp {
-                    fluid(maxWidth: 3000) {
-                      ...GatsbyImageSharpFluid_noBase64
-                      src
-                    }
-                  }
-                }
-              }
-            }
-            donation_text
-            donation_title
-            page_image {
-              alt_text
-              localFile {
-                childImageSharp {
-                  fluid(maxWidth: 1500) {
-                    ...GatsbyImageSharpFluid_noBase64
-                    src
-                  }
-                }
-              }
-            }
-            contribute_statistics_header
-            contribute_statistics_parapgraph
-            donation_balance
-            tuition_price
-          }
-        }
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   query {
+//     allWordpressPage(filter: { title: { regex: "/Donations/" } }) {
+//       edges {
+//         node {
+//           acf {
+//             banner {
+//               hero_text
+//               cta
+//               image {
+//                 alt_text
+//                 localFile {
+//                   childImageSharp {
+//                     fluid(maxWidth: 3000) {
+//                       ...GatsbyImageSharpFluid_noBase64
+//                       src
+//                     }
+//                   }
+//                 }
+//               }
+//             }
+//             donation_text
+//             donation_title
+//             page_image {
+//               alt_text
+//               localFile {
+//                 childImageSharp {
+//                   fluid(maxWidth: 1500) {
+//                     ...GatsbyImageSharpFluid_noBase64
+//                     src
+//                   }
+//                 }
+//               }
+//             }
+//             contribute_statistics_header
+//             contribute_statistics_parapgraph
+//             donation_balance
+//             tuition_price
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
 
 export default Contribute;
