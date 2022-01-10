@@ -69,8 +69,7 @@ class Masterclasses extends Component {
         inactiveMasterclasses.push(m);
       }
     });
-    console.log("active", activeMasterclasses);
-    console.log("inactive", inactiveMasterclasses);
+
     return (
       <div>
         <h3 className="pagetitle">Active Masterclasses</h3>
@@ -251,9 +250,8 @@ class Masterclasses extends Component {
             </div>
             <Spacer small />
             <div
-              className={`masterclass__container ${
-                this.state.cardsLoaded ? " loaded" : ""
-              }`}
+              className={`masterclass__container ${this.state.cardsLoaded ? " loaded" : ""
+                }`}
             >
               {this.renderMasterclasses(masterclass)}
             </div>
