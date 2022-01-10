@@ -36,8 +36,8 @@ class Footer extends Component {
           link: "enroll"
         },
         {
-          title: "Contribute",
-          link: "contribute"
+          title: "Sweet Shop",
+          link: "https://www.amauryguichon.com/",
         },
         {
           title: "Contact",
@@ -47,11 +47,32 @@ class Footer extends Component {
       linkMatch: ""
     };
   }
-  componentDidMount() {}
+  componentDidMount() { }
   findSite(str) {
     const patt = /www.(.*?).com/g;
     return patt.exec(str)[1];
   }
+  renderLinks = (link) => {
+    if (link.link.startsWith("https")) {
+      return (
+        <a
+          href={link.link}
+          activeClassName="nav__link__active"
+
+          target="_blank"
+        >
+          {link.title}
+        </a>
+      )
+    } else {
+      return (
+        <>
+          <Link to={link.link}>{link.title}</Link>
+        </>
+      )
+    }
+  }
+
   render() {
     const data = this.props;
     return (
@@ -63,9 +84,8 @@ class Footer extends Component {
                 <div className="footer__cols__single__title__top">
                   <Link
                     to={"/"}
-                    aria-label={`${this.props.siteTitle}  ${
-                      this.props.subTitle
-                    }`}
+                    aria-label={`${this.props.siteTitle}  ${this.props.subTitle
+                      }`}
                   >
                     <div className="image">
                       <Img
@@ -81,9 +101,8 @@ class Footer extends Component {
                       <a
                         key={index}
                         href={link.name}
-                        aria-label={`link to ${
-                          this.props.siteTitle
-                        }'s ${this.findSite(link.name)} page`}
+                        aria-label={`link to ${this.props.siteTitle
+                          }'s ${this.findSite(link.name)} page`}
                       >
                         {" "}
                         <Img fluid={link.icon} alt={link.alt} />
@@ -118,7 +137,7 @@ class Footer extends Component {
                 <a className="snipcart-checkout">cart</a> */}
                 {this.state.navlinks.map((link, index) => (
                   <div className="nav__link" key={index}>
-                    <Link to={link.link}>{link.title}</Link>
+                    {this.renderLinks(link)}
                   </div>
                 ))}
               </nav>
