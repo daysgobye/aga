@@ -298,17 +298,15 @@ class Enroll extends Component {
                 <div className="signup__buttons">
                   <div className="signup__buttons__button">
                     <button
-                      className={`${
-                        this.checkSpots(this.state.spots.first)
-                          ? " "
-                          : " class__full"
-                      }${
-                        this.checkDates(
+                      className={`${this.checkSpots(this.state.spots.first)
+                        ? " "
+                        : " class__full"
+                        }${this.checkDates(
                           data.acf.sign_up_form.first_month_avaible
                         )
                           ? " "
                           : " class__full"
-                      }${this.state.buttonOne ? "picked__btn" : ""}`}
+                        }${this.state.buttonOne ? "picked__btn" : ""}`}
                       onClick={() => {
                         this.pickKey(
                           data.acf.sign_up_form.first_api_key,
@@ -340,17 +338,15 @@ class Enroll extends Component {
                   </div>
                   <div className="signup__buttons__button">
                     <button
-                      className={`${
-                        this.checkSpots(this.state.spots.second)
-                          ? " "
-                          : " class__full"
-                      }${
-                        this.checkDates(
+                      className={`${this.checkSpots(this.state.spots.second)
+                        ? " "
+                        : " class__full"
+                        }${this.checkDates(
                           data.acf.sign_up_form.second_month_avaible
                         )
                           ? " "
                           : " class__full"
-                      }${this.state.buttonTwo ? "picked__btn" : ""}`}
+                        }${this.state.buttonTwo ? "picked__btn" : ""}`}
                       onClick={() =>
                         this.pickKey(
                           data.acf.sign_up_form.second_api_key,
@@ -382,17 +378,15 @@ class Enroll extends Component {
                   </div>
                   <div className="signup__buttons__button">
                     <button
-                      className={`${
-                        this.checkSpots(this.state.spots.third)
-                          ? " "
-                          : " class__full"
-                      }${
-                        this.checkDates(
+                      className={`${this.checkSpots(this.state.spots.third)
+                        ? " "
+                        : " class__full"
+                        }${this.checkDates(
                           data.acf.sign_up_form.Third_month_avaible
                         )
                           ? " "
                           : " class__full"
-                      }${this.state.buttonThree ? "picked__btn" : ""}`}
+                        }${this.state.buttonThree ? "picked__btn" : ""}`}
                       onClick={() =>
                         this.pickKey(
                           data.acf.sign_up_form.third_api_key,
@@ -424,17 +418,15 @@ class Enroll extends Component {
                   </div>
                   <div className="signup__buttons__button">
                     <button
-                      className={`${
-                        this.checkSpots(this.state.spots.fourth)
-                          ? " "
-                          : " class__full"
-                      }${
-                        this.checkDates(
+                      className={`${this.checkSpots(this.state.spots.fourth)
+                        ? " "
+                        : " class__full"
+                        }${this.checkDates(
                           data.acf.sign_up_form.forth_month_avaible
                         )
                           ? " "
                           : " class__full"
-                      }${this.state.buttonFour ? "picked__btn" : ""}`}
+                        }${this.state.buttonFour ? "picked__btn" : ""}`}
                       onClick={() =>
                         this.pickKey(
                           data.acf.sign_up_form.fourth_api_key,
@@ -466,17 +458,15 @@ class Enroll extends Component {
                   </div>
                   <div className="signup__buttons__button">
                     <button
-                      className={`${
-                        this.checkSpots(this.state.spots.fifth)
-                          ? " "
-                          : " class__full"
-                      }${
-                        this.checkDates(
+                      className={`${this.checkSpots(this.state.spots.fifth)
+                        ? " "
+                        : " class__full"
+                        }${this.checkDates(
                           data.acf.sign_up_form.fifth_month_avaible
                         )
                           ? " "
                           : " class__full"
-                      }${this.state.buttonFive ? "picked__btn" : ""}`}
+                        }${this.state.buttonFive ? "picked__btn" : ""}`}
                       onClick={() =>
                         this.pickKey(
                           data.acf.sign_up_form.fifth_api_key,
@@ -508,17 +498,15 @@ class Enroll extends Component {
                   </div>
                   <div className="signup__buttons__button">
                     <button
-                      className={`${
-                        this.checkSpots(this.state.spots.sixth)
-                          ? " "
-                          : " class__full"
-                      }${
-                        this.checkDates(
+                      className={`${this.checkSpots(this.state.spots.sixth)
+                        ? " "
+                        : " class__full"
+                        }${this.checkDates(
                           data.acf.sign_up_form.sixth_month_avaible
                         )
                           ? " "
                           : " class__full"
-                      }${this.state.buttonSix ? "picked__btn" : ""}`}
+                        }${this.state.buttonSix ? "picked__btn" : ""}`}
                       onClick={() =>
                         this.pickKey(
                           data.acf.sign_up_form.sixth_api_key,
@@ -705,11 +693,13 @@ class Enroll extends Component {
                           </select>
                         </label>
                         <label className="will__pay">
-                          I Understand if I am accepted to attend The Pastry
+                          I understand I must be at least 18 years of age in order to apply to The Pastry Academy.
+                          <br></br>
+                          I understand if I am accepted to attend The Pastry
                           Academy I must make a $2000 USD tuition deposit payment within 3 days of
                           receiving my acceptance email in order to reserve my
                           seat.(Note that deposits are non refundable not
-                          transferable)
+                          transferable).
                           <div className="will__pay__checkbox">
                             <input
                               type="checkbox"
