@@ -175,7 +175,7 @@ class Masterclasses extends Component {
     process.nextTick(() => {
       setTimeout(() => {
         this.checkOutRef.current.click();
-      }, 1400);
+      }, 2000);
     });
     // this.state.window.Snipcart.subscribe("item.adding", (ev, item, items) => {
     //   this.checkOutRef.current.click();
