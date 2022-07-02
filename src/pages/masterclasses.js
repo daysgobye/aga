@@ -110,48 +110,55 @@ class Masterclasses extends Component {
             />
           );
         })}
+        <hr
+          className={`page__hr
+              ${this.state.subHeaderLoaded ? " loaded" : ""}`}
+        />
         {inactiveMasterclasses.length > 0 ? (
-          <div>
+          <div style={{ display: 'flex', width: '100%', flexDirection: 'column' }}>
             <h3 className="pagetitle inactive">Past Masterclasses</h3>
-            {inactiveMasterclasses.map((m, index) => {
-              return (
-                <ClassCard
-                  m={m}
-                  title={m.node.acf.card.class_name}
-                  startDate={m.node.acf.card.class_start_date}
-                  endDate={m.node.acf.card.class_end_date}
-                  year={m.node.acf.card.calendar_year}
-                  //this is the toggle to add in the backend, WP Title = Active options = Yes/No, default is Yes change above too
-                  isActive={m.node.acf.active}
-                  chefName={m.node.acf.card.chef_name}
-                  instagramLink={m.node.acf.card.instagram_link}
-                  leftImage={
-                    m.node.acf.card.banner_image.left_image.localFile
-                      .childImageSharp.fluid
-                  }
-                  leftAltText={m.node.acf.card.banner_image.left_image.alt_text}
-                  rightImage={
-                    m.node.acf.card.banner_image.right_image.localFile
-                      .childImageSharp.fluid
-                  }
-                  rightAltText={
-                    m.node.acf.card.banner_image.right_image.alt_text
-                  }
-                  aboutChef={m.node.acf.dropdown.about_the_chef}
-                  aboutClass={m.node.acf.dropdown.about_the_class}
-                  price={m.node.acf.dropdown.price}
-                  className={index}
-                  index={index}
-                  isOpen={m.isOpen}
-                  toggleOpen={this.openDropDown}
-                  addToCart={this.addToCart}
-                  icon={
-                    this.props.data.siteSettings.edges[0].node.acf.footer
-                      .instagram_icon
-                  }
-                />
-              );
-            })}
+            <div style={{ display: 'flex', width: '100%', flexDirection: 'column-reverse' }}>
+              {inactiveMasterclasses.map((m, index) => {
+                return (
+                  <ClassCard
+                    m={m}
+                    title={m.node.acf.card.class_name}
+                    startDate={m.node.acf.card.class_start_date}
+                    endDate={m.node.acf.card.class_end_date}
+                    year={m.node.acf.card.calendar_year}
+                    //this is the toggle to add in the backend, WP Title = Active options = Yes/No, default is Yes change above too
+                    isActive={m.node.acf.active}
+                    chefName={m.node.acf.card.chef_name}
+                    instagramLink={m.node.acf.card.instagram_link}
+                    leftImage={
+                      m.node.acf.card.banner_image.left_image.localFile
+                        .childImageSharp.fluid
+                    }
+                    leftAltText={m.node.acf.card.banner_image.left_image.alt_text}
+                    rightImage={
+                      m.node.acf.card.banner_image.right_image.localFile
+                        .childImageSharp.fluid
+                    }
+                    rightAltText={
+                      m.node.acf.card.banner_image.right_image.alt_text
+                    }
+                    aboutChef={m.node.acf.dropdown.about_the_chef}
+                    aboutClass={m.node.acf.dropdown.about_the_class}
+                    price={m.node.acf.dropdown.price}
+                    className={index}
+                    index={index}
+                    isOpen={m.isOpen}
+                    toggleOpen={this.openDropDown}
+                    addToCart={this.addToCart}
+                    icon={
+                      this.props.data.siteSettings.edges[0].node.acf.footer
+                        .instagram_icon
+                    }
+                  />
+                );
+              })}
+            </div>
+
           </div>
         ) : (
           ""
